@@ -1,9 +1,5 @@
 package Models;
 
-/**
- *
- * @author bryansa
- */
 public class Usuario {
 
     private String idUsuario;

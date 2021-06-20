@@ -1,11 +1,6 @@
 package Gestions;
 
 import java.lang.reflect.InvocationTargetException;
-
-/**
- *
- * @author bryansa
- */
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;

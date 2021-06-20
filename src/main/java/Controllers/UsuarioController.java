@@ -16,10 +16,6 @@ import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
 import Models.Usuario;
 
-/**
- *
- * @author bryansa
- */
 @Named(value = "usuarioController")
 @SessionScoped
 public class UsuarioController extends Usuario implements Serializable {

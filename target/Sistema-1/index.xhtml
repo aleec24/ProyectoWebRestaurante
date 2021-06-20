@@ -1,0 +1,119 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:b="http://bootsfaces.net/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Autenticación</title>
+        <style>
+            .centrado{
+                position:absolute;
+                top: 50%;
+                left: 50%;
+                bottom: 0%;
+                width: 200px;
+                height: 150px;
+                margin: auto;
+                margin-left: -200px;
+                margin-top: -150px;
+            }
+
+        </style>
+    </h:head>
+    <h:body>
+
+        <b:navBar inverse="true" >
+            <b:navbarLinks >
+                <b:navLink>
+                    <b:image library="image" name="res.png" height="65px"/>
+                </b:navLink>
+                <b:dropMenu value="Nuestros platos" >
+                    <b:navLink value="Entradas" href="#"></b:navLink>
+                    <b:navLink value="Plato Fuerte" href="#"></b:navLink>
+                    <b:navLink value="Desayunos" href="#"></b:navLink>
+                    <b:navLink value="Postres" href="#"></b:navLink>
+                </b:dropMenu>
+            </b:navbarLinks>
+            <h:form styleClass="navbar-form navbar-right" >
+                <div class="form-group">
+                    <b:inputText placeholder="Usuario"
+                                 id="usuario"
+                                 required="true"
+                                 autocomplete="true"
+                                 value="#{usuarioController.idUsuario}">
+                        <f:facet name="prepend">
+                            <b:icon name="user"/>
+                        </f:facet>
+                    </b:inputText>
+                </div>
+                <div class="form-group">
+                    <b:inputSecret placeholder="Clave"
+                                   id="clave"
+                                   required="true"
+                                   autocomplete="true"
+                                   value="#{usuarioController.pwUsuario}">
+                        <f:facet name="prepend">
+                            <b:iconAwesome name="key"/>
+                        </f:facet>
+                    </b:inputSecret>
+                </div> 
+                #{' '}
+                <b:commandButton value="Login" look="success" icon="chevron-right" iconAlign="right" action="#{usuarioController.valida}"/>/>
+
+            </h:form>
+        </b:navBar>
+        <b:jumbotron >
+            <b:container >
+                <b:image library="image" name="soda.png" width="700px" height="300px"/>
+                <h1>Bienvenido a La Soda!!</h1>
+                <p>Venga y disfrute de nuestras delicias o si gusta solicitelo y lo llevamos
+                    hasta la puerta de su casa..
+                </p>
+                <p>
+                    <a href="https://www.google.com.mx/maps/place/Walmart/@9.995184,-84.1294477,18z/data=!4m5!3m4!1s0x0:0x1251b1b67ee1bd9f!8m2!3d9.9953492!4d-84.1290804" class="btn btn-lg btn-info">Ubicación »</a>
+                </p>
+            </b:container>
+
+        </b:jumbotron>
+        <b:container>
+            <b:row>
+                <b:column col-md="4">
+
+                    <h2>Desayuno</h2>
+                    <b:image library="image" name="desayuno.png" width="350px" height="200px"/>
+                    <p>Disfrute de nuestros desayunos todos los días
+                        de 7am a 10am</p>
+                    <p><b:button value="Ver »" look="warning"  href="https://www.youtube.com/watch?v=p-_AS7de5ck" icon-awesome="youtube"/></p>    
+
+                </b:column>
+                <b:column col-md="4">
+                    <h2>Platos</h2>
+                    <b:image library="image" name="almuerzo.png" width="350px" height="200px"/>
+                    <p>Contamos con los mejores platos.
+                        En la tarde contamos con un almuerzo ejecutivo
+                        y para la cena puede seleccionar de nuestra carta.</p>
+                    <p><b:button  value="Ver »" look="warning" href="https://www.youtube.com/watch?v=rFKRRkIn6Hs" icon-awesome="youtube"/></p>
+
+                </b:column>
+                <b:column col-md="4">
+                    <h2>Postres</h2>
+                    <b:image library="image" name="postre.png" width="350px" height="200px"/>
+                    <p>Para cerrar una comida grandiosa,
+                        puede escoger de una lista grande, los mejores
+                        postres del pais sin lugar a duda.</p>
+                    <p><b:button  value="Ver »" look="warning" href="https://www.youtube.com/watch?v=a0bqbKfTdXw" icon-awesome="youtube"/></p>
+
+                </b:column>
+            </b:row>
+            <hr/>
+            <footer>
+                <p>© BryanSJ 2021</p>
+            </footer>
+        </b:container>
+
+
+    </h:body>
+</html>
+

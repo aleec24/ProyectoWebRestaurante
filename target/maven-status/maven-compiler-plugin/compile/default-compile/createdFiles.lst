@@ -1,0 +1,6 @@
+Controllers\UsuarioController.class
+Models\Usuario.class
+com\sc403\sistema\resources\JavaEE8Resource.class
+com\sc403\sistema\JAXRSConfiguration.class
+Gestions\UsuarioGestion.class
+Models\Conexion.class

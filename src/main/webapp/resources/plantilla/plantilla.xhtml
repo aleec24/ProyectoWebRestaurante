@@ -10,92 +10,84 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <h:outputStylesheet name="./../css/default.css"/>
         <h:outputStylesheet name="./../css/cssLayout.css"/>
-        <title>Plantilla base de menú</title>
+        <title>Restaurante</title>
+
+        <style>
+            .main_content {
+                margin-top: 80px;
+            }
+        </style>
     </h:head>
 
-        <h:body>
+    <h:body>
 
-        <div class="card">
+        <b:navBar brand="Bienvenido ${usuarioController.idUsuario}" fluid="true" inverse="true" position="top" sticky="true">
+            <!-- Following line is needed for TBS 3.0.1 (panel content overflow issue) -->
+            <b:navbarLinks pull="right" styleClass="hidden-xs" >
+                <b:navLink value="Menu Principal" href="" onclick="PF('sidebar').show()"/>
+                <b:iconAwesome name="cog" spin="true" size="3x" />
+                <b:dropMenu value="Perfil" iconAwesome="cog"  >
+                    <b:navLink header="Nombre completo: ${usuarioController.nombreUsuario}"></b:navLink>                        
+                    <b:navLink header="Usuario: ${usuarioController.idRol}"></b:navLink>
+                    <b:navLink></b:navLink>
+                    <b:navLink value="Editar perfil" href="#"></b:navLink>
+                    <b:navLink value="Salir"
+                               href="/Sistema-1/faces/index.xhtml"/>
+                </b:dropMenu>
+            </b:navbarLinks>
+        </b:navBar>
 
-            <p:sidebar widgetVar="sidebar1" baseZIndex="10000">
-                <div>
-                    <b:image library="image" name="Logo.png" height="200px"/>
-                </div>
+        <p:sidebar widgetVar="sidebar" baseZIndex="10000">
+            <div style="padding: 0 30px">
+                <b:image library="image" name="Logo.png" height="200px"/>
+            </div>
 
-                    <h:body>
-                    <b:navbarLinks>
-                        <div>
-                        <b:navLink value="Hamburguesas" href=""/>
-                        </div>
-                        <p> </p>
-                        <div>
-                        <b:navLink value="Tradicionales" href=""/>
-                        </div>
-                        <p> </p>
-                        <div>
-                        <b:navLink value="Pizzas" href=""/>
-                        </div>
-                        <p> </p>
-                        <div>
-                        <b:navLink value="Postres" href=""/>
-                        </div>
-                        <p> </p>
-                        <div>
-                        <b:dropMenu value="Bebidas" icon-awesome="fa-cog">
-                            <b:navLink value="Café y Chocolate" icon-awesome="fa-coffee"/>
-                            <b:navLink value="Cócteles" icon-awesome="fa-glass"/>
-                            <b:navLink value="Cervezas" href="#"/>
-                        </b:dropMenu>
-                        </div>
-                        <p> </p>
-                        <div>
-                        <b:navLink value="Menú de niños" href=""/>
-                        </div>
-                        <p> </p>
-                        <div>   
-                        <b:dropMenu value="Menú especial" icon-awesome="fa-cog">
-                                <b:navLink value="Vegetariano" href=""/>
-                                <b:navLink value="Vegano" href="#"/>
-                        </b:dropMenu>    
-                        </div>
-                        <p> </p>
-                        <div>
-                        <b:navLink value="Promociones" href=""/>
-                        </div>
-                        <p> </p>
-                        <div>
-                        <b:navLink value="Carrito de compra" href=""/>
-                        </div>
-                        <p> </p>
-                        <div>
-                        <b:navLink value="Contáctenos" href=""/>
-                        </div>
-                        <p> </p>
-                        <div>
-                        <b:dropMenu value="Configuración" icon-awesome="fa-cog">
-                            <b:navLink value="Perfil" icon-awesome="fa-user" href="#"/>
-                            <b:navLink value="Temas" href="#"/>
-                            <b:navLink value="Cerrar"
-                                       href="../../index.html"
-                                       icon-awesome="fa-door-open"/>
-                        </b:dropMenu>
-                        </div>
-                    </b:navbarLinks>
+            <h:body>
+                <b:navbarLinks>
+                    <b:navLink value="Hamburguesas" href="" col-sm="12" />
+
+                    <b:navLink value="Tradicionales" href="" col-sm="12" />
+
+                    <b:navLink value="Pizzas" href="" col-sm="12" />
+
+                    <b:navLink value="Postres" href="" col-sm="12" />
+
+                    <b:dropMenu value="Bebidas" icon-awesome="fa-cog" col-sm="12" >
+                        <b:navLink value="Café y Chocolate" icon-awesome="fa-coffee"/>
+                        <b:navLink value="Cócteles" icon-awesome="fa-glass"/>
+                        <b:navLink value="Cervezas" href="#"/>
+                    </b:dropMenu>
+
+                    <b:navLink value="Menú de niños" href="" col-sm="12" />
+
+                    <b:dropMenu value="Menú especial" icon-awesome="fa-cog" col-sm="12" >
+                        <b:navLink value="Vegetariano" href=""/>
+                        <b:navLink value="Vegano" href="#"/>
+                    </b:dropMenu>    
+
+                    <b:navLink value="Promociones" href="" col-sm="12" />
+
+                    <b:navLink value="Carrito de compra" href="" col-sm="12" />
+
+                    <b:navLink value="Contáctenos" href="" col-sm="12" />
+
+                    <b:dropMenu value="Configuración" icon-awesome="fa-cog" col-sm="12" >
+                        <b:navLink value="Perfil" icon-awesome="fa-user" href="#"/>
+                        <b:navLink value="Temas" href="#"/>
+                        <b:navLink value="Cerrar"
+                                   href="../../index.html"
+                                   icon-awesome="fa-door-open"/>
+                    </b:dropMenu>
+                </b:navbarLinks>
             </h:body>
 
-            </p:sidebar>
-            <p:commandButton icon="pi pi-arrow-right" type="button" value="Inicio" onclick="PF('sidebar1').show()" styleClass="p-mr-2" />
+        </p:sidebar>
 
-        </div>
-            
-        <div id="left">
-            <ui:insert name="left">Left</ui:insert>
-        </div>
-        <div id="content" class="left_content">
+        <div id="content" class="main_content">
             <ui:insert name="content">Content</ui:insert>
         </div>
 
-            </h:body>
-    
+    </h:body>
+
 
 </html>

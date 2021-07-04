@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package Controllers;
 
 import Gestions.ComentarioGestion;
@@ -16,15 +12,11 @@ import java.util.List;
 
 
 
-/**
- *
- * @author bryansa
- */
 @Named(value = "juegoController")
 @SessionScoped
 public class ComentarioController extends Comentario implements Serializable {
 
-	/**
+	/****
 	 * Creates a new instance of UsuarioController
 	 */
 	public ComentarioController() {
@@ -78,6 +70,8 @@ public class ComentarioController extends Comentario implements Serializable {
         }
 
     }
+	
+	
 	
 	
 	public String elimina(String nombre){

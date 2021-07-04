@@ -33,7 +33,7 @@ public class Comentario {
 		this.comentario = comentario;
 	}
 
-	//-------------------
+	//---------------------
 	//Getters and Setters
 	
 	public int getIdComentario() {
@@ -75,6 +75,8 @@ public class Comentario {
 	public void setComentario(String comentario) {
 		this.comentario = comentario;
 	}
+	
+	
 	
 	
 	

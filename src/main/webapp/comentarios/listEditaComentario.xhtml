@@ -1,0 +1,44 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:b="http://bootsfaces.net/ui">
+
+    <body>
+
+        <ui:composition template="./../resources/plantilla/plantilla.xhtml">
+
+            <ui:define name="content">
+                
+                <h:form>
+                    
+                    <b:dataTable value="#{comentarioController.comentarios}"
+                                 var="comentario">
+                        <b:dataTableColumn value="#{comentario.nombre}"
+                                           width="10%"
+                                           label="Nombre"/>
+                        <b:dataTableColumn value="#{comentario.telefono}"
+                                           width="10%"
+                                           label="Telefono"/>
+                        <b:dataTableColumn value="#{comentario.correo}"
+                                           width="10%"
+                                           label="Correo"/>
+                        <b:dataTableColumn value="#{comentario.comentario}"
+                                           width="10%"
+                                           label="Comentario">
+                        </b:dataTableColumn>
+                        <b:dataTableColumn width="10%" 
+                                           label="Comentario">
+                            <b:commandButton value="Editar"     
+                                             action="#{comentarioController.edita(comentario.nombre)}"/>
+                        </b:dataTableColumn>
+                    </b:dataTable>
+                </h:form>
+                
+            </ui:define>
+
+        </ui:composition>
+
+    </body>
+</html>

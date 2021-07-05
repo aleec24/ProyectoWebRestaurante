@@ -12,7 +12,7 @@ import java.util.List;
 
 
 
-@Named(value = "juegoController")
+@Named(value = "comentarioController")
 @SessionScoped
 public class ComentarioController extends Comentario implements Serializable {
 
@@ -46,7 +46,7 @@ public class ComentarioController extends Comentario implements Serializable {
              FacesMessage mensaje = new FacesMessage(FacesMessage.SEVERITY_ERROR, 
             "Error", "Posible error en datos ingresados");
             FacesContext.getCurrentInstance().addMessage("editaComentarioForm:identificacion", mensaje);
-            return "editaComentarios.xhtml";   
+            return "listEditaComentarios.xhtml";   
         }
     }
 	
@@ -60,12 +60,12 @@ public class ComentarioController extends Comentario implements Serializable {
             this.setCorreo(comentario.getCorreo());
 			this.setComentario(comentario.getComentario());
             
-            return "editaComentarios.xhtml";
+            return "editaComentario.xhtml";
         }else{
              FacesMessage mensaje = new FacesMessage(FacesMessage.SEVERITY_ERROR, 
             "Error", "Posible que el id no exista");
             FacesContext.getCurrentInstance().addMessage("listForm", mensaje);
-            return "listComentarios.xhtml";
+            return "listEditaComentarios.xhtml";
             
         }
 
@@ -77,12 +77,12 @@ public class ComentarioController extends Comentario implements Serializable {
 	public String elimina(String nombre){
         
         if (ComentarioGestion.eliminar(nombre)){
-            return "listJuegos.xhtml";
+            return "listComentarios.xhtml";
         }else{
              FacesMessage mensaje = new FacesMessage(FacesMessage.SEVERITY_ERROR, 
             "Error", "Posible que el nombre no exista");
             FacesContext.getCurrentInstance().addMessage("editaJuegoForm:identificacion", mensaje);
-            return "listEliminaJuegos.xhtml";
+            return "listEliminaComentario.xhtml";
             
         }
    

@@ -46,6 +46,33 @@ INSERT INTO `cliente` VALUES (1,'Bryan','Sanabria','1234','Heredia',0);
 UNLOCK TABLES;
 
 --
+-- Table structure for table `comentarios`
+--
+
+DROP TABLE IF EXISTS `comentarios`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `comentarios` (
+  `idComentarios` int NOT NULL AUTO_INCREMENT,
+  `nombre` varchar(50) NOT NULL,
+  `telefono` varchar(50) NOT NULL,
+  `correo` varchar(50) NOT NULL,
+  `comentario` varchar(50) NOT NULL,
+  PRIMARY KEY (`idComentarios`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `comentarios`
+--
+
+LOCK TABLES `comentarios` WRITE;
+/*!40000 ALTER TABLE `comentarios` DISABLE KEYS */;
+INSERT INTO `comentarios` VALUES (2,'Bryan','605205','bsanabriaj@hotmail.com','Muy buena comida'),(3,'Emily','6058','emy@hotmail.com','Exelente Lugar'),(4,'Yirlani','2344','yir@hotmail.com','Excelente');
+/*!40000 ALTER TABLE `comentarios` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `detalle_ventas`
 --
 
@@ -103,6 +130,38 @@ CREATE TABLE `empleado` (
 LOCK TABLES `empleado` WRITE;
 /*!40000 ALTER TABLE `empleado` DISABLE KEYS */;
 /*!40000 ALTER TABLE `empleado` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `envios`
+--
+
+DROP TABLE IF EXISTS `envios`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `envios` (
+  `idEnvios` int NOT NULL AUTO_INCREMENT,
+  `idCliente` int NOT NULL,
+  `idDetalle_ventas` int NOT NULL,
+  `idEmpleado` int NOT NULL,
+  `estado` varchar(45) NOT NULL,
+  PRIMARY KEY (`idEnvios`),
+  KEY `id_cliente_envios_idx` (`idCliente`),
+  KEY `id_detalle_ventas_envios_idx` (`idDetalle_ventas`),
+  KEY `id_empleado_envios_idx` (`idEmpleado`),
+  CONSTRAINT `id_cliente_envios` FOREIGN KEY (`idCliente`) REFERENCES `cliente` (`idCliente`),
+  CONSTRAINT `id_detalle_ventas_envios` FOREIGN KEY (`idDetalle_ventas`) REFERENCES `detalle_ventas` (`idDetalle_ventas`),
+  CONSTRAINT `id_empleado_envios` FOREIGN KEY (`idEmpleado`) REFERENCES `empleado` (`idEmpleado`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `envios`
+--
+
+LOCK TABLES `envios` WRITE;
+/*!40000 ALTER TABLE `envios` DISABLE KEYS */;
+/*!40000 ALTER TABLE `envios` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -209,4 +268,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-07-03 10:02:39
+-- Dump completed on 2021-07-05 20:02:40

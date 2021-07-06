@@ -24,9 +24,10 @@ public class ComentarioController extends Comentario implements Serializable {
     }
 	
 	public String inserta(){
-        
+        // cambiar a la vista de contactenos de nuevo, esta carga pero con la info previamente ingresada, corregir esto**
         if (ComentarioGestion.insertar(this)){
-            return "listComentarios.xhtml";
+//            return "listComentarios.xhtml";
+            return "agregaComentarios.xhtml";
             
         }else{
             

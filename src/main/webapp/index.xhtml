@@ -23,10 +23,13 @@
         </style>
     </h:head>
     <h:body>
-
+        <link href="../CSS/Footer.css" rel="stylesheet" type="text/css"/>
         <b:navBar inverse="true" >
             <b:navbarLinks >
-                    <b:image library="image" name="res.png" height="65px"/>
+                
+                <!--Implementar carrusel-->
+                    <b:image library="image" name="Logo.png" height="65px"/>
+     
             </b:navbarLinks>
             <b:navbarLinks >
                 <b:dropMenu value="Nuestros platos" >
@@ -66,8 +69,54 @@
         </b:navBar>
         <b:jumbotron >
             <b:container >
-                <b:image library="image" name="soda.png" width="700px" height="300px"/>
-                <h1>Bienvenido a La Soda!!</h1>
+                
+                <!--Carrusel-->
+                    <b:carousel id="tiovivo" style="width:800px" interval="2500">
+                     <b:carouselItem >
+                      <h:graphicImage library="image" name="Carrusel1.jpg" alt="Valladolid" style="width: 800px; height: 600px" />
+                      <b:carouselCaption>
+                       <h2>¡Promoción del día!</h2>
+                       <p>Prueba nuestra deliciosa ensalada con pollo al horno.</p>
+                        <!--<p>The band reads <a style="color:#fff" href="http://www.vanderkrogt.net/statues/object.php?webpage=CO&record=escl010">"Non plus ultra"</a>, being Spains' motto in 1492, when Columbus made his discoveries.</p>-->
+                      </b:carouselCaption>
+                     </b:carouselItem>
+                     <b:carouselItem >
+                      <h:graphicImage library="image" name="Carrusel2.jpg" alt="Valladolid" style="width: 800px; height: 600px" />
+                       <b:carouselCaption>
+                       <h2>¡Promoción del día!</h2>
+                       <p>Prueba nuestra deliciosa hamburguesa.</p>
+                        <!--<p>The band reads <a style="color:#fff" href="http://www.vanderkrogt.net/statues/object.php?webpage=CO&record=escl010">"Non plus ultra"</a>, being Spains' motto in 1492, when Columbus made his discoveries.</p>-->
+                      </b:carouselCaption>
+                     </b:carouselItem>
+                     <b:carouselItem >
+                      <h:graphicImage library="image" name="Carrusel3.jpg" alt="Valladolid" style="width: 800px; height: 600px" />
+                       <b:carouselCaption>
+                       <h2>¡Promoción del día!</h2>
+                       <p>Prueba nuestra deliciosa pasta.</p>
+                        <!--<p>The band reads <a style="color:#fff" href="http://www.vanderkrogt.net/statues/object.php?webpage=CO&record=escl010">"Non plus ultra"</a>, being Spains' motto in 1492, when Columbus made his discoveries.</p>-->
+                      </b:carouselCaption>
+                     </b:carouselItem>
+                     <b:carouselItem>
+                      <h:graphicImage library="image" name="Carrusel4.jpg" alt="Valladolid" style="width: 800px; height: 600px" />
+                      <b:carouselCaption>
+                       <h2>¡Promoción del día!</h2>
+                       <p>Prueba nuestras deliciosas alitas de pollo.</p>
+                      </b:carouselCaption>
+                     </b:carouselItem>
+                     <b:carouselItem >
+                      <h:graphicImage library="image" name="Carrusel5.png" alt="Valladolid" style="width: 800px; height: 600px" />
+                         <b:carouselCaption>
+                       <h2>¡Promoción del día!</h2>
+                       <p>Prueba nuestra deliciosa cerveza Corona.</p>
+                        <!--<p>The band reads <a style="color:#fff" href="http://www.vanderkrogt.net/statues/object.php?webpage=CO&record=escl010">"Non plus ultra"</a>, being Spains' motto in 1492, when Columbus made his discoveries.</p>-->
+                      </b:carouselCaption>
+                     </b:carouselItem>
+                    </b:carousel>
+                
+                <!--Imagen anterior--> 
+                <!--<b:image library="image" name="soda.png" width="700px" height="300px"/>-->
+                
+                <h1>Bienvenido al Restaurante y Soda!!</h1>
                 <p>Venga y disfrute de nuestras delicias o si gusta solicitelo y lo llevamos
                     hasta la puerta de su casa..
                 </p>
@@ -108,11 +157,16 @@
                 </b:column>
             </b:row>
             <hr/>
-            <footer>
-                <p>© BryanSJ 2021</p>
-            </footer>
-        </b:container>
 
+        </b:container>
+            <footer>
+                                <!--Footer-->
+                 <div id="pagina">
+                  <div id="cabecera"></div>
+                  <div id="contenido"></div>
+                  <div id="pie">2021 &copy; Restaurante y Soda</div>
+                </div>
+            </footer>
 
     </h:body>
 </html>

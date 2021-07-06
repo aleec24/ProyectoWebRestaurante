@@ -2,16 +2,44 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-      xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:b="http://bootsfaces.net/ui">
+      xmlns:b="http://bootsfaces.net/ui"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
      
      
     <body>
         <ui:composition template="./../resources/plantilla/plantilla.xhtml">
+
             <ui:define name="content">
+                <!--Archivo CSS del banner y footer responsive-->               
+                <link href="../CSS/bannerContactenos.css" rel="stylesheet" type="text/css"/>
+                <link href="../CSS/Footer.css" rel="stylesheet" type="text/css"/>
+                
+                 <img src="../imagenes/Banner.png" alt="banner" class="responsive" />
+
+                <div>
+                <h3 style="text-align: center;"><span style="text-decoration: underline;"><strong>Nuestro horario:</strong></span></h3>
+                <p></p>
+                <h4><strong>Almuerzo:</strong></h4>
+                <ul>
+                <li><p><big>Lunes y Martes: <strong>Cerrado</strong></big></p>
+                </li><li>
+                <p><big>Miércoles - Viernes: <strong>12PM - 3PM</strong></big></p>
+                </li><li>
+                <p><big>Sábado y Domingo: <strong>12:30PM - 3:30PM</strong></big></p>
+                </li></ul>
+                <h4><strong>Cena:</strong></h4>
+                <ul><li>
+                <p><big>Lunes: <strong>Cerrado</strong></big></p>
+                </li><li>
+                <p><big>Martes - Domingo: <strong>6:30PM - 10:30PM</strong></big></p>
+                </li></ul>
+                </div> 
+                 
+                <h3 style="text-align: center;"><span style="text-decoration: underline;"><strong>Sus comentarios son importantes para nosotros:</strong></span></h3>
+                
                 <h:form id="agregaComentarioForm">
                     <b:panel title="Nuevo Comentario" look="success" collapsible="false" >
-                        <b:row tooltip="Agregue el Comentario">
+                        <b:row tooltip="Agregue su nombre completo">
                             <b:column medium-screen="1">
                                 <h:outputLabel value="Nombre" for="nombre"/>
                             </b:column>
@@ -50,7 +78,7 @@
                                 <b:message for="correo"/>
                             </b:column>
                         </b:row>
-                        <b:row tooltip="Agregue el nombre del Juego">
+                        <b:row tooltip="Agregue su comentario">
                             <b:column medium-screen="1">
                                 <h:outputLabel value="Comentario" for="comentario"/>
                             </b:column>
@@ -73,6 +101,26 @@
                         </b:row>    
                      </b:panel>
                 </h:form>
+                 
+                
+                <h3 style="text-align: center;"><span style="text-decoration: underline;"><strong>¿Tiene alguna pregunta de nuestros servicios?</strong></span></h3>
+                <p style="text-align: center;"><span></span><big>No dude en contactarnos a nuestra bandeja de correos.</big></p>
+                <p style="text-align: center;"><strong>Correo: restaurante@rest.ac.cr</strong></p>
+                <p style="text-align: center;"><span></span><big>O llámenos al:</big></p>
+                <p style="text-align: center;"><strong>(+506) 2229-98-75</strong></p>
+                <p style="text-align: center;"><span></span><big>Ubicación:</big></p>
+                <p style="text-align: center;"><strong><a href="https://www.google.com.mx/maps/place/Walmart/@9.995184,-84.1294477,18z/data=!4m5!3m4!1s0x0:0x1251b1b67ee1bd9f!8m2!3d9.9953492!4d-84.1290804" class="btn btn-lg btn-info">Ir »</a></strong></p>
+               
+                <!--<h4>(+506) 2229-98-75</h4>-->
+                
+                 
+                <!--Footer-->
+                 <div id="pagina">
+                  <div id="cabecera"></div>
+                  <div id="contenido"></div>
+                  <div id="pie">2021 &copy; Restaurante y Soda</div>
+                </div>
+                 
             </ui:define>
         </ui:composition>
     </body>

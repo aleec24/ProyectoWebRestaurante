@@ -5,19 +5,16 @@
       xmlns:b="http://bootsfaces.net/ui"
       xmlns:f="http://xmlns.jcp.org/jsf/core"
       xmlns:p="http://primefaces.org/ui">
+    <link href="test.css" rel="stylesheet" type="text/css"/>
+    <link href="test2.css" rel="stylesheet" type="text/css"/>
+    
     <h:head>
         <title>Autenticación</title>
         <style>
             .centrado{
-                position:absolute;
-                top: 50%;
-                left: 50%;
-                bottom: 0%;
-                width: 200px;
-                height: 150px;
-                margin: auto;
-                margin-left: -200px;
-                margin-top: -150px;
+                padding-left: 10px;
+                background-color: #036fab;
+                border-radius: 15px;
             }
 
         </style>
@@ -33,10 +30,11 @@
             </b:navbarLinks>
             <b:navbarLinks >
                 <b:dropMenu value="Nuestros platos" >
-                    <b:navLink value="Entradas" href="#"></b:navLink>
-                    <b:navLink value="Plato Fuerte" href="#"></b:navLink>
-                    <b:navLink value="Desayunos" href="#"></b:navLink>
-                    <b:navLink value="Postres" href="#"></b:navLink>
+                    <b:navLink value="Entradas" href="#" style-class="centrado"></b:navLink>
+                    <b:navLink value="Plato Fuerte" href="#" style-class="Envios"></b:navLink>
+                    <b:navLink value="Desayunos" href="#" style-class="Envios2"></b:navLink>
+                    <b:navLink value="Postres" href="#" style-class="Envios3"></b:navLink>
+                    <b:navLink value="Bebidas" href="#" style-class="Envios4"></b:navLink>
                 </b:dropMenu>
             </b:navbarLinks>
             <h:form styleClass="navbar-form navbar-right" >

@@ -8,8 +8,9 @@
 
     <h:head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-        <h:outputStylesheet name="./../css/default.css"/>
-        <h:outputStylesheet name="./../css/cssLayout.css"/>
+
+        <link href="../../cssMenu.css" rel="stylesheet" type="text/css"/>
+        
         <title>Restaurante</title>
 
         <style>
@@ -39,13 +40,13 @@
             </b:navbarLinks>
         </b:navBar>
 
-        <p:sidebar widgetVar="sidebar" baseZIndex="10000">
-            <div style="padding: 0 30px">
-                <b:image library="image" name="Logo.png" height="200px"/>
+        <p:sidebar widgetVar="sidebar" baseZIndex="10000" id="sidebar__Main">
+            <div style="padding: 0 30px"  >
+                <b:image library="image" name="Logo.png" height="200px" style="margin-bottom: 15px"/>
             </div>
 
             <h:body>
-                <b:navbarLinks>
+                <b:navbarLinks id="sidebar__Main__items">
                     <b:navLink value="Hamburguesas" href="" col-sm="12" />
 
                     <b:navLink value="Tradicionales" href="" col-sm="12" />

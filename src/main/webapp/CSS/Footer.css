@@ -1,44 +1,27 @@
 
-
-html, body {
-  margin:0;
-  padding:0;
-  height:100%;
+.footer-main {
+    
 }
 
 #pagina {
-  position: relative;
-  min-height: 100%;
+    position: relative;
+    min-height: 100%;
 }
 
 #contenido {
-  padding-bottom:50px; /* este valor debe ser igual o mayor al alto del pie */
+    padding-bottom:50px; /* este valor debe ser igual o mayor al alto del pie */
 }
 
-/*Editado*/
 #pie {
-  height:auto;
-  width:100%;
-  line-height:50px;
-  background:#D49D42;
-  color:white;
-  text-align:center;
-  position:relative;
-  bottom:0;
-  left:0;
-  
+    height:auto;
+    width:100%;
+    line-height:50px;
+    background:#693C72;
+    color:white;
+    text-align:center;
+    position:relative;
+    bottom:0;
+    left:0;
+    padding: 24px;
 }
-
-/*original*/
-/*#pie {
-  height:50px;
-  line-height:50px;
-  background:black;
-  color:white;
-  text-align:center;
-  position:absolute;
-  bottom:0;
-  left:0;
-  width:100%;
-}*/
 

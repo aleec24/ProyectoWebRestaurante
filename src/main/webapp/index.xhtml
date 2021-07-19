@@ -5,41 +5,22 @@
       xmlns:b="http://bootsfaces.net/ui"
       xmlns:f="http://xmlns.jcp.org/jsf/core"
       xmlns:p="http://primefaces.org/ui">
-    <link href="test.css" rel="stylesheet" type="text/css"/>
-    <link href="test2.css" rel="stylesheet" type="text/css"/>
-    
-    <h:head>
-        <title>Autenticación</title>
-        <style>
-            .centrado{
-                padding-left: 10px;
-                background-color: #036fab;
-                border-radius: 15px;
-            }
 
-        </style>
+
+    <h:head>
+        <link href="CSS/cssMenu.css" rel="stylesheet" type="text/css"/>
+        <link href="CSS/mainScreen.css" rel="stylesheet" type="text/css"/>
+        <link href="CSS/Footer.css" rel="stylesheet" type="text/css"/>
+
+        <title>Autenticación</title>
     </h:head>
     <h:body>
-        <link href="../CSS/Footer.css" rel="stylesheet" type="text/css"/>
-        <b:navBar inverse="true" >
-            <b:navbarLinks >
-                
-                <!--Implementar carrusel-->
-                    <b:image library="image" name="Logo.png" height="65px"/>
-     
-            </b:navbarLinks>
-            <b:navbarLinks >
-                <b:dropMenu value="Nuestros platos" >
-                    <b:navLink value="Entradas" href="#" style-class="centrado"></b:navLink>
-                    <b:navLink value="Plato Fuerte" href="#" style-class="Envios"></b:navLink>
-                    <b:navLink value="Desayunos" href="#" style-class="Envios2"></b:navLink>
-                    <b:navLink value="Postres" href="#" style-class="Envios3"></b:navLink>
-                    <b:navLink value="Bebidas" href="#" style-class="Envios4"></b:navLink>
-                </b:dropMenu>
-            </b:navbarLinks>
-            <h:form styleClass="navbar-form navbar-right" >
+        <b:image library="image" name="Logo.png" class="main-image-logo"/>
+        <b:navBar inverse="true" class="navbar-custom-index" >
+            <h:form styleClass="navbar-form" >
                 <div class="form-group">
                     <b:inputText placeholder="Usuario"
+                                 class="main-input"
                                  id="usuario"
                                  required="true"
                                  autocomplete="true"
@@ -51,6 +32,7 @@
                 </div>
                 <div class="form-group">
                     <b:inputSecret placeholder="Clave"
+                                   class="main-input"
                                    id="clave"
                                    required="true"
                                    autocomplete="true"
@@ -61,110 +43,108 @@
                     </b:inputSecret>
                 </div> 
                 #{' '}
-                <b:commandButton value="Login" look="success" icon="chevron-right" iconAlign="right" action="#{usuarioController.valida}"/>/>
+                <b:commandButton class="main-button" value="Login" look="success" icon="chevron-right" iconAlign="right" action="#{usuarioController.valida}"/>
 
             </h:form>
         </b:navBar>
         <b:jumbotron >
             <b:container >
-                
+
                 <!--Carrusel-->
-                    <b:carousel id="tiovivo" style="width:800px" interval="2500">
-                     <b:carouselItem >
-                      <h:graphicImage library="image" name="Carrusel1.jpg" alt="Valladolid" style="width: 800px; height: 600px" />
-                      <b:carouselCaption>
-                       <h2>¡Promoción del día!</h2>
-                       <p>Prueba nuestra deliciosa ensalada con pollo al horno.</p>
-                        <!--<p>The band reads <a style="color:#fff" href="http://www.vanderkrogt.net/statues/object.php?webpage=CO&record=escl010">"Non plus ultra"</a>, being Spains' motto in 1492, when Columbus made his discoveries.</p>-->
-                      </b:carouselCaption>
-                     </b:carouselItem>
-                     <b:carouselItem >
-                      <h:graphicImage library="image" name="Carrusel2.jpg" alt="Valladolid" style="width: 800px; height: 600px" />
-                       <b:carouselCaption>
-                       <h2>¡Promoción del día!</h2>
-                       <p>Prueba nuestra deliciosa hamburguesa.</p>
-                        <!--<p>The band reads <a style="color:#fff" href="http://www.vanderkrogt.net/statues/object.php?webpage=CO&record=escl010">"Non plus ultra"</a>, being Spains' motto in 1492, when Columbus made his discoveries.</p>-->
-                      </b:carouselCaption>
-                     </b:carouselItem>
-                     <b:carouselItem >
-                      <h:graphicImage library="image" name="Carrusel3.jpg" alt="Valladolid" style="width: 800px; height: 600px" />
-                       <b:carouselCaption>
-                       <h2>¡Promoción del día!</h2>
-                       <p>Prueba nuestra deliciosa pasta.</p>
-                        <!--<p>The band reads <a style="color:#fff" href="http://www.vanderkrogt.net/statues/object.php?webpage=CO&record=escl010">"Non plus ultra"</a>, being Spains' motto in 1492, when Columbus made his discoveries.</p>-->
-                      </b:carouselCaption>
-                     </b:carouselItem>
-                     <b:carouselItem>
-                      <h:graphicImage library="image" name="Carrusel4.jpg" alt="Valladolid" style="width: 800px; height: 600px" />
-                      <b:carouselCaption>
-                       <h2>¡Promoción del día!</h2>
-                       <p>Prueba nuestras deliciosas alitas de pollo.</p>
-                      </b:carouselCaption>
-                     </b:carouselItem>
-                     <b:carouselItem >
-                      <h:graphicImage library="image" name="Carrusel5.png" alt="Valladolid" style="width: 800px; height: 600px" />
-                         <b:carouselCaption>
-                       <h2>¡Promoción del día!</h2>
-                       <p>Prueba nuestra deliciosa cerveza Corona.</p>
-                        <!--<p>The band reads <a style="color:#fff" href="http://www.vanderkrogt.net/statues/object.php?webpage=CO&record=escl010">"Non plus ultra"</a>, being Spains' motto in 1492, when Columbus made his discoveries.</p>-->
-                      </b:carouselCaption>
-                     </b:carouselItem>
-                    </b:carousel>
-                
+                <b:carousel id="tiovivo" interval="2500">
+                    <b:carouselItem >
+                        <h:graphicImage library="image" name="Carrusel1.jpg" alt="Valladolid" />
+                        <b:carouselCaption>
+                            <h2>¡Promoción del día!</h2>
+                            <p>Prueba nuestra deliciosa ensalada con pollo al horno.</p>
+                            <!--<p>The band reads <a style="color:#fff" href="http://www.vanderkrogt.net/statues/object.php?webpage=CO&record=escl010">"Non plus ultra"</a>, being Spains' motto in 1492, when Columbus made his discoveries.</p>-->
+                        </b:carouselCaption>
+                    </b:carouselItem>
+                    <b:carouselItem >
+                        <h:graphicImage library="image" name="Carrusel2.jpg" alt="Valladolid"/>
+                        <b:carouselCaption>
+                            <h2>¡Promoción del día!</h2>
+                            <p>Prueba nuestra deliciosa hamburguesa.</p>
+                            <!--<p>The band reads <a style="color:#fff" href="http://www.vanderkrogt.net/statues/object.php?webpage=CO&record=escl010">"Non plus ultra"</a>, being Spains' motto in 1492, when Columbus made his discoveries.</p>-->
+                        </b:carouselCaption>
+                    </b:carouselItem>
+                    <b:carouselItem >
+                        <h:graphicImage library="image" name="Carrusel3.jpg" alt="Valladolid" />
+                        <b:carouselCaption>
+                            <h2>¡Promoción del día!</h2>
+                            <p>Prueba nuestra deliciosa pasta.</p>
+                            <!--<p>The band reads <a style="color:#fff" href="http://www.vanderkrogt.net/statues/object.php?webpage=CO&record=escl010">"Non plus ultra"</a>, being Spains' motto in 1492, when Columbus made his discoveries.</p>-->
+                        </b:carouselCaption>
+                    </b:carouselItem>
+                    <b:carouselItem>
+                        <h:graphicImage library="image" name="Carrusel4.jpg" alt="Valladolid" />
+                        <b:carouselCaption>
+                            <h2>¡Promoción del día!</h2>
+                            <p>Prueba nuestras deliciosas alitas de pollo.</p>
+                        </b:carouselCaption>
+                    </b:carouselItem>
+                    <b:carouselItem >
+                        <h:graphicImage library="image" name="Carrusel5.png" alt="Valladolid" />
+                        <b:carouselCaption>
+                            <h2>¡Promoción del día!</h2>
+                            <p>Prueba nuestra deliciosa cerveza Corona.</p>
+                            <!--<p>The band reads <a style="color:#fff" href="http://www.vanderkrogt.net/statues/object.php?webpage=CO&record=escl010">"Non plus ultra"</a>, being Spains' motto in 1492, when Columbus made his discoveries.</p>-->
+                        </b:carouselCaption>
+                    </b:carouselItem>
+                </b:carousel>
+
                 <!--Imagen anterior--> 
                 <!--<b:image library="image" name="soda.png" width="700px" height="300px"/>-->
-                
+
                 <h1>Bienvenido al Restaurante y Soda!!</h1>
                 <p>Venga y disfrute de nuestras delicias o si gusta solicitelo y lo llevamos
                     hasta la puerta de su casa..
                 </p>
                 <p>
-                    <a href="https://www.google.com.mx/maps/place/Walmart/@9.995184,-84.1294477,18z/data=!4m5!3m4!1s0x0:0x1251b1b67ee1bd9f!8m2!3d9.9953492!4d-84.1290804" class="btn btn-lg btn-info">Ubicación »</a>
+                    <a href="https://www.google.com.mx/maps/place/Walmart/@9.995184,-84.1294477,18z/data=!4m5!3m4!1s0x0:0x1251b1b67ee1bd9f!8m2!3d9.9953492!4d-84.1290804" class="btn btn-lg main-button">Ubicación »</a>
                 </p>
             </b:container>
 
         </b:jumbotron>
-        <b:container>
+        <b:container class="main-menu-sections">
             <b:row>
                 <b:column col-md="4">
-
                     <h2>Desayuno</h2>
                     <b:image library="image" name="desayuno.png" width="350px" height="200px"/>
-                    <p>Disfrute de nuestros desayunos todos los días
+                    <p class="main-menu-section-description">Disfrute de nuestros desayunos todos los días
                         de 7am a 10am</p>
-                    <p><b:button value="Ver »" look="warning"  href="https://www.youtube.com/watch?v=p-_AS7de5ck" icon-awesome="youtube"/></p>    
-
+                    <p><b:button class="secondary-btn" value="Ver »" look="warning"  href="https://www.youtube.com/watch?v=p-_AS7de5ck" icon-awesome="youtube"/></p>    
                 </b:column>
                 <b:column col-md="4">
                     <h2>Platos</h2>
                     <b:image library="image" name="almuerzo.png" width="350px" height="200px"/>
-                    <p>Contamos con los mejores platos.
+                    <p class="main-menu-section-description">Contamos con los mejores platos.
                         En la tarde contamos con un almuerzo ejecutivo
                         y para la cena puede seleccionar de nuestra carta.</p>
-                    <p><b:button  value="Ver »" look="warning" href="https://www.youtube.com/watch?v=rFKRRkIn6Hs" icon-awesome="youtube"/></p>
+                    <p><b:button class="secondary-btn" value="Ver »" look="warning" href="https://www.youtube.com/watch?v=rFKRRkIn6Hs" icon-awesome="youtube"/></p>
 
                 </b:column>
                 <b:column col-md="4">
                     <h2>Postres</h2>
                     <b:image library="image" name="postre.png" width="350px" height="200px"/>
-                    <p>Para cerrar una comida grandiosa,
+                    <p class="main-menu-section-description">Para cerrar una comida grandiosa,
                         puede escoger de una lista grande, los mejores
                         postres del pais sin lugar a duda.</p>
-                    <p><b:button  value="Ver »" look="warning" href="https://www.youtube.com/watch?v=a0bqbKfTdXw" icon-awesome="youtube"/></p>
+                    <p><b:button class="secondary-btn" value="Ver »" look="warning" href="https://www.youtube.com/watch?v=a0bqbKfTdXw" icon-awesome="youtube"/></p>
 
                 </b:column>
             </b:row>
             <hr/>
 
         </b:container>
-            <footer>
-                                <!--Footer-->
-                 <div id="pagina">
-                  <div id="cabecera"></div>
-                  <div id="contenido"></div>
-                  <div id="pie">2021 &copy; Restaurante y Soda</div>
-                </div>
-            </footer>
+        <footer class="footer-main">
+            <!--Footer-->
+            <div id="pagina">
+                <div id="cabecera"></div>
+                <div id="contenido"></div>
+                <div id="pie">2021 &copy; Restaurante y Soda</div>
+            </div>
+        </footer>
 
     </h:body>
 </html>

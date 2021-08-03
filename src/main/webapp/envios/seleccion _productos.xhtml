@@ -10,8 +10,8 @@
         <link href="../cssMenu.css" rel="stylesheet" type="text/css"/>
     </h:head>
 
-    <h:body>
-        <ui:composition template="../resources/plantilla/plantilla.xhtml">
+    <h:body id="body">
+        <ui:composition template="../resources/plantilla/plantilla.xhtml" >
             <ui:define name="content">
                 <div style="width: 100%">
                     <aside id="aside__Main">
@@ -55,17 +55,23 @@
                     </aside>
                     <article id="article__Main">
                         <h:form>
-                            <b:dataTable value="Menu">
+                            <b:dataTable value="#{productoController.productos}"
+                                         var="producto"
+                                         page-length="5"
+                                         page-length-menu="5,10">  
                                 <b:dataTableColumn value=""
                                                    width="30%"
                                                    label="Categoria">
-                                    <b:image library="image" name="almuerzo.png" width="500px" height="300px"/>   
+                                    
+                                    <img src="../imagenes/producto/hamburguesa.png" alt="" width="50%px" height="30%" style="margin-left: 25%"/>
                                     <b:column >
                                         <b:row>
-                                            <label for="id" style="text-align:center">Nombre</label>
+                                            <label for="id" style="text-align:center" >Nombre:</label>
+                                            <label for="id" style="text-align:center">#{producto.nombre}</label>
                                         </b:row>
                                         <b:row>
-                                            <label for="id" style="text-align:center">Precio</label>
+                                            <label for="id" style="text-align:center">Precio:</label>
+                                            <label for="id" style="text-align:center">#{producto.precio}</label>
                                         </b:row>
                                     </b:column>
                                 </b:dataTableColumn>
@@ -73,8 +79,14 @@
                                                    width="50%" 
                                                    label="Descripcion">
                                     <b:row >
-                                        <b:column col-md="6">
-                                            <label for="id" style="text-align:left" >Descripcion</label>
+                                        <b:column col-md="6" style="width: 100%">
+                                            <row>
+                                                <label for="id" style="text-align:left">Descripcion:</label>
+                                            </row>
+                                            <row>
+                                                <label for="id" style="text-align:center">#{producto.descripcion}</label>
+                                            </row>
+
                                         </b:column>
                                     </b:row>
                                     <b:row >
@@ -103,7 +115,7 @@
                         </div>
                     </aside>
                 </div>
-            </ui:define>
+             </ui:define>
         </ui:composition>
     </h:body>
 </html>

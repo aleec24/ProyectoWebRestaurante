@@ -96,13 +96,15 @@
 /*--------------------------------------------------------------------------------------------------------*/
 /* ENVIOS */
 
-
+#body{
+    height: 1500px;
+}
 
 #aside__Main{
     background: #D49D42;
     float: left;
     width: 15%;
-    height: 560px;
+    height: 1505px;
     margin: 0px;
     padding:0px;
     border-bottom-left-radius: 10px;
@@ -197,6 +199,7 @@
 
 
 #aside_Main_header{
+    
     width: 100%;
     height: 100px;
     padding: 10px;
@@ -221,7 +224,7 @@
     width: 70%;
     margin: 0px;
     padding:0px;
-    height: 560px;
+    height: 100%;
     align-items: center;
 }
 
@@ -253,12 +256,16 @@
  
  #article__Main td>div button {
     margin: 15px;
-    background: #C15050;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    background: #693C72;
     color: white;
  } 
  
  #article__Main td>div button:hover {
     margin: 15px;
+    margin-top: 5px;
+    margin-bottom: 5px;
     background: white;
     color: #C15050;
  } 
@@ -266,7 +273,7 @@
 
  #article__Main td>div input {
     margin-top: 0px;
-    margin-bottom: 50px;
+    margin-bottom: 5px;
     padding-left: 10px;
     padding-right: 0px;
     width: 50px;
@@ -276,6 +283,7 @@
  
  #article__Main label>select {
     color: #C15050;
+    
  } 
  
 /* #article__Main div>label {
@@ -284,7 +292,8 @@
  
  #article__Main div>ul li>a  {
     background: white;
-    color: #C15050;
+    color: #693C72;
+    margin-top: 0px;
  }
 
  /****************************/
@@ -294,7 +303,7 @@
     background: #D97642;
     float: right;
     width: 15%;
-    height: 560px;
+    height: 1505px;
     margin: 0px;
     padding:0px;
     border-bottom-right-radius: 10px;

@@ -10,7 +10,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <link href="../../cssMenu.css" rel="stylesheet" type="text/css"/>
         <title>Restaurante</title>
-
+        
         <style>
             .main_content {
                 margin-top: 80px;
@@ -20,7 +20,7 @@
 
     <h:body>
 
-        <b:navBar brand="Bienvenido ${usuarioController.idUsuario}" fluid="true" inverse="true" position="top" sticky="true">
+        <b:navBar brand="Bienvenido ${usuarioController.idUsuario}" fluid="true" inverse="true" position="top" sticky="true" style="margin-bottom:0px">
             <!-- Following line is needed for TBS 3.0.1 (panel content overflow issue) -->
             <b:image library="image" name="Logo.png" height="55px"/>
             <b:navbarLinks pull="right" styleClass="hidden-xs" >
@@ -88,6 +88,7 @@
             <ui:insert name="content">Content</ui:insert>
         </div>
 
+        
     </h:body>
 
 

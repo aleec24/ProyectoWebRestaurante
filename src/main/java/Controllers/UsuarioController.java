@@ -53,4 +53,12 @@ public class UsuarioController extends Usuario implements Serializable {
         }
         return ret;
     }
+    
+    public String getPlantilla() {
+        if(!this.getIdUsuario().equals("")) {
+            return "./resources/plantilla/plantilla.xhtml";
+        } else {
+            return "./resources/plantilla/plantilla.xhtml";
+        }
+    }
 }

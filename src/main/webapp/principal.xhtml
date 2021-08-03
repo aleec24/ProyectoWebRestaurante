@@ -5,113 +5,19 @@
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:b="http://bootsfaces.net/ui">
     <h:head>
+        <link href="CSS/cssMenu.css" rel="stylesheet" type="text/css"/>
+        <link href="CSS/mainScreen.css" rel="stylesheet" type="text/css"/>
+        <link href="CSS/Footer.css" rel="stylesheet" type="text/css"/>
+        
         <title>Principal</title>
-        <link href="cssMenu.css" rel="stylesheet" type="text/css"/>
     </h:head>
     <h:body>
-        <ui:composition template="./resources/plantilla/plantilla.xhtml">
+        <ui:composition template="./resources/plantilla/plantilla_sesion_activa.xhtml">
 
             <ui:define name="content">
                 <link href="../CSS/Footer.css" rel="stylesheet" type="text/css"/>
                 
-                <b:alert severity="info" title="¡Bienvenido!" closable="true"><strong>Ha iniciado sesión correctamente. </strong> Haga su pedido, esperamos disfrute su comida, ¡Provecho! </b:alert>
-                
-                <h1>Holaaaaaaa</h1>
-                <h1>Holaaaaaaa</h1>
-                <h1>Holaaaaaaa</h1>
-                <h1>Holaaaaaaa</h1>
-                <h1>Holaaaaaaa</h1>
-                <h1>Holaaaaaaa</h1>
-                <h1>Holaaaaaaa</h1>
-                <h1>Holaaaaaaa</h1>
-                <h1>Holaaaaaaa</h1>
-                <h1>Holaaaaaaa</h1>
-                <h1>Holaaaaaaa</h1>
-                <h1>Holaaaaaaa</h1>
-                <h1>Holaaaaaaa</h1>
-                <h1>Holaaaaaaa</h1>
-                <h1>Holaaaaaaa</h1>
-                <h1>Holaaaaaaa</h1>
-                <h1>Holaaaaaaa</h1>
-                <h1>Holaaaaaaa</h1>
-                <h1>Holaaaaaaa</h1>
-                <h1>Holaaaaaaa</h1>
-                <h1>Holaaaaaaa</h1>
-                <h1>Holaaaaaaa</h1>
-                <h1>Holaaaaaaa</h1>
-                <h1>Holaaaaaaa</h1>
-                <h1>Holaaaaaaa</h1>
-                <h1>Holaaaaaaa</h1>
-                <h1>Holaaaaaaa</h1>
-                <h1>Holaaaaaaa</h1>
-                <h1>Holaaaaaaa</h1>
-                <h1>Holaaaaaaa</h1>
-                <h1>Holaaaaaaa</h1>
-                <h1>Holaaaaaaa</h1>
-                <h1>Holaaaaaaa</h1>
-                <h1>Holaaaaaaa</h1>
-                <h1>Holaaaaaaa</h1>
-                <h1>Holaaaaaaa</h1>
-                <h1>Holaaaaaaa</h1>
-                <h1>Holaaaaaaa</h1>
-                <h1>Holaaaaaaa</h1>
-                <h1>Holaaaaaaa</h1>
-                <h1>Holaaaaaaa</h1>
-                <h1>Holaaaaaaa</h1>
-                <h1>Holaaaaaaa</h1>
-                <h1>Holaaaaaaa</h1>
-                <h1>Holaaaaaaa</h1>
-                <h1>Holaaaaaaa</h1>
-                <h1>Holaaaaaaa</h1>
-                <h1>Holaaaaaaa</h1>
-                <h1>Holaaaaaaa</h1>
-                <h1>Holaaaaaaa</h1>
-                <h1>Holaaaaaaa</h1>
-                <h1>Holaaaaaaa</h1>
-                <h1>Holaaaaaaa</h1>
-                <h1>Holaaaaaaa</h1>
-                <h1>Holaaaaaaa</h1>
-                <h1>Holaaaaaaa</h1>
-                <h1>Holaaaaaaa</h1>
-                <h1>Holaaaaaaa</h1>
-                <h1>Holaaaaaaa</h1>
-                <h1>Holaaaaaaa</h1>
-                <h1>Holaaaaaaa</h1>
-                <h1>Holaaaaaaa</h1>
-                <h1>Holaaaaaaa</h1>
-                <h1>Holaaaaaaa</h1>
-                <h1>Holaaaaaaa</h1>
-                <h1>Holaaaaaaa</h1>
-                <h1>Holaaaaaaa</h1>
-                <h1>Holaaaaaaa</h1>
-                <h1>Holaaaaaaa</h1>
-                <h1>Holaaaaaaa</h1>
-                <h1>Holaaaaaaa</h1>
-                <h1>Holaaaaaaa</h1>
-                <h1>Holaaaaaaa</h1>
-                <h1>Holaaaaaaa</h1>
-                <h1>Holaaaaaaa</h1>
-                <h1>Holaaaaaaa</h1>
-                <h1>Holaaaaaaa</h1>
-                <h1>Holaaaaaaa</h1>
-                <h1>Holaaaaaaa</h1>
-                <h1>Holaaaaaaa</h1>
-                <h1>Holaaaaaaa</h1>
-                <h1>Holaaaaaaa</h1>
-                <h1>Holaaaaaaa</h1>
-                <h1>Holaaaaaaa</h1>
-                <h1>Holaaaaaaa</h1>
-                <h1>Holaaaaaaa</h1>
-                <h1>Holaaaaaaa</h1>
-                <h1>Holaaaaaaa</h1>
-                <h1>Holaaaaaaa</h1>
-                <h1>Holaaaaaaa</h1>
-                <h1>Holaaaaaaa</h1>
-                <h1>Holaaaaaaa</h1>
-                <h1>Holaaaaaaa</h1>
-                <h1>Holaaaaaaa</h1>
-                <h1>Holaaaaaaa</h1>
-                <h1>Holaaaaaaa</h1>
+                <b:alert severity="info" title="¡Bienvenido ${usuarioController.idUsuario}!" closable="true"><strong>Ha iniciado sesión correctamente. </strong> Haga su pedido, esperamos disfrute su comida, ¡Provecho! </b:alert>
                 
                  <!--Footer-->
                  <div id="pagina">

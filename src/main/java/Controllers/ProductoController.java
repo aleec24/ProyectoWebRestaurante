@@ -44,7 +44,7 @@ public class ProductoController extends Producto implements Serializable {
 	public String modifica(){
         
         if (ProductoGestion.actualiza(this)){
-            return "listProductos.xhtml";
+            return "listaProductos.xhtml";
         }else{
              FacesMessage mensaje = new FacesMessage(FacesMessage.SEVERITY_ERROR, 
             "Error", "Posible error en datos ingresados");
@@ -81,7 +81,7 @@ public class ProductoController extends Producto implements Serializable {
 	public String elimina(int codigo){
         
         if (ProductoGestion.eliminar(codigo)){
-            return "listProductos.xhtml";
+            return "listaProductos.xhtml";
         }else{
              FacesMessage mensaje = new FacesMessage(FacesMessage.SEVERITY_ERROR, 
             "Error", "Posible que el codigo no exista");

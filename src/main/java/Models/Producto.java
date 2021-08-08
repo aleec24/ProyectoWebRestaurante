@@ -20,6 +20,7 @@ public class Producto {
 	private  int codigo;
 	private  int precio;
 	private  int stock;
+	private  int cod;
 	
 	//************
 	// String
@@ -128,6 +129,14 @@ public class Producto {
 
 	public void setNombreImagen(String nombreImagen) {
 		this.nombreImagen = nombreImagen;
+	}
+
+	public int getCod() {
+		return cod;
+	}
+
+	public void setCod(int cod) {
+		this.cod = cod;
 	}
 	
 	

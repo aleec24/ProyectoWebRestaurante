@@ -10,7 +10,7 @@ import java.util.logging.Logger;
 public class Conexion {
 
     private static Conexion conexion;
-    private static final String DBURL = "jdbc:mysql://localhost:3306/deweb";
+    private static final String DBURL = "jdbc:mysql://localhost:3306/deweb?serverTimeZone=UTC";
     private static Connection conn = null;
 
     //-----------
@@ -19,7 +19,7 @@ public class Conexion {
 
         try {
             Class.forName("com.mysql.cj.jdbc.Driver").getDeclaredConstructor().newInstance();
-            conn = DriverManager.getConnection(DBURL, "root", "America.9"); // Cambiar por usuario conexion de cada uno. NO COMMITEAR ESTE CAMBIO.
+            conn = DriverManager.getConnection(DBURL, "root", "admin"); // Cambiar por usuario conexion de cada uno. NO COMMITEAR ESTE CAMBIO.
             System.out.println("Conexion correcta");
         } catch (SQLException | SecurityException | IllegalArgumentException e) {
             Logger.getLogger(Conexion.class.getName()).log(Level.SEVERE, null, e);

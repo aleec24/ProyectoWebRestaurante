@@ -1,0 +1,164 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:b="http://bootsfaces.net/ui">
+
+    <h:head>
+        <title>Envios</title>
+        
+    </h:head>
+
+    <h:body id="body">
+        <ui:composition template="../resources/plantilla/plantilla_sesion_activa.xhtml" >
+
+            <ui:define name="content">
+                <div  style="width: 100%">
+                    <section style="width: 100%">
+
+
+                        <article id="article__Main">
+
+                            <h:form style="width: 90%">
+                                <aside id="aside__Main">
+                                    <div >
+                                        <ul >
+                                            <li  role="presentation" id="aside_Main_header">Opciones de Productos</li>
+                                            
+                                            <li   style="cursor:pointer;" id="aside_Main_li" >
+                                                <b:commandLink 
+                                                    tabindex="0"
+                                                    onclick="ajax:menuController.setCodigoProducto(100)"
+                                                    update="@form">
+                                                    Hamburguesas
+                                                </b:commandLink>
+                                            </li>
+                                            <li  style="cursor:pointer;" id="aside_Main_li">
+                                                <b:commandLink 
+                                                    tabindex="0"
+                                                    onclick="ajax:menuController.setCodigoProducto(200)"
+                                                    update="@form">
+                                                    Pizza
+                                                </b:commandLink>
+                                            </li>
+                                            <li style="cursor:pointer;" id="aside_Main_li">
+                                                <b:commandLink 
+                                                    tabindex="0"
+                                                    onclick="ajax:menuController.setCodigoProducto(300)"
+                                                    update="@form">
+                                                    Postres
+                                                </b:commandLink>
+                                            </li>
+                                            <li  style="cursor:pointer;" id="aside_Main_li">
+                                                <b:commandLink 
+                                                    tabindex="0"
+                                                    onclick="ajax:menuController.setCodigoProducto(400)"
+                                                    update="@form">
+                                                    Menu Niños
+                                                </b:commandLink>
+                                            </li>
+                                            <li   style="cursor:pointer;" id="aside_Main_li">
+                                                <b:commandLink 
+                                                    tabindex="0"
+                                                    icon-awesome="fa-coffee" 
+                                                    icon-spin="true" 
+                                                    onclick="ajax:menuController.setCodigoProducto(400)"
+                                                    update="@form">
+                                                    Cóctel
+                                                </b:commandLink>
+                                            </li>
+                                            <li   style="cursor:pointer;" id="aside_Main_li">
+                                                <b:commandLink 
+                                                    tabindex="0"
+                                                    icon-awesome="fa-glass" 
+                                                    icon-spin="true"
+                                                    onclick="ajax:menuController.setCodigoProducto(500)"
+                                                    update="@form">
+                                                    Cervezas
+                                                </b:commandLink>
+                                            </li>
+                                            <li   style="cursor:pointer;" id="aside_Main_li">
+                                                <b:commandLink 
+                                                    tabindex="0"
+                                                    icon-awesome="fa-beer" 
+                                                    icon-spin="true"
+                                                    onclick="ajax:menuController.setCodigoProducto(600)"
+                                                    update="@form">
+                                                    Café y Chocolate
+                                                </b:commandLink>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </aside>   
+
+
+                                <b:dataTable value="#{productoController.getProductosCodigo(menuController.codigoProducto)}"
+                                             var="producto"
+                                             page-length="5"
+                                             page-length-menu="5,10">  
+                                    <b:dataTableColumn value=""
+                                                       width="30%"
+                                                       label="Categoria">
+
+                                        <b:image library="image" name="#{producto.nombreImagen}.png" width="50%" height="30%" style="margin-left: 25%"/>
+                                        <b:column >
+                                            <b:row>
+                                                <label for="id" style="text-align:center" >#{menuController.codigoProducto}</label>
+                                                <label for="id" style="text-align:center" >Nombre:</label>
+                                                <label for="id" style="text-align:center">#{producto.nombre}</label>
+                                            </b:row>
+                                            <b:row>
+                                                <label for="id" style="text-align:center">Precio:</label>
+                                                <label for="id" style="text-align:center">#{producto.precio}</label>
+                                            </b:row>
+                                        </b:column>
+                                    </b:dataTableColumn>
+                                    <b:dataTableColumn value=""
+                                                       width="50%" 
+                                                       label="Descripcion">
+                                        <b:row >
+                                            <b:column col-md="6" style="width: 100%">
+                                                <row>
+                                                    <label for="id" style="text-align:left">Descripcion:</label>
+                                                </row>
+                                                <row>
+                                                    <label for="id" style="text-align:center">#{producto.descripcion}</label>
+                                                </row>
+
+                                            </b:column>
+                                        </b:row>
+                                        <b:row >
+                                            <b:column col-md="6">
+                                                <label for="id" style="text-align:left">Cantidad</label>
+                                                <b:inputText tooltip="Agregar la cantidad a solicitar"/>
+                                            </b:column>
+                                        </b:row>
+                                        <b:row>
+                                            <b:column col-md="6">
+                                                <b:commandButton value="Agregar a carrito"/>
+                                            </b:column>
+                                        </b:row>
+                                        <b:row>
+                                            <b:column col-md="6">
+                                                <b:commandButton value="Comprar" />
+                                            </b:column>
+                                        </b:row>
+                                    </b:dataTableColumn>
+                                </b:dataTable>
+                            </h:form>
+                        </article>
+
+                    </section>
+
+                    <aside id="sidebar__Right">
+                        <div >
+                            <label for="id" id="sidebar_Right_Header">Carrito de Compras</label>
+                        </div>
+                    </aside>
+                </div>
+            </ui:define>
+        </ui:composition>
+    </h:body>
+</html>
+

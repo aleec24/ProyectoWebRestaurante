@@ -77,6 +77,41 @@ public class ProductoGestion {
         return lista;     
     }
 	
+	// Declaración de Query y método para consultar la lista de estudiantes en base de datos
+    
+    private static final String SQL_SELECT_PRODUCTOSCODIGO="Select * from producto where codigo>=? and codigo<?+100";
+    //private static final String SQL_SELECT_ESTUDIANTES="Select * from estudiante Limit 0,200";
+    
+    public static ArrayList<Producto> getProductosCodigo(int codigo){
+        
+        ArrayList<Producto> lista= new ArrayList<>();
+        
+        try {
+            
+            PreparedStatement consulta= Conexion.getConexion().prepareStatement(SQL_SELECT_PRODUCTOSCODIGO);
+			consulta.setInt(1, codigo);
+			consulta.setInt(2, codigo);
+			ResultSet rs= consulta.executeQuery();
+            while (rs!=null && rs.next()){
+                lista.add(new Producto(rs.getInt(2),rs.getString(3),rs.getInt(4),rs.getString(5),rs.getString(6),rs.getString(8)));           
+            }
+
+        } catch (SQLException ex) {
+            Logger.getLogger(ProductoGestion.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (NoSuchMethodException ex) {    
+			Logger.getLogger(ProductoGestion.class.getName()).log(Level.SEVERE, null, ex);
+		} catch (InstantiationException ex) {
+			Logger.getLogger(ProductoGestion.class.getName()).log(Level.SEVERE, null, ex);
+		} catch (IllegalAccessException ex) {
+			Logger.getLogger(ProductoGestion.class.getName()).log(Level.SEVERE, null, ex);
+		} catch (InvocationTargetException ex) {
+			Logger.getLogger(ProductoGestion.class.getName()).log(Level.SEVERE, null, ex);
+		} catch (ClassNotFoundException ex) {
+			Logger.getLogger(ProductoGestion.class.getName()).log(Level.SEVERE, null, ex);
+		}
+        return lista;     
+    }
+	
 	private static final String SQL_UPDATE_PRODUCTO= "update producto set nombre=?,precio=?,estado=?,descripcion=?,nombreImagen=? where codigo=?";
     public static boolean actualiza (Producto producto){
         try {

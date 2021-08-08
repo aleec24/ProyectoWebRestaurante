@@ -97,4 +97,10 @@ public class ProductoController extends Producto implements Serializable {
         return ProductoGestion.getProductos();
         
     }
+	
+	public List<Producto> getProductosCodigo(int codigo){
+        
+        return ProductoGestion.getProductosCodigo(codigo);
+        
+    }
 }

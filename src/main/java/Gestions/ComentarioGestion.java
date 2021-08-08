@@ -77,7 +77,6 @@ public class ComentarioGestion {
 	
 	private static final String SQL_UPDATE_COMENTARIO= "update comentarios set nombre=?,telefono=?,"
             + "correo=?,comentario=? where nombre=?";
-    
     public static boolean actualiza (Comentario comentario){
         
         

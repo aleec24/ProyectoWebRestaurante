@@ -8,6 +8,7 @@
 
     <h:head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
         <link href="../../cssMenu.css" rel="stylesheet" type="text/css"/>
         
         <title>Restaurante</title>
@@ -15,7 +16,6 @@
         <style>
             .main_content {
                 margin-top: 180px;
-                width: 100%;
             }
         </style>
     </h:head>
@@ -26,7 +26,7 @@
             <b:image library="image" name="LogoLetrasBlancas.png" height="150px"/>
             <!-- Following line is needed for TBS 3.0.1 (panel content overflow issue) -->
             <b:navbarLinks pull="right" styleClass="hidden-xs" >
-                <b:navLink value="Gestión de Productos" href="/Sistema-1/faces/envios/seleccionProductos.xhtml" onclick="PF('sidebar').show()"/>
+                <b:navLink value="Gestión de Productos" href="../faces/Productos/listaProductos.xhtml" onclick="PF('sidebar').show()"/>
                 <b:navLink value="Gestión de Usuarios" href="" onclick="PF('sidebar').show()"/>
                 <b:navLink value="Reportes" href="" onclick="PF('sidebar').show()"/>
                 <b:iconAwesome name="cog" spin="true" size="3x" />
@@ -43,7 +43,7 @@
 
 
 
-        <div id="content" class="main_content" >
+        <div id="content" class="main_content">
             <ui:insert name="content">Content</ui:insert>
         </div>
 

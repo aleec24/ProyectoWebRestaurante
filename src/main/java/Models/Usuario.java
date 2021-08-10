@@ -2,30 +2,31 @@ package Models;
 
 public class Usuario {
 
-    private String idUsuario;
+    private String id;
     private String pwUsuario;
     private String nombreUsuario;
     private String idRol;
+	private String nombre;
 
     //-----------
     //Constructor
     public Usuario() {
     }
 
-    public Usuario(String idUsuario, String nombreUsuario, String idRol) {
-        this.idUsuario = idUsuario;
-        this.nombreUsuario = nombreUsuario;
+    public Usuario(String id, String nombre, String idRol) {
+        this.id = id;
+        this.nombre = nombre;
         this.idRol = idRol;
     }
 
     //-----------
     //Getters and Setters
     public String getIdUsuario() {
-        return idUsuario;
+        return id;
     }
 
     public void setIdUsuario(String idUsuario) {
-        this.idUsuario = idUsuario;
+        this.id = id;
     }
 
     public String getNombreUsuario() {
@@ -52,4 +53,21 @@ public class Usuario {
         this.pwUsuario = pwUsuario;
     }
 
+	public String getId() {
+		return id;
+	}
+
+	public void setId(String id) {
+		this.id = id;
+	}
+
+	public String getNombre() {
+		return nombre;
+	}
+
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+
+	
 }

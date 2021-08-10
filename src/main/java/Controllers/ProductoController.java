@@ -1,9 +1,7 @@
 
 package Controllers;
 
-import Gestions.ComentarioGestion;
 import Gestions.ProductoGestion;
-import Models.Comentario;
 import Models.Producto;
 import javax.inject.Named;
 import javax.enterprise.context.SessionScoped;

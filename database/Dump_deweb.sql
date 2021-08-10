@@ -18,6 +18,59 @@ USE `deweb`;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
+-- Table structure for table `carrito`
+--
+
+DROP TABLE IF EXISTS `carrito`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `carrito` (
+  `idCarrito` int NOT NULL AUTO_INCREMENT,
+  `idUsuario` int NOT NULL,
+  `estadoCarrito` varchar(20) NOT NULL,
+  `carritoActivo` tinyint NOT NULL,
+  PRIMARY KEY (`idCarrito`),
+  KEY `id_usuario_carrito_fk_idx` (`idUsuario`),
+  CONSTRAINT `id_usuario_carrito_fk` FOREIGN KEY (`idUsuario`) REFERENCES `usuario` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `carrito`
+--
+
+LOCK TABLES `carrito` WRITE;
+/*!40000 ALTER TABLE `carrito` DISABLE KEYS */;
+INSERT INTO `carrito` VALUES (1,1,'vacio',1);
+/*!40000 ALTER TABLE `carrito` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `carrito_producto`
+--
+
+DROP TABLE IF EXISTS `carrito_producto`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `carrito_producto` (
+  `idCarrito` int NOT NULL,
+  `idProducto` int NOT NULL,
+  `estadoCompra` varchar(20) NOT NULL,
+  `cantidad` int NOT NULL,
+  PRIMARY KEY (`idCarrito`,`idProducto`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `carrito_producto`
+--
+
+LOCK TABLES `carrito_producto` WRITE;
+/*!40000 ALTER TABLE `carrito_producto` DISABLE KEYS */;
+/*!40000 ALTER TABLE `carrito_producto` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `cliente`
 --
 
@@ -68,7 +121,7 @@ CREATE TABLE `comentarios` (
 
 LOCK TABLES `comentarios` WRITE;
 /*!40000 ALTER TABLE `comentarios` DISABLE KEYS */;
-INSERT INTO `comentarios` VALUES (2,'Bryan','605205','bsanabriaj@hotmail.com','Muy buena comida'),(3,'Emily','6058','emy@hotmail.com','Exelente Lugar'),(4,'Yirlani','2344','yir@hotmail.com','Excelente');
+INSERT INTO `comentarios` VALUES (2,'Bryan','605205','bsanabriaj@hotmail.com','Muy buena '),(3,'Emily','6058','emy@hotmail.com','Exelente Lugar'),(4,'Yirlani','2344','yir@hotmail.com','Excelente');
 /*!40000 ALTER TABLE `comentarios` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -179,9 +232,9 @@ CREATE TABLE `producto` (
   `estado` varchar(50) NOT NULL,
   `descripcion` varchar(250) NOT NULL,
   `stock` int DEFAULT NULL,
+  `nombreImagen` varchar(50) NOT NULL,
   PRIMARY KEY (`idProducto`),
-  UNIQUE KEY `codigo_UNIQUE` (`codigo`),
-  UNIQUE KEY `nombre_UNIQUE` (`nombre`)
+  UNIQUE KEY `codigo_UNIQUE` (`codigo`)
 ) ENGINE=InnoDB AUTO_INCREMENT=42 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -191,7 +244,7 @@ CREATE TABLE `producto` (
 
 LOCK TABLES `producto` WRITE;
 /*!40000 ALTER TABLE `producto` DISABLE KEYS */;
-INSERT INTO `producto` VALUES (4,'100','Philadelphia',4500.00,'Disponible','Carne 150 gr, cebolla caramelizada, queso americano, tocineta en trocitos, queso philadelphia, salsa BBQ Jack Daniel',NULL),(5,'101','Deluxe',5500.00,'Disponible','Carne 150 gr, trozos de chicharrón, tocineta, queso americano, salsa de la casa, tomate',NULL),(6,'102','Rústica',4000.00,'Disponible','Carne 150 gr, cerdo desmechado con salsa barbacoa, queso americano, BBQ Jack Daniel`s, lechuga y salsa de rústica',NULL),(7,'103','Chicago',5000.00,'Disponible','Carne 150 gr, salsa de queso cheddar, tocineta, pepinillos, cebolla caramelizada y lechuga.',NULL),(8,'104','Rellena',6500.00,'Disponible','Carne 300 gr, rellena de doble queso mozzarella y tocineta, lechuga, tomate, salsa de la casa.',NULL),(9,'105','Doble',7000.00,'Disponible','2 carnes de 150 gr c/u, doble queso americano, lechuga, tomate, salsa de la casa.',NULL),(10,'106','Vegetariana',4500.00,'Disponible','Hamburguesa de lenteja o garbanzo, cebolla caramelizada, totopos triturados, doble queso mozzarella, lechuga, tomate.',NULL),(11,'200','Pizza Maisha',8000.00,'Disponible','Bacon, aceitunas negras, champiñón, cebolla (Mediana)',NULL),(12,'201','Pizza Mediterránea ',8500.00,'Disponible','Jamón york, champiñón, gulas (Mediana)',NULL),(13,'202','Pizza tierra y mar',8500.00,'Disponible','Jamón, pimiento, gulas, pollo (Mediana)',NULL),(14,'203','Pizza Vegetal',8000.00,'Disponible','Maiz, Pimientos frescos,Cebolla,Espinaca (Mediana)',NULL),(15,'300','CRUMBLE DE FRUTAS DE TEMPORADA',5000.00,'Disponible','Fruta de temporada / helado de vainilla / fruta caramelizada /\nchips de fruta / crumble clásico / curd de limón con chocolate\nblanco\n',NULL),(16,'301','PASTEL GOLOSO DE CHOCOLATE GLUTEN FREE\n',5000.00,'Disponible','Helado de crema ácida / crumble de almendras ',NULL),(17,'303','CHURROS',3500.00,'Disponible','Tradicionales churros rellenos / buñuelos / chocolate\ncaliente',NULL),(18,'304','CHEESE CAKE DE DULCE DE LECHE',5000.00,'Disponible','Plátano macho / salsa capuchino con tequila / helado\nde banana split ',NULL),(19,'400','CAFÉ MEXICANO',4000.00,'Disponible','tequila / kahlua / café expresso / crema batida con\nesencia de canela',NULL),(20,'401','EXPRESSO MARTINI',4500.00,'Disponible','vodka absolut vainilla / kahlua / café expresso',NULL),(22,'402','MARTINI DE PAY DE LIMÓN',4500.00,'Disponible','vodka infusionado con vainilla / crema de coco /\nlimón amarillo',NULL),(23,'403','MARTINI DE CHOCOLATE',4500.00,'Disponible','vodka naranja / licor de café / cerveza stouth',NULL),(24,'501','DAVID`S ALE - LIGHT SCOTCH ALE',2300.00,'Disponible','6,5% Alc. Una cerveza para dar rienda suelta a los sentidos. Aromas a caramelo y Toffe, característica que se transfiere a\nun dulzor en el gusto, con trazas a pasas y nueces. Muy poco lupulada, y por lo tanto, nada amarga.',NULL),(25,'500','BABELIN - Hefeweizen clásica',2000.00,'Disponible','5% Alc. Color narnja pálido, turbio natural. En boca refrescante. Aromas a fruta madura y clavo.',NULL),(26,'502','IMPERIAL IPA',2500.00,'Disponible','7% Alc. El aroma hecho placer. Cuando se prueba, deja a su paso un intenso sabor amargo que permanece arropado por\nnotas de maracuyá, mango y uvas. ¡Todo un reto! ',NULL),(27,'503','BARLEY WINE',2500.00,'Disponible','9% Alc. Su color es ambar oscuro, sus aromas son maltosos con toques a fruta muy madura y un sabor dulce con trozos\nde frutos secos',NULL),(28,'504','RUBIA - BLONDE ALE',3000.00,'Disponible','4,5% Alc. Muy ligera y refrescante, con cierto aroma a lúpulos florales y un ligero retrogusto a cítricos. Se elabora con\ndiferentes variedades de lúpulos. ',NULL),(29,'600','Chocolate',1500.00,'Disponible','Caliente y espumoso',NULL),(30,'601','Café Helado',1500.00,'Disponible','Frío',NULL),(31,'602','Café Tinto',1500.00,'Disponible','Caliente',NULL),(32,'603','Café Mocha Blanco',1500.00,'Disponible','Caliente',NULL),(33,'604','Café Mocha',1500.00,'Disponible','Caliente',NULL),(34,'605','Caramel Macchiato',1500.00,'Disponible','Caliente',NULL),(35,'606','Vainilla Latte',1500.00,'Disponible','Caliente',NULL),(36,'607','Café Latte',1500.00,'Disponible','Caliente',NULL),(37,'608','Cappuccino',1500.00,'Disponible','Caliente',NULL),(38,'609','Espresso Americano',1500.00,'Disponible','Caliente',NULL),(39,'610','Espresso Panna',1500.00,'Disponible','Caliente',NULL),(40,'611','Espresso Macchiato',1500.00,'Disponible','Caliente',NULL),(41,'612','Espresso',1500.00,'Disponible','Caliente',NULL);
+INSERT INTO `producto` VALUES (4,'100','Philadelphia',4500.00,'Disponible','Carne 150 gr, cebolla caramelizada, queso americano, tocineta en trocitos, queso philadelphia, salsa BBQ Jack Daniel',NULL,'hamburguesaPhila'),(5,'101','Deluxe',5500.00,'Disponible','Carne 150 gr, trozos de chicharrón, tocineta, queso americano, salsa de la casa, tomate',NULL,'hamburguesaDelu'),(6,'102','Rústica',4000.00,'Disponible','Carne 150 gr, cerdo desmechado con salsa barbacoa, queso americano, BBQ Jack Daniel`s, lechuga y salsa de rústica',NULL,'hamburguesaRusti'),(7,'103','Chicago',5000.00,'Disponible','Carne 150 gr, salsa de queso cheddar, tocineta, pepinillos, cebolla caramelizada y lechuga.',NULL,'hamburguesaChica'),(8,'104','Rellena',6500.00,'Disponible','Carne 300 gr, rellena de doble queso mozzarella y tocineta, lechuga, tomate, salsa de la casa.',NULL,'hamburguesaRelle'),(9,'105','Doble',7000.00,'Disponible','2 carnes de 150 gr c/u, doble queso americano, lechuga, tomate, salsa de la casa.',NULL,'hamburguesaDoble'),(10,'106','Vegetariana',4500.00,'Disponible','Hamburguesa de lenteja o garbanzo, cebolla caramelizada, totopos triturados, doble queso mozzarella, lechuga, tomate.',NULL,'hamburguesaVege'),(11,'200','Pizza Maisha',8000.00,'Disponible','Bacon, aceitunas negras, champiñón, cebolla (Mediana)',NULL,'pizzaMais'),(12,'201','Pizza Mediterránea ',8500.00,'Disponible','Jamón york, champiñón, gulas (Mediana)',NULL,'pizzaMedi'),(13,'202','Pizza tierra y mar',8500.00,'Disponible','Jamón, pimiento, gulas, pollo (Mediana)',NULL,'pizzaTiMa'),(14,'203','Pizza Vegetal',8000.00,'Disponible','Maiz, Pimientos frescos,Cebolla,Espinaca (Mediana)',NULL,'pizzaVege'),(15,'300','CRUMBLE DE FRUTAS DE TEMPORADA',5000.00,'Disponible','Fruta de temporada / helado de vainilla / fruta caramelizada /\nchips de fruta / crumble clásico / curd de limón con chocolate\nblanco\n',NULL,''),(16,'301','PASTEL GOLOSO DE CHOCOLATE GLUTEN FREE\n',5000.00,'Disponible','Helado de crema ácida / crumble de almendras ',NULL,''),(17,'303','CHURROS',3500.00,'Disponible','Tradicionales churros rellenos / buñuelos / chocolate\ncaliente',NULL,''),(18,'304','CHEESE CAKE DE DULCE DE LECHE',5000.00,'Disponible','Plátano macho / salsa capuchino con tequila / helado\nde banana split ',NULL,''),(19,'400','CAFÉ MEXICANO',4000.00,'Disponible','tequila / kahlua / café expresso / crema batida con\nesencia de canela',NULL,''),(20,'401','EXPRESSO MARTINI',4500.00,'Disponible','vodka absolut vainilla / kahlua / café expresso',NULL,''),(22,'402','MARTINI DE PAY DE LIMÓN',4500.00,'Disponible','vodka infusionado con vainilla / crema de coco /\nlimón amarillo',NULL,''),(23,'403','MARTINI DE CHOCOLATE',4500.00,'Disponible','vodka naranja / licor de café / cerveza stouth',NULL,''),(24,'501','DAVID`S ALE - LIGHT SCOTCH ALE',2300.00,'Disponible','6,5% Alc. Una cerveza para dar rienda suelta a los sentidos. Aromas a caramelo y Toffe, característica que se transfiere a\nun dulzor en el gusto, con trazas a pasas y nueces. Muy poco lupulada, y por lo tanto, nada amarga.',NULL,''),(25,'500','BABELIN - Hefeweizen clásica',2000.00,'Disponible','5% Alc. Color narnja pálido, turbio natural. En boca refrescante. Aromas a fruta madura y clavo.',NULL,''),(26,'502','IMPERIAL IPA',2500.00,'Disponible','7% Alc. El aroma hecho placer. Cuando se prueba, deja a su paso un intenso sabor amargo que permanece arropado por\nnotas de maracuyá, mango y uvas. ¡Todo un reto! ',NULL,''),(27,'503','BARLEY WINE',2500.00,'Disponible','9% Alc. Su color es ambar oscuro, sus aromas son maltosos con toques a fruta muy madura y un sabor dulce con trozos\nde frutos secos',NULL,''),(28,'504','RUBIA - BLONDE ALE',3000.00,'Disponible','4,5% Alc. Muy ligera y refrescante, con cierto aroma a lúpulos florales y un ligero retrogusto a cítricos. Se elabora con\ndiferentes variedades de lúpulos. ',NULL,''),(29,'600','Chocolate',1500.00,'Disponible','Caliente y espumoso',NULL,''),(30,'601','Café Helado',1500.00,'Disponible','Frío',NULL,''),(31,'602','Café Tinto',1500.00,'Disponible','Caliente',NULL,''),(32,'603','Café Mocha Blanco',1500.00,'Disponible','Caliente',NULL,''),(33,'604','Café Mocha',1500.00,'Disponible','Caliente',NULL,''),(34,'605','Caramel Macchiato',1500.00,'Disponible','Caliente',NULL,''),(35,'606','Vainilla Latte',1500.00,'Disponible','Caliente',NULL,''),(36,'607','Café Latte',1500.00,'Disponible','Caliente',NULL,''),(37,'608','Cappuccino',1500.00,'Disponible','Caliente',NULL,''),(38,'609','Espresso Americano',1500.00,'Disponible','Caliente',NULL,''),(39,'610','Espresso Panna',1500.00,'Disponible','Caliente',NULL,''),(40,'611','Espresso Macchiato',1500.00,'Disponible','Caliente',NULL,''),(41,'612','Espresso',1500.00,'Disponible','Caliente',NULL,'');
 /*!40000 ALTER TABLE `producto` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -212,7 +265,8 @@ CREATE TABLE `usuario` (
   `nombreUsuario` varchar(50) NOT NULL,
   `claveUsuario` longtext NOT NULL,
   `estado` tinyint(1) NOT NULL,
-  PRIMARY KEY (`id`)
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `nombreUsuario_UNIQUE` (`nombreUsuario`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -268,4 +322,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-07-05 20:02:40
+-- Dump completed on 2021-08-10 14:37:24

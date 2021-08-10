@@ -104,7 +104,6 @@
                                         <b:image library="image" name="#{producto.nombreImagen}.png" width="50%" height="30%" style="margin-left: 25%"/>
                                         <b:column >
                                             <b:row>
-                                                <label for="id" style="text-align:center" >#{menuController.codigoProducto}</label>
                                                 <label for="id" style="text-align:center" >Nombre:</label>
                                                 <label for="id" style="text-align:center">#{producto.nombre}</label>
                                             </b:row>
@@ -131,12 +130,16 @@
                                         <b:row >
                                             <b:column col-md="6">
                                                 <label for="id" style="text-align:left">Cantidad</label>
-                                                <b:inputText tooltip="Agregar la cantidad a solicitar"/>
+                                                <b:inputText tooltip="Agregar la cantidad a solicitar" 
+                                                             id="cantidad"
+                                                             value="#{carritoController.cantidadProducto}"/>
                                             </b:column>
                                         </b:row>
                                         <b:row>
                                             <b:column col-md="6">
-                                                <b:commandButton value="Agregar a carrito"/>
+                                                <b:commandButton 
+                                                    value="Agregar a carrito"
+                                                    action="#{carritoController.agregarACarrito(carritoController.obtenerIdCarrito(usuarioController.idUsuario), producto.codigo,carritoController.cantidadProducto)}"/>
                                             </b:column>
                                         </b:row>
                                         <b:row>

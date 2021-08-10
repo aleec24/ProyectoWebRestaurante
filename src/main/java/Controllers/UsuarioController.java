@@ -30,13 +30,17 @@ public class UsuarioController extends Usuario implements Serializable {
     public String valida() throws NoSuchMethodException, InstantiationException, IllegalAccessException, IllegalAccessException, IllegalAccessException, IllegalAccessException, IllegalAccessException, IllegalAccessException, IllegalAccessException, IllegalAccessException, IllegalAccessException, InvocationTargetException {
         Usuario usuario;
         String ret = "";
+		int idUsuario = 0;
         try {
-            usuario = UsuarioGestion.Valida(this.getIdUsuario(), this.getPwUsuario());
+            usuario = UsuarioGestion.Valida(this.getNombreUsuario(), this.getPwUsuario());
             if (usuario != null) {
-                this.setIdUsuario(usuario.getIdUsuario());
-                this.setNombreUsuario(usuario.getNombreUsuario());
-                this.setIdRol(usuario.getIdRol());
-                ret = "principal.xhtml";
+                CarritoController carritoController = new CarritoController();
+				carritoController.inserta(Integer.parseInt(usuario.getId())); // Solo si no hay un carrito asignado al usuario
+				carritoController = null;
+                this.setNombre(usuario.getNombre());
+				this.setIdRol(usuario.getIdRol());
+				this.setPwUsuario("");
+				ret = "principal.xhtml";
             } else {
                 // Mensaje Error
                 FacesMessage msg = new FacesMessage(FacesMessage.SEVERITY_ERROR, "Error", "Usuario y/o contraseña invalidas");

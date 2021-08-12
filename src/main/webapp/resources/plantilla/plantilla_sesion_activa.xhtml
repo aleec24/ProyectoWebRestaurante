@@ -21,14 +21,15 @@
     </h:head>
 
     <h:body>
-
+        
         <b:navBar fluid="true" inverse="true" position="top" sticky="true">
-            <b:image library="image" name="LogoLetrasBlancas.png" height="150px"/>
+            <b:image library="image" name="LogoLetrasBlancas.png" height="150px"/> 
             <!-- Following line is needed for TBS 3.0.1 (panel content overflow issue) -->
             <b:navbarLinks pull="right" styleClass="hidden-xs" >
                 <b:navLink value="Gestión de Productos" href="/Sistema-1/faces/envios/seleccionProductos.xhtml" onclick="PF('sidebar').show()"/>
                 <b:navLink value="Gestión de Usuarios" href="" onclick="PF('sidebar').show()"/>
                 <b:navLink value="Reportes" href="" onclick="PF('sidebar').show()"/>
+                <b:navLink value="Contáctenos" href="/Sistema-1/faces/comentarios/agregaComentario.xhtml" onclick="PF('sidebar').show()"/>
                 <b:iconAwesome name="cog" spin="true" size="3x" />
                 <b:dropMenu value="Perfil" iconAwesome="cog"  >
                     <b:navLink header="Nombre completo: ${usuarioController.nombre}"></b:navLink>                        

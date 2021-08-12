@@ -2,16 +2,16 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-      xmlns:b="http://bootsfaces.net/ui"
-      xmlns:h="http://xmlns.jcp.org/jsf/html">
-     
-     
-    <body>
-        <ui:composition template="./../resources/plantilla/plantilla.xhtml">
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:b="http://bootsfaces.net/ui">
 
-            <ui:define name="content">
+    <body>
+
+        <ui:composition template="./../resources/plantilla/plantilla_sesion_activa.xhtml">
+
+ <ui:define name="content">
                 <!--Archivo CSS del banner y footer responsive-->               
-                <link href="../CSS/bannerContactenos.css" rel="stylesheet" type="text/css"/>
+                <link href="../CSS/CenterResponsive.css" rel="stylesheet" type="text/css"/>
                 <link href="../CSS/Footer.css" rel="stylesheet" type="text/css"/>
                 
                  <img src="../imagenes/Banner.png" alt="banner" class="responsive" />
@@ -38,7 +38,7 @@
                 <h3 style="text-align: center;"><span style="text-decoration: underline;"><strong>Sus comentarios son importantes para nosotros:</strong></span></h3>
                 
                 <h:form id="agregaComentarioForm">
-                    <b:panel title="Nuevo Comentario" look="success" collapsible="false" >
+                    <b:panel title="agregaComentario" look="success" collapsible="false" >
                         <b:row tooltip="Agregue su nombre completo">
                             <b:column medium-screen="1">
                                 <h:outputLabel value="Nombre" for="nombre"/>
@@ -113,15 +113,19 @@
                
                 <!--<h4>(+506) 2229-98-75</h4>-->
                 
-                 
+
+                 <footer class="footer-main">
                 <!--Footer-->
-                 <div id="pagina">
-                  <div id="cabecera"></div>
-                  <div id="contenido"></div>
-                  <div id="pie">2021 &copy; Restaurante y Soda</div>
+                <div id="pagina">
+                    <div id="cabecera"></div>
+                    <div id="contenido"></div>
+                    <div id="pie">2021 &copy; Restaurante y Soda</div>
                 </div>
-                 
+                </footer>
+
             </ui:define>
         </ui:composition>
+
     </body>
+    
 </html>

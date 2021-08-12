@@ -23,6 +23,8 @@ public class Carrito {
 	private  String estadoCarrito;
 	private  String estadoCompra;
 	
+	
+
 	//-----------
 	//Constructor
 	
@@ -41,6 +43,8 @@ public class Carrito {
 		this.carritoActivo = carritoActivo;
 		this.estadoCarrito = estadoCarrito;
 	}
+
+
 	
 	
 
@@ -107,10 +111,5 @@ public class Carrito {
 	public void setCantidadProducto(int cantidadProducto) {
 		this.cantidadProducto = cantidadProducto;
 	}
-	
-	
-	
-	
-	
 	
 }

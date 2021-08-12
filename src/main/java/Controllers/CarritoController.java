@@ -20,6 +20,9 @@ public class CarritoController extends Carrito implements Serializable {
 	/****
 	 * Creates a new instance of UsuarioController
 	 */
+	
+	
+	
 	public CarritoController() {
          
     }
@@ -93,7 +96,6 @@ public class CarritoController extends Carrito implements Serializable {
 		return result=carrito.getIdCarrito();
     }
 	
-		
 	
 	
 	public List<Carrito> getCarritos(){
@@ -101,4 +103,8 @@ public class CarritoController extends Carrito implements Serializable {
         return CarritoGestion.getCarritos();
         
     }
+	
+	
+	
+	
 }

@@ -13,6 +13,7 @@ public class WebVarsController implements Serializable {
 
 	private int cantidad;
 	
+		
 	public WebVarsController() {
          
     }
@@ -24,7 +25,7 @@ public class WebVarsController implements Serializable {
 	public void setCantidad(int cantidad) {
 		this.cantidad = cantidad;
 	}
-	
+
 	
 	
 	

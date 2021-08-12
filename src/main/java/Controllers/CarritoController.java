@@ -45,15 +45,24 @@ public class CarritoController extends Carrito implements Serializable {
 	public boolean agregarACarrito(int idCarrito,int idProducto,int cantidad) {
 		boolean result;
 		int cantidadDB = CarritoGestion.getCantidadProducto(idCarrito, idProducto);
-		if (CarritoGestion.agregarProducto(idCarrito, idProducto, cantidad + cantidadDB)) {
-			result = true;
-		} else {
+		if (cantidadDB == 0) {
+			if (CarritoGestion.agregarProducto(idCarrito, idProducto, cantidad)) {
+				result = true;
+			} else {
 
-			FacesMessage mensaje = new FacesMessage(FacesMessage.SEVERITY_ERROR,
-					"Error", "Posible error en datos ingresados");
-			FacesContext.getCurrentInstance().addMessage("agregaCarritoForm:identificacion", mensaje);
-			result = false;
+				FacesMessage mensaje = new FacesMessage(FacesMessage.SEVERITY_ERROR,
+						"Error", "Posible error en datos ingresados");
+				FacesContext.getCurrentInstance().addMessage("agregaCarritoForm:identificacion", mensaje);
+				result = false;
+			}
+		} else {
+			if (CarritoGestion.actualizaCarritoCantidad(cantidad + cantidadDB, idCarrito, idProducto )) {
+				result = true;
+			} else {
+				result = false;
+			}
 		}
+		
 		return result;
 	}
 	

@@ -8,6 +8,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import Models.Conexion;
 import Models.Usuario;
+import java.util.ArrayList;
 
 public class UsuarioGestion {
 
@@ -36,19 +37,31 @@ public class UsuarioGestion {
 	
 	private static final String SQL_SELECT_OBTENERID = "SELECT id FROM usuario where nombreUsuario=?";
 
-    public static int obtenerId(String nombreUsuario) throws NoSuchMethodException, InstantiationException, IllegalAccessException, InvocationTargetException, ClassNotFoundException {
-        int idUsuario = 0;
+    public static ArrayList<Usuario> obtenerId(String nombreUsuario) throws NoSuchMethodException, InstantiationException, IllegalAccessException, InvocationTargetException, ClassNotFoundException {
+        
+		ArrayList<Usuario> lista= new ArrayList<>();
+        boolean usuarioEncontrado = false;
+		int idUsuario = 0;
         try {
             PreparedStatement sentencia = Conexion.getConexion().prepareStatement(SQL_SELECT_OBTENERID);
             sentencia.setString(1, nombreUsuario);
             ResultSet rs = sentencia.executeQuery();
 
-            idUsuario = Integer.parseInt( rs.getString(1));
-
+			while (rs!=null && rs.next()){
+                lista.add(new Usuario(rs.getString(1)));         
+				usuarioEncontrado = true;
+            }
+			
         } catch (SQLException ex) {
             Logger.getLogger(UsuarioGestion.class.getName()).log(Level.SEVERE, null, ex);
         }
-        return idUsuario;
+		
+		if (!usuarioEncontrado) {
+			Usuario usuario = new Usuario("0");
+			lista.add(usuario);
+		}
+		
+        return lista;
     }
 	
 }

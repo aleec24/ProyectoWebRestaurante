@@ -21,6 +21,7 @@ public class Producto {
 	private  int precio;
 	private  int stock;
 	private  int cod;
+	private  int cantidad;
 	
 	//************
 	// String
@@ -56,6 +57,16 @@ public class Producto {
 		this.nombreImagen = nombreImagen;
 	}
 
+	public Producto(int idProducto, int codigo,String nombre ,int precio , String estado, String descripcion,String nombreImagen) {
+		this.idProducto = idProducto;
+		this.codigo = codigo;
+		this.precio = precio;
+		this.nombre = nombre;
+		this.estado = estado;
+		this.descripcion = descripcion;
+		this.nombreImagen = nombreImagen;
+	}
+	
 	public Producto(int codigo,String nombre ,int precio , String estado, String descripcion) {
 		this.codigo = codigo;
 		this.precio = precio;
@@ -137,6 +148,14 @@ public class Producto {
 
 	public void setCod(int cod) {
 		this.cod = cod;
+	}
+
+	public int getCantidad() {
+		return cantidad;
+	}
+
+	public void setCantidad(int cantidad) {
+		this.cantidad = cantidad;
 	}
 	
 	

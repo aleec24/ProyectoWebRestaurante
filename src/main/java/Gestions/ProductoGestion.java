@@ -93,7 +93,7 @@ public class ProductoGestion {
 			consulta.setInt(2, codigo);
 			ResultSet rs= consulta.executeQuery();
             while (rs!=null && rs.next()){
-                lista.add(new Producto(rs.getInt(2),rs.getString(3),rs.getInt(4),rs.getString(5),rs.getString(6),rs.getString(8)));           
+                lista.add(new Producto(rs.getInt(1),rs.getInt(2),rs.getString(3),rs.getInt(4),rs.getString(5),rs.getString(6),rs.getString(8)));           
             }
 
         } catch (SQLException ex) {
@@ -159,6 +159,7 @@ public class ProductoGestion {
             //Si encontró alguna coincidencia
             if (datos.next()){
                 producto= new Producto(
+				datos.getInt(1),//id
                 datos.getInt(2),//codigo
                 datos.getString(3),//nombre
                 datos.getInt(4),//precio

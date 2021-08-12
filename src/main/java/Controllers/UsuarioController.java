@@ -15,6 +15,7 @@ import java.util.logging.Logger;
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
 import Models.Usuario;
+import java.util.ArrayList;
 
 @Named(value = "usuarioController")
 @SessionScoped
@@ -58,6 +59,17 @@ public class UsuarioController extends Usuario implements Serializable {
         return ret;
     }
     
+	public int obtenerID(String nombreUsuario) throws NoSuchMethodException, InstantiationException, IllegalAccessException, InvocationTargetException, ClassNotFoundException{
+	
+		int result;
+        ArrayList<Usuario> lista = UsuarioGestion.obtenerId(nombreUsuario);
+		Usuario usuario = lista.get(0);
+		
+		return result = Integer.parseInt(usuario.getId());
+		
+}
+	
+	
     public String getPlantilla() {
         if(!this.getIdUsuario().equals("")) {
             return "./resources/plantilla/plantilla.xhtml";

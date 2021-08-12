@@ -223,15 +223,33 @@ public class CarritoGestion {
     
     public static int getCantidadProducto(int idCarrito, int idProducto){
         
-        int cantidad = 0;
-        
+       int cantidad = 0;
+		ArrayList<String> lista = new ArrayList<>();
+		boolean carritoEncontrado = false;
+			
         try {
             
-            PreparedStatement consulta= Conexion.getConexion().prepareStatement(SQL_SELECT_CANTIDADPRODUCTO);
+			PreparedStatement consulta= Conexion.getConexion().prepareStatement(SQL_SELECT_CANTIDADPRODUCTO);
 			consulta.setInt(1, idCarrito);
 			consulta.setInt(2, idProducto);
 			ResultSet rs= consulta.executeQuery();
-            cantidad = rs.getInt(1); 
+            //cantidad = rs.getInt(1); 
+			System.out.println(rs);
+			if (rs != null) {
+				while (rs != null && rs.next()) {
+					lista.add(String.valueOf(rs.getInt(1)));
+					carritoEncontrado = true;
+				}
+				
+				if (!lista.isEmpty()) {
+					cantidad = Integer.parseInt(lista.get(0));
+				} else {
+					cantidad = 0;
+				}
+				
+			} else {
+				cantidad = 0;
+			}
 			
 		} catch (SQLException ex) {
             Logger.getLogger(CarritoGestion.class.getName()).log(Level.SEVERE, null, ex);
@@ -297,6 +315,41 @@ public class CarritoGestion {
             PreparedStatement sentencia= Conexion.getConexion().prepareCall(SQL_UPDATE_CARRITOACTIVO);
             sentencia.setInt(1, carritoActivo);
             sentencia.setInt(2, idUsuario);
+           
+            return sentencia.executeUpdate()>0; // Retorna true en caso de poder actualizar, false caso contrario
+            
+            
+        } catch (SQLException ex) {
+			
+            Logger.getLogger(CarritoGestion.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (NoSuchMethodException ex) {
+			Logger.getLogger(CarritoGestion.class.getName()).log(Level.SEVERE, null, ex);
+		} catch (InstantiationException ex) {
+			Logger.getLogger(CarritoGestion.class.getName()).log(Level.SEVERE, null, ex);
+		} catch (IllegalAccessException ex) {
+			Logger.getLogger(CarritoGestion.class.getName()).log(Level.SEVERE, null, ex);
+		} catch (InvocationTargetException ex) {
+			Logger.getLogger(CarritoGestion.class.getName()).log(Level.SEVERE, null, ex);
+		} catch (ClassNotFoundException ex) {
+			Logger.getLogger(CarritoGestion.class.getName()).log(Level.SEVERE, null, ex);
+		}
+        return false;
+    }
+	
+	
+	//*****************************************************
+	//*****************************************************
+	// carrito_producto
+	
+	private static final String SQL_UPDATE_CARRITOCANTIDAD= "update carrito_producto set cantidad=? where idCarrito=? and idProducto=? and estadoCompra=?";
+	
+    public static boolean actualizaCarritoCantidad (int cantidad, int idCarrito,int idProducto){
+        try {
+            PreparedStatement sentencia= Conexion.getConexion().prepareCall(SQL_UPDATE_CARRITOCANTIDAD);
+            sentencia.setInt(1, cantidad);
+            sentencia.setInt(2, idCarrito);
+			sentencia.setInt(3, idProducto); 
+			sentencia.setString(4, "pendiente");
            
             return sentencia.executeUpdate()>0; // Retorna true en caso de poder actualizar, false caso contrario
             

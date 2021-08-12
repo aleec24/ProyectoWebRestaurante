@@ -127,19 +127,26 @@
 
                                             </b:column>
                                         </b:row>
-                                        <b:row >
+                                        <b:row>
                                             <b:column col-md="6">
                                                 <label for="id" style="text-align:left">Cantidad</label>
                                                 <b:inputText tooltip="Agregar la cantidad a solicitar" 
                                                              id="cantidad"
-                                                             value="#{carritoController.cantidadProducto}"/>
+                                                             required="true"
+                                                             value="#{webvarsController.cantidad}" 
+                                                             update="@form"
+                                                            />
+                                            </b:column>
+                                            <b:column medium-screen="3" style-class="message">
+                                                <b:message for="cantidad"/>
                                             </b:column>
                                         </b:row>
                                         <b:row>
                                             <b:column col-md="6">
                                                 <b:commandButton 
                                                     value="Agregar a carrito"
-                                                    action="#{carritoController.agregarACarrito(carritoController.obtenerIdCarrito(usuarioController.idUsuario), producto.codigo,carritoController.cantidadProducto)}"/>
+                                                    action="#{carritoController.agregarACarrito(carritoController.obtenerIdCarrito(usuarioController.obtenerID(usuarioController.nombreUsuario)), producto.idProducto,webvarsController.cantidad)}"
+                                                    />
                                             </b:column>
                                         </b:row>
                                         <b:row>

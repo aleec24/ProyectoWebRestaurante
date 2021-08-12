@@ -18,6 +18,11 @@ public class Usuario {
         this.nombre = nombre;
         this.idRol = idRol;
     }
+	
+	public Usuario(String id) {
+        this.id = id;
+    }
+	
 
     //-----------
     //Getters and Setters

@@ -7,7 +7,7 @@
 
     <h:head>
         <title>Envios</title>
-        
+
     </h:head>
 
     <h:body id="body">
@@ -16,23 +16,12 @@
             <ui:define name="content">
                 <div  style="width: 100%">
                     <section style="width: 100%">
-                        
-
                         <article id="article__Main">
-
                             <h:form style="width: 90%">
                                 <aside id="aside__Main">
                                     <div >
-                                        <b:messages id="messages"
-                                                        globalOnly="true"
-                                                        severity="error,fatal"/>
-                                            <b:growl id="growl"
-                                                     globalOnly="true"
-                                                     showDetail="true"
-                                                     severity="info,warn"/>
                                         <ul >
                                             <li  role="presentation" id="aside_Main_header">Opciones de Productos</li>
-                                            
                                             <li   style="cursor:pointer;" id="aside_Main_li" >
                                                 <b:commandLink 
                                                     tabindex="0"
@@ -98,8 +87,6 @@
                                         </ul>
                                     </div>
                                 </aside>   
-
-                                
                                 <b:dataTable value="#{productoController.getProductosCodigo(menuController.codigoProducto)}"
                                              var="producto"
                                              page-length="5"
@@ -107,7 +94,6 @@
                                     <b:dataTableColumn value=""
                                                        width="30%"
                                                        label="Categoria">
-
                                         <b:image library="image" name="#{producto.nombreImagen}.png" width="50%" height="30%" style="margin-left: 25%"/>
                                         <b:column >
                                             <b:row>
@@ -142,10 +128,8 @@
                                                              required="true"
                                                              value="#{webvarsController.cantidad}" 
                                                              update="@form"
-                                                            />
+                                                             />
                                             </b:column>
-                                            
-                                            
                                             <b:column medium-screen="3" style-class="message">
                                                 <b:message for="cantidad"/>
                                             </b:column>
@@ -167,13 +151,12 @@
                                 </b:dataTable>
                             </h:form>
                         </article>
-
                     </section>
-
                     <aside id="sidebar__Right">
                         <div >
                             <label for="id" id="sidebar_Right_Header">Carrito de Compras</label>
                         </div>
+                        
                         <div> 
                             <h:form id="sidebar__Right_form">
                                 <b:dataTable value="#{carritoProductoController.getProductosCarrito(carritoController.obtenerIdCarrito(usuarioController.obtenerID(usuarioController.nombreUsuario)))}"
@@ -183,7 +166,6 @@
                                     <b:dataTableColumn value=""
                                                        width="30%"
                                                        label="Productos Pendientes">
-
                                         <b:image library="image" name="#{carritoProducto.nombreImagen}.png" width="50%" height="30%" style="margin-left: 25%"/>
                                         <b:column >
                                             <b:row>
@@ -203,8 +185,29 @@
                                 </b:dataTable>
                             </h:form>
                         </div>
+                        <footer id="sidebar__Right_form_footer">
+                            <form>
+                                <b:panel look="success" 
+                                         title="FACTURAR">
+                                    <div>
+                                        <label>Cantidad de productos: </label>
+                                    </div>
+                                    <div>
+                                        <label>Total: </label>
+                                    </div>
+                                    <div>
+                                        <b:column small-screen="6">
+                                            <h:button value="Facturar"/>
+                                        </b:column>
+                                    </div>
+                                </b:panel>
+                               
+                            </form>
+                             
+                        </footer>
                         
                     </aside>
+                    
                 </div>
             </ui:define>
         </ui:composition>

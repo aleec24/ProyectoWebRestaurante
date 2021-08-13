@@ -106,5 +106,15 @@ public class CarritoProductoController extends Carrito implements Serializable {
         return CarritoProductoGestion.getProductosEnCarrito(idCarrito);
 	}
 	
+	public int getPrecioProductosCarrito(int idCarrito, int idProducto){
+		List<CarritoProducto> carritoProductoList = CarritoProductoGestion.getPrecioProductosEnCarrito(idCarrito, idProducto);
+		CarritoProducto carritoProducto = carritoProductoList.get(0);
+		return carritoProducto.getPrecioTotal();
+	}
 	
+	public int getCantidadProductosCarrito(int idCarrito){
+		List<CarritoProducto> carritoProducto = CarritoProductoGestion.getProductosEnCarrito(idCarrito);
+		return carritoProducto.size();
+		
+	}
 }

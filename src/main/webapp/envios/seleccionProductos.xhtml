@@ -169,7 +169,7 @@
                                         <b:image library="image" name="#{carritoProducto.nombreImagen}.png" width="50%" height="30%" style="margin-left: 25%"/>
                                         <b:column >
                                             <b:row>
-                                                <label for="id" style="text-align:center" >Nombre:</label>
+                                                <label for="id" style="text-align:center">Nombre:</label>
                                                 <label for="id" style="text-align:center">#{carritoProducto.nombreProducto}</label>
                                             </b:row>
                                             <b:row>
@@ -188,12 +188,12 @@
                         <footer id="sidebar__Right_form_footer">
                             <form>
                                 <b:panel look="success" 
-                                         title="FACTURAR">
+                                         title="FACTURAR" >
                                     <div>
-                                        <label>Cantidad de productos: </label>
+                                        <label>Cantidad de productos: #{carritoProductoController.getPrecioProductosCarrito(carritoController.obtenerIdCarrito(usuarioController.obtenerID(usuarioController.nombreUsuario)),carritoProducto.idProducto)}</label>
                                     </div>
                                     <div>
-                                        <label>Total: </label>
+                                        <label>Total a pagar: #{carritoProductoController.getCantidadProductosCarrito(carritoController.obtenerIdCarrito(usuarioController.obtenerID(usuarioController.nombreUsuario)))}</label>
                                     </div>
                                     <div>
                                         <b:column small-screen="6">

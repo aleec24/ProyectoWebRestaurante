@@ -10,10 +10,14 @@ public class CarritoProducto {
 	//// Para carrito  ////
 	///////////////////////
 	
+	private int idProducto;
 	private String nombreProducto;
 	private int cantidadUni;
 	private int precio;
 	private String nombreImagen;
+	//--
+	private int precioTotal;
+	private int unidadesTotal;
 	
 	//-----------
 	//Constructor
@@ -22,22 +26,40 @@ public class CarritoProducto {
 	}
 
 	
-
-	public CarritoProducto(String nombreProducto, int cantidadUni, int precio, String nombreImagen) {
+	public CarritoProducto(String nombreProducto, int cantidadUni, int precio, String nombreImagen, int idProducto) {
 		this.nombreProducto = nombreProducto;
 		this.cantidadUni = cantidadUni;
 		this.precio = precio;
 		this.nombreImagen = nombreImagen;
+		this.idProducto = idProducto;
+	}
+
+	public CarritoProducto(int precioTotal) {
+		this.precioTotal = precioTotal;
 	}
 	
 	
-	
-
 	//---------------------
 	//Getters and Setters
-
 	
 
+	public int getPrecioTotal() {
+		return precioTotal;
+	}
+
+	public void setPrecioTotal(int precioTotal) {
+		this.precioTotal = precioTotal;
+	}
+
+	public int getUnidadesTotal() {
+		return unidadesTotal;
+	}
+
+	public void setUnidadesTotal(int unidadesTotal) {
+		this.unidadesTotal = unidadesTotal;
+	}
+	
+	
 	public String getNombreProducto() {
 		return nombreProducto;
 	}
@@ -68,6 +90,14 @@ public class CarritoProducto {
 
 	public void setNombreImagen(String nombreImagen) {
 		this.nombreImagen = nombreImagen;
+	}
+
+	public int getIdProducto() {
+		return idProducto;
+	}
+
+	public void setIdProducto(int idProducto) {
+		this.idProducto = idProducto;
 	}
 	
 	

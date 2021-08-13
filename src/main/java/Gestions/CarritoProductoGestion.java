@@ -219,7 +219,7 @@ public class CarritoProductoGestion {
 	//carrito_producto
 	
 	private static final String SQL_SELECT_PRODUCTOSENCARRITO= 
-			"SELECT producto.nombre, carrito_producto.cantidad, (producto.precio * carrito_producto.cantidad),  producto.nombreImagen\n"
+			"SELECT producto.nombre, carrito_producto.cantidad, (producto.precio * carrito_producto.cantidad),  producto.nombreImagen, producto.idProducto\n"
 			+ "FROM carrito_producto\n"
 			+ "INNER JOIN producto ON\n"
 			+ "carrito_producto.idProducto = producto.idProducto\n"
@@ -237,7 +237,47 @@ public class CarritoProductoGestion {
             ResultSet datos= consulta.executeQuery();
             //Si encontró alguna coincidencia
             while (datos!=null && datos.next()){
-                lista.add(new CarritoProducto(datos.getString(1),datos.getInt(2), datos.getInt(3),datos.getString(4)));
+                lista.add(new CarritoProducto(datos.getString(1),datos.getInt(2), datos.getInt(3),datos.getString(4), datos.getInt(5)));
+            }
+			
+        } catch (SQLException ex) {
+            Logger.getLogger(CarritoProductoGestion.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (NoSuchMethodException ex) {
+			Logger.getLogger(CarritoProductoGestion.class.getName()).log(Level.SEVERE, null, ex);
+		} catch (InstantiationException ex) {
+			Logger.getLogger(CarritoProductoGestion.class.getName()).log(Level.SEVERE, null, ex);
+		} catch (IllegalAccessException ex) {
+			Logger.getLogger(CarritoProductoGestion.class.getName()).log(Level.SEVERE, null, ex);
+		} catch (InvocationTargetException ex) {
+			Logger.getLogger(CarritoProductoGestion.class.getName()).log(Level.SEVERE, null, ex);
+		} catch (ClassNotFoundException ex) {
+			Logger.getLogger(CarritoProductoGestion.class.getName()).log(Level.SEVERE, null, ex);
+		}
+        
+        return lista;
+        
+    }
+	
+	private static final String SQL_SELECT_PRECIOPRODUCTOSENCARRITO= 
+		"SELECT SUM(producto.precio * carrito_producto.cantidad)\n"
+			+ " FROM carrito_producto\n"
+			+ " INNER JOIN producto ON \n"
+			+ " carrito_producto.idProducto = producto.idProducto\n"
+			+ " WHERE carrito_producto.idCarrito=? AND carrito_producto.estadoCompra=?";
+
+    
+    public static ArrayList<CarritoProducto> getPrecioProductosEnCarrito(int idCarrito, int idProducto){
+        
+		ArrayList<CarritoProducto> lista = new ArrayList<>();
+        
+        try {
+            PreparedStatement consulta = Conexion.getConexion().prepareStatement(SQL_SELECT_PRECIOPRODUCTOSENCARRITO);
+            consulta.setInt(1, idCarrito);
+			consulta.setString(2, "pendiente");
+            ResultSet datos= consulta.executeQuery();
+            //Si encontró alguna coincidencia
+            while (datos!=null && datos.next()){
+                lista.add(new CarritoProducto(datos.getInt(1)));
             }
 			
         } catch (SQLException ex) {

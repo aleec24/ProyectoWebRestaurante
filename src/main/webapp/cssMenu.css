@@ -1,3 +1,5 @@
+
+
 /*--------------------------------------------------------------------------------------------------------
     SIDEBAR
 ---------------------------------------------------------------------------------------------------------*/
@@ -159,9 +161,6 @@
     align-items: center;
     text-align: center;
 }
-
-
-
 
 
 
@@ -353,6 +352,7 @@
 
 #sidebar__Right_form_footer div > div div > div div > label{
     margin-left: 3%;
+    font-size: 200%;
 }
  
  #sidebar__Right_form_footer div > div div > div div > input{
@@ -363,5 +363,10 @@
     width: 100%;
     height: 50px;
     border-radius: 10px;
+    font-size: 100%
  }
  
+  #sidebar__Right_form_footer div > div div > div div > input:hover{
+    color: white;
+    background: #C15050;
+  }

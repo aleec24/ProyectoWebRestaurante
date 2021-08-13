@@ -190,10 +190,10 @@
                                 <b:panel look="success" 
                                          title="FACTURAR" >
                                     <div>
-                                        <label>Cantidad de productos: #{carritoProductoController.getPrecioProductosCarrito(carritoController.obtenerIdCarrito(usuarioController.obtenerID(usuarioController.nombreUsuario)),carritoProducto.idProducto)}</label>
+                                        <label>Cantidad de productos: #{carritoProductoController.getCantidadProductosCarrito(carritoController.obtenerIdCarrito(usuarioController.obtenerID(usuarioController.nombreUsuario)))}</label>
                                     </div>
                                     <div>
-                                        <label>Total a pagar: #{carritoProductoController.getCantidadProductosCarrito(carritoController.obtenerIdCarrito(usuarioController.obtenerID(usuarioController.nombreUsuario)))}</label>
+                                        <label>Total a pagar: ₡#{carritoProductoController.getPrecioProductosCarrito(carritoController.obtenerIdCarrito(usuarioController.obtenerID(usuarioController.nombreUsuario)),carritoProducto.idProducto)} </label>
                                     </div>
                                     <div>
                                         <b:column small-screen="6">

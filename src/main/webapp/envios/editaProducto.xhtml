@@ -7,7 +7,7 @@
 
 
     <body>
-        <ui:composition template="./../resources/plantilla/plantilla.xhtml">
+        <ui:composition template="./../resources/plantilla/plantilla_sesion_activa_Admin.xhtml">
             <ui:define name="content">
                 <h:form id="editaProductoForm">
                     <b:panel title="Editar Producto" look="warning" collapsible="false" >
@@ -95,6 +95,14 @@
                             </b:column>
 
                         </b:row>    
+                        <b:row >
+                            <b:column medium-screen="6">
+                                <b:commandButton value="Insertar"
+                                                 action="#{productoController.edita(productoController.codigo)}"
+                                                 look="primary"
+                                                 style="width: 20%"/>
+                            </b:column>   
+                        </b:row> 
                     </b:panel>
                 </h:form>
             </ui:define>

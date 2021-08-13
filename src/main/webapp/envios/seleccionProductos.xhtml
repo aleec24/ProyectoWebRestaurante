@@ -175,12 +175,14 @@
                             <label for="id" id="sidebar_Right_Header">Carrito de Compras</label>
                         </div>
                         <div> 
-                            <h:form style="width: 90%">
+                            <h:form id="sidebar__Right_form">
                                 <b:dataTable value="#{carritoProductoController.getProductosCarrito(carritoController.obtenerIdCarrito(usuarioController.obtenerID(usuarioController.nombreUsuario)))}"
-                                             var="carritoProducto">
+                                             var="carritoProducto"
+                                             page-length="3"
+                                             page-length-menu="3,5">
                                     <b:dataTableColumn value=""
                                                        width="30%"
-                                                       label="Categoria">
+                                                       label="Productos Pendientes">
 
                                         <b:image library="image" name="#{carritoProducto.nombreImagen}.png" width="50%" height="30%" style="margin-left: 25%"/>
                                         <b:column >

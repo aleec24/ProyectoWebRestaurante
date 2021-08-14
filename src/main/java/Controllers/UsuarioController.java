@@ -41,7 +41,7 @@ public class UsuarioController extends Usuario implements Serializable {
                 this.setNombre(usuario.getNombre());
 				this.setIdRol(usuario.getIdRol());
 				this.setPwUsuario("");
-				if (this.getIdRol().equals("admin")) {
+				if (this.getIdRol().equals("Admin")) {
 					ret = "principal_admin.xhtml";
 				} else {
 					ret = "principal.xhtml";

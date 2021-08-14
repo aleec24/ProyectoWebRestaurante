@@ -41,7 +41,12 @@ public class UsuarioController extends Usuario implements Serializable {
                 this.setNombre(usuario.getNombre());
 				this.setIdRol(usuario.getIdRol());
 				this.setPwUsuario("");
-				ret = "principal.xhtml";
+				if (this.getIdRol().equals("admin")) {
+					ret = "principal_admin.xhtml";
+				} else {
+					ret = "principal.xhtml";
+				}
+				
             } else {
                 // Mensaje Error
                 FacesMessage msg = new FacesMessage(FacesMessage.SEVERITY_ERROR, "Error", "Usuario y/o contraseña invalidas");

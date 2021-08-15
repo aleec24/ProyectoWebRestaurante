@@ -16,7 +16,6 @@
     </h:head>
 
     <h:body>
-
         <b:image library="image" name="Logo.png" class="main-image-logo"/>
 
         <b:navBar inverse="true" fluid="true" class="navbar-custom-index" >
@@ -28,7 +27,7 @@
                     <b:inputText placeholder="Usuario"
                                  class="main-input"
                                  id="usuario"
-                                 required="true"
+                                 required="false"
                                  autocomplete="true"
                                  value="#{usuarioController.nombreUsuario}">
                         <f:facet name="prepend">
@@ -40,7 +39,7 @@
                     <b:inputSecret placeholder="Clave"
                                    class="main-input"
                                    id="clave"
-                                   required="true"
+                                   required="false"
                                    autocomplete="true"
                                    value="#{usuarioController.pwUsuario}">
                         <f:facet name="prepend">
@@ -48,15 +47,17 @@
                         </f:facet>
                     </b:inputSecret>
                 </div> 
-                #{' '}
                 <b:commandButton class="main-button" value="Login" look="success" icon="chevron-right" iconAlign="right" action="#{usuarioController.valida}"/>
-
-            </h:form>
+                
+                <b:button class="main-button" value="Recuperar contraseña" look="success" href="RecuperacionContrasena/recuperacionContrasena.xhtml"/>
+            
+                
+</h:form>
         </b:navBar>
         
                 <p:sidebar widgetVar="sidebar" baseZIndex="10000" id="sidebar__Main">
             <div style="padding: 0 30px"  >
-                <b:image library="image" name="Logo.png" height="200px" style="margin-bottom: 15px"/>
+                <b:image library="image" name="Logo.png" height="200px" style="margin-right: 15px"/>
             </div>
 
             <h:body>

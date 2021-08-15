@@ -86,6 +86,7 @@
     background-color: #D49D42;
     border-color: #D49D42;
     color: white;
+    margin-left: 20px;
 }
 
 .main-button:hover, .main-button:active, .main-button:focus, .main-button:active:focus  {
@@ -112,3 +113,19 @@
     margin: 0px;
     padding:0px;
 }
+
+
+/*--------------------------------------------------------------------------------------------------------
+    Solicitar contraseña
+---------------------------------------------------------------------------------------------------------*/
+  
+  
+  #solicitudC{
+      width: 30vw;
+      margin-left: auto;
+      margin-right: auto;
+      margin-top: 10%;
+  }
+
+ 
+  

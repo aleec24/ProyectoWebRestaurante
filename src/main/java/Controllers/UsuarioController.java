@@ -6,6 +6,7 @@
 package Controllers;
 
 import Gestions.UsuarioGestion;
+import Models.Correo;
 import javax.inject.Named;
 import javax.enterprise.context.SessionScoped;
 import java.io.Serializable;
@@ -16,6 +17,7 @@ import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
 import Models.Usuario;
 import java.util.ArrayList;
+import javax.mail.MessagingException;
 
 @Named(value = "usuarioController")
 @SessionScoped
@@ -25,7 +27,7 @@ public class UsuarioController extends Usuario implements Serializable {
      * Creates a new instance of UsuarioController
      */
     public UsuarioController() {
-        super("", "", "");
+        super("", "", "", "");
     }
 
     public String valida() throws NoSuchMethodException, InstantiationException, IllegalAccessException, IllegalAccessException, IllegalAccessException, IllegalAccessException, IllegalAccessException, IllegalAccessException, IllegalAccessException, IllegalAccessException, IllegalAccessException, InvocationTargetException {
@@ -74,6 +76,16 @@ public class UsuarioController extends Usuario implements Serializable {
 		
 }
 	
+	public String obtenerCorreo(String nombre, String apellido, String cedula) throws NoSuchMethodException, InstantiationException, IllegalAccessException, InvocationTargetException, ClassNotFoundException{
+	
+		String result;
+        ArrayList<Usuario> lista = UsuarioGestion.obtenerCorreo(nombre , apellido, cedula);
+		Usuario usuario = lista.get(0);
+		
+		return result = usuario.getCorreo();
+		
+}
+	
 	
     public String getPlantilla() {
         if(!this.getIdUsuario().equals("")) {
@@ -82,4 +94,52 @@ public class UsuarioController extends Usuario implements Serializable {
             return "./resources/plantilla/plantilla.xhtml";
         }
     }
+	
+	
+	public boolean enviarCorreoContrasena(String nombre, String apellido, String cedula) throws NoSuchMethodException, InstantiationException, IllegalAccessException, InvocationTargetException, ClassNotFoundException, MessagingException{
+		boolean resp = false;
+		String correo = buscarCorreoValido(nombre, apellido, cedula);
+		String clave = buscarContrasena(nombre, apellido, cedula);
+		if (!correo.equals("") && !clave.equals("")) {
+			enviarCorreo(correo, clave);
+			resp = true;
+		}
+		
+		return resp;
+	}
+	
+	private String buscarCorreoValido(String nombre, String apellido, String cedula) throws NoSuchMethodException, InstantiationException, IllegalAccessException, InvocationTargetException, ClassNotFoundException{
+		String resp = "";
+			UsuarioGestion usuarioGestion = new UsuarioGestion();
+			ArrayList<Usuario> lista= usuarioGestion.obtenerCorreo(nombre, apellido, cedula);
+			Usuario usuario = lista.get(0);
+		return resp=usuario.getCorreo();
+	}
+	
+	private String buscarContrasena(String nombre, String apellido, String cedula) throws NoSuchMethodException, InstantiationException, IllegalAccessException, InvocationTargetException, ClassNotFoundException{
+		String resp = "";
+			UsuarioGestion usuarioGestion = new UsuarioGestion();
+			resp = usuarioGestion.obtenerClave(nombre, apellido, cedula);
+		return resp;
+	}
+	
+	private boolean enviarCorreo(String correo,String clave) throws MessagingException{
+		boolean resp = false;
+		Correo oCorreo = new Correo(correo);
+		oCorreo.enviarCorreoContraseña(clave);
+		resp = true;
+		return resp;
+	}
+	
+	public String recupera(){
+		return "recuperacionContrasena.xhtml";
+	}
+	
+	
+	public void reset(){
+		this.setNombre("");
+		this.setApellido("");
+		this.setCedula("");
+	}
+	
 }

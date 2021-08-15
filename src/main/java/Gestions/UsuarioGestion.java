@@ -12,7 +12,7 @@ import java.util.ArrayList;
 
 public class UsuarioGestion {
 
-    private static final String SQL_VALIDA = "select id,nombre,rol from usuario where nombreUsuario=?"
+    private static final String SQL_VALIDA = "select id,nombre,rol,correo from usuario where nombreUsuario=?"
             + " and claveUsuario=?";
 
     public static Usuario Valida(String nombreUsuario, String pwUsuario) throws NoSuchMethodException, InstantiationException, IllegalAccessException, InvocationTargetException, ClassNotFoundException {
@@ -25,7 +25,7 @@ public class UsuarioGestion {
 
             if (rs.next()) {
 
-                usuario = new Usuario(rs.getString(1), rs.getString(2), rs.getString(3));
+                usuario = new Usuario(rs.getString(1), rs.getString(2), rs.getString(3), rs.getString(4));
 
             }
 
@@ -63,5 +63,71 @@ public class UsuarioGestion {
 		
         return lista;
     }
+	
+	private static final String SQL_SELECT_OBTENERCORREO = "SELECT id,correo FROM deweb.usuario WHERE nombre=? and apellido=? and cedula=?";
+
+    public static ArrayList<Usuario> obtenerCorreo(String nombre, String apellido, String cedula) throws NoSuchMethodException, InstantiationException, IllegalAccessException, InvocationTargetException, ClassNotFoundException {
+        
+		ArrayList<Usuario> lista= new ArrayList<>();
+        boolean usuarioEncontrado = false;
+		int idUsuario = 0;
+        try {
+            PreparedStatement sentencia = Conexion.getConexion().prepareStatement(SQL_SELECT_OBTENERCORREO);
+            sentencia.setString(1, nombre);
+			sentencia.setString(2, apellido);
+			sentencia.setString(3, cedula);
+			ResultSet rs = sentencia.executeQuery();
+
+			while (rs!=null && rs.next()){
+                lista.add(new Usuario(rs.getString(1),rs.getString(2)));         
+				usuarioEncontrado = true;
+            }
+			
+        } catch (SQLException ex) {
+            Logger.getLogger(UsuarioGestion.class.getName()).log(Level.SEVERE, null, ex);
+        }
+		
+		if (!usuarioEncontrado) {
+			Usuario usuario = new Usuario("0","NO");
+			lista.add(usuario);
+		}
+		
+        return lista;
+    }
+	
+	private static final String SQL_SELECT_OBTENERCLAVE = "SELECT id,claveUsuario FROM deweb.usuario WHERE nombre=? and apellido=? and cedula=?";
+
+    public static String obtenerClave(String nombre, String apellido, String cedula) throws NoSuchMethodException, InstantiationException, IllegalAccessException, InvocationTargetException, ClassNotFoundException {
+        
+		ArrayList<Usuario> lista= new ArrayList<>();
+        boolean usuarioEncontrado = false;
+		String resp = "";
+        try {
+            PreparedStatement sentencia = Conexion.getConexion().prepareStatement(SQL_SELECT_OBTENERCLAVE);
+            sentencia.setString(1, nombre);
+			sentencia.setString(2, apellido);
+			sentencia.setString(3, cedula);
+			ResultSet rs = sentencia.executeQuery();
+
+			while (rs!=null && rs.next()){
+                resp = rs.getString(2);
+				usuarioEncontrado = true;
+            }
+			
+        } catch (SQLException ex) {
+            Logger.getLogger(UsuarioGestion.class.getName()).log(Level.SEVERE, null, ex);
+        }
+		
+		if (!usuarioEncontrado) {
+//			Usuario usuario = new Usuario();
+//			usuario.setPwUsuario("NO");
+//			usuario.setId("NO");
+//			lista.add(usuario);
+			resp = "NO";
+		}
+		
+        return resp;
+    }
+	
 	
 }

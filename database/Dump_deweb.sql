@@ -67,6 +67,7 @@ CREATE TABLE `carrito_producto` (
 
 LOCK TABLES `carrito_producto` WRITE;
 /*!40000 ALTER TABLE `carrito_producto` DISABLE KEYS */;
+INSERT INTO `carrito_producto` VALUES (1,4,'pendiente',2),(1,5,'pendiente',1);
 /*!40000 ALTER TABLE `carrito_producto` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -265,6 +266,7 @@ CREATE TABLE `usuario` (
   `nombreUsuario` varchar(50) NOT NULL,
   `claveUsuario` longtext NOT NULL,
   `estado` tinyint(1) NOT NULL,
+  `correo` varchar(60) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `nombreUsuario_UNIQUE` (`nombreUsuario`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
@@ -276,7 +278,7 @@ CREATE TABLE `usuario` (
 
 LOCK TABLES `usuario` WRITE;
 /*!40000 ALTER TABLE `usuario` DISABLE KEYS */;
-INSERT INTO `usuario` VALUES (1,'Bryan','Sanabria','9182918833','99999999','Admin','bsanabria','12345',1),(2,'Alexa','Cabalceta','1245646764','88888888','Admin','acabalceta','12345',1),(3,'Yirlani','Hernandez','1231424545','77777777','Admin','yhernandez','12345',1);
+INSERT INTO `usuario` VALUES (1,'Bryan','Sanabria','9182918833','99999999','Admin','bsanabria','12345',1,'bsanabriaj@hotmail.com'),(2,'Alexa','Cabalceta','1245646764','88888888','Admin','acabalceta','12345',1,'ale@ufide.ac.cr'),(3,'Yirlani','Hernandez','1231424545','77777777','Admin','yhernandez','12345',1,'yir@ufide.ac.cr');
 /*!40000 ALTER TABLE `usuario` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -322,4 +324,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-08-10 14:37:24
+-- Dump completed on 2021-08-15 14:39:16

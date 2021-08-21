@@ -89,9 +89,9 @@ public class ComentarioController extends Comentario implements Serializable {
    
     }
 	
-	public List<Comentario> getComentarios(){
-        
-        return ComentarioGestion.getComentarios();
-        
-    }
+//	public List<Comentario> getComentarios(){
+//        
+//        return ComentarioGestion.getComentarios();
+//        
+//    }
 }

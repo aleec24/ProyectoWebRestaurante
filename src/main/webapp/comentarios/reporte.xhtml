@@ -22,16 +22,16 @@
 
                     <b:form>
                     <b:container fluid="true">
-                        <b:panel title="Reportes" look="primary">
+                        <b:panel title="Reporte de Contáctenos" look="primary">
                             <b:row>
                                 <b:column medium-screen="3">
-                                    <h:outputLabel value="Reporte en PDF" for="pdf"/>
+                                    <h:outputLabel value="Reporte en PDF o vista en navegador" for="pdf"/>
                                 </b:column>
                                 <b:column medium-screen="3">
                                     <b:commandButton value="Ver PDF"
-                                                     action="#{reporteController.verPdf()}"/>
+                                                     action="#{reportecomentarioController.verPdf()}"/>
                                     <b:commandButton value="Descargar PDF"
-                                                     action="#{reporteController.descargarPdf()}"/>
+                                                     action="#{reportecomentarioController.descargarPdf()}"/>
                                 </b:column>
                             </b:row>
                         </b:panel>

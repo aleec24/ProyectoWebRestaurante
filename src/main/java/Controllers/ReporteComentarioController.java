@@ -65,7 +65,7 @@ public class ReporteComentarioController implements Serializable {
         
         try {
             File jasper= new File (FacesContext.getCurrentInstance()
-                    .getExternalContext().getRealPath("/comentarios/libroreporte.jasper"));
+                    .getExternalContext().getRealPath("/comentarios/comentarioreporte.jasper"));
             
             JasperPrint reporteJasper= JasperFillManager.fillReport(jasper.getPath(),null,Conexion.getConexion());
             HttpServletResponse respuesta = (HttpServletResponse)
@@ -88,8 +88,8 @@ public class ReporteComentarioController implements Serializable {
        public void certificaComentario(Comentario comentario) throws NoSuchMethodException, InstantiationException, IllegalAccessException, InvocationTargetException, ClassNotFoundException {
         
         Map<String,Object> parametros = new HashMap<>();
-//        parametros.put("id", comentario.getId());
-        parametros.put("comentario", comentario.getNombre());
+        parametros.put("id", comentario.getIdComentario());
+        parametros.put("nombre", comentario.getNombre());
                    
         try {
             File jasper= new File (FacesContext.getCurrentInstance()

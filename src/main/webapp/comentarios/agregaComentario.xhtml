@@ -9,7 +9,7 @@
 
         <ui:composition template="./../resources/plantilla/plantilla_sesion_activa.xhtml">
 
- <ui:define name="content">
+                <ui:define name="content">
                 <!--Archivo CSS del banner y footer responsive-->               
                 <link href="../CSS/CenterResponsive.css" rel="stylesheet" type="text/css"/>
                 <link href="../CSS/Footer.css" rel="stylesheet" type="text/css"/>
@@ -17,28 +17,28 @@
                  <img src="../imagenes/Banner.png" alt="banner" class="responsive" />
 
                 <div>
-                <h3 style="text-align: center;"><span style="text-decoration: underline;"><strong>Nuestro horario:</strong></span></h3>
+                <h2 style="text-align: center;"><span style="text-decoration: underline;"><span style="color: #693C72;"><strong>Nuestro horario:</strong></span></span></h2>
                 <p></p>
-                <h4><strong>Almuerzo:</strong></h4>
+                <h4 style="text-align: center;"><strong>Almuerzo:</strong></h4>
                 <ul>
-                <li><p><big>Lunes y Martes: <strong>Cerrado</strong></big></p>
+                <li><p style="text-align: center;"><big>Lunes y Martes: <strong>Cerrado</strong></big></p>
                 </li><li>
-                <p><big>Miércoles - Viernes: <strong>12PM - 3PM</strong></big></p>
+                <p style="text-align: center;"><big>Miércoles - Viernes: <strong>12PM - 3PM</strong></big></p>
                 </li><li>
-                <p><big>Sábado y Domingo: <strong>12:30PM - 3:30PM</strong></big></p>
+                <p style="text-align: center;"><big>Sábado y Domingo: <strong>12:30PM - 3:30PM</strong></big></p>
                 </li></ul>
-                <h4><strong>Cena:</strong></h4>
+                <h4 style="text-align: center;"><strong>Cena:</strong></h4>
                 <ul><li>
-                <p><big>Lunes: <strong>Cerrado</strong></big></p>
+                <p style="text-align: center;"><big>Lunes: <strong>Cerrado</strong></big></p>
                 </li><li>
-                <p><big>Martes - Domingo: <strong>6:30PM - 10:30PM</strong></big></p>
+                <p style="text-align: center;"><big>Martes - Domingo: <strong>6:30PM - 10:30PM</strong></big></p>
                 </li></ul>
                 </div> 
                  
-                <h3 style="text-align: center;"><span style="text-decoration: underline;"><strong>Sus comentarios son importantes para nosotros:</strong></span></h3>
+                <h2 style="text-align: center;"><span style="text-decoration: underline;"><span style="color: #693C72;"><strong>Sus comentarios son importantes para nosotros:</strong></span></span></h2>
                 
                 <h:form id="agregaComentarioForm">
-                    <b:panel title="agregaComentario" look="success" collapsible="false" >
+                    <b:panel title="Agregue un nuevo comentario:" look="success" collapsible="false" >
                         <b:row tooltip="Agregue su nombre completo">
                             <b:column medium-screen="1">
                                 <h:outputLabel value="Nombre" for="nombre"/>
@@ -103,7 +103,7 @@
                 </h:form>
                  
                 
-                <h3 style="text-align: center;"><span style="text-decoration: underline;"><strong>¿Tiene alguna pregunta de nuestros servicios?</strong></span></h3>
+                <h3 style="text-align: center;"><span style="text-decoration: underline;"><span style="color: #693C72;"><strong>¿Tiene alguna pregunta de nuestros servicios?</strong></span></span></h3>
                 <p style="text-align: center;"><span></span><big>No dude en contactarnos a nuestra bandeja de correos.</big></p>
                 <p style="text-align: center;"><strong>Correo: restaurante@rest.ac.cr</strong></p>
                 <p style="text-align: center;"><span></span><big>O llámenos al:</big></p>

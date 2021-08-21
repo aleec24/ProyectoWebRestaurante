@@ -7,9 +7,17 @@
 
     <body>
 
-        <ui:composition template="./../resources/plantilla/plantilla.xhtml">
+        <ui:composition template="./../resources/plantilla/plantilla_sesion_activa.xhtml">
 
             <ui:define name="content">
+                <link href="../CSS/CenterResponsive.css" rel="stylesheet" type="text/css"/>
+                <link href="../CSS/Footer.css" rel="stylesheet" type="text/css"/>
+                
+                <img src="../imagenes/Banner.png" alt="banner" class="responsive" />
+
+                <div>
+                <h2 style="text-align: center;"><span style="text-decoration: underline;"><span style="color: #693C72;"><strong>Edición de comentarios:</strong></span></span></h2>
+                </div> 
                 
                 <h:form>
                     
@@ -31,6 +39,15 @@
                     </b:dataTable>
                 </h:form>
                 
+                
+                <footer class="footer-main">
+                <!--Footer-->
+                <div id="pagina">
+                    <div id="cabecera"></div>
+                    <div id="contenido"></div>
+                    <div id="pie">2021 &copy; Restaurante y Soda</div>
+                </div>
+                </footer>
             </ui:define>
 
         </ui:composition>

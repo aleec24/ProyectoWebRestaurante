@@ -19,9 +19,6 @@
         <b:image library="image" name="Logo.png" class="main-image-logo"/>
 
         <b:navBar inverse="true" fluid="true" class="navbar-custom-index" >
-            <b:navbarLinks pull="left">
-                 <b:navLink value="Menu Principal " href="" onclick="PF('sidebar').show()"/>
-            </b:navbarLinks>
             <h:form styleClass="navbar-form" >
                 <div class="form-group">
                     <b:inputText placeholder="Usuario"
@@ -48,58 +45,10 @@
                     </b:inputSecret>
                 </div> 
                 <b:commandButton class="main-button" value="Login" look="success" icon="chevron-right" iconAlign="right" action="#{usuarioController.valida}"/>
-                
+
                 <b:button class="main-button" value="Recuperar contraseña" look="success" href="RecuperacionContrasena/recuperacionContrasena.xhtml"/>
-            
-                
-</h:form>
+            </h:form>
         </b:navBar>
-        
-                <p:sidebar widgetVar="sidebar" baseZIndex="10000" id="sidebar__Main">
-            <div style="padding: 0 30px"  >
-                <b:image library="image" name="Logo.png" height="200px" style="margin-right: 15px"/>
-            </div>
-
-            <h:body>
-                <b:navbarLinks id="sidebar__Main__items">
-                    <b:navLink value="Hamburguesas" href="" col-sm="12" />
-
-                    <b:navLink value="Tradicionales" href="" col-sm="12" />
-
-                    <b:navLink value="Pizzas" href="" col-sm="12" />
-
-                    <b:navLink value="Postres" href="" col-sm="12" />
-
-                    <b:dropMenu value="Bebidas" icon-awesome="fa-cog" col-sm="12" >
-                        <b:navLink value="Café y Chocolate" icon-awesome="fa-coffee"/>
-                        <b:navLink value="Cócteles" icon-awesome="fa-glass"/>
-                        <b:navLink value="Cervezas" href="#"/>
-                    </b:dropMenu>
-
-                    <b:navLink value="Menú de niños" href="" col-sm="12" />
-
-                    <b:dropMenu value="Menú especial" icon-awesome="fa-cog" col-sm="12" >
-                        <b:navLink value="Vegetariano" href=""/>
-                        <b:navLink value="Vegano" href="#"/>
-                    </b:dropMenu>    
-
-                    <b:navLink value="Promociones" href="" col-sm="12" />
-
-                    <b:navLink value="Carrito de compra" href="" col-sm="12" />
-
-                    <b:navLink value="Contáctenos" href="" col-sm="12" />
-
-                    <b:dropMenu value="Configuración" icon-awesome="fa-cog" col-sm="12" >
-                        <b:navLink value="Perfil" icon-awesome="fa-user" href="#"/>
-                        <b:navLink value="Temas" href="#"/>
-                        <b:navLink value="Cerrar"
-                                   href="../../index.html"
-                                   icon-awesome="fa-door-open"/>
-                    </b:dropMenu>
-                </b:navbarLinks>
-            </h:body>
-
-        </p:sidebar>
 
         <div id="content" class="main_content">
             <div class="container">

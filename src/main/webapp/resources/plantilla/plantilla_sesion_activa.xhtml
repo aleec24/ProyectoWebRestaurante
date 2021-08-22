@@ -15,7 +15,7 @@
 
         <style>
             .main_content {
-                margin-top: 180px;
+                margin-top: 150px;
             }
         </style>
     </h:head>
@@ -26,9 +26,9 @@
             <b:image library="image" name="LogoLetrasBlancas.png" height="150px" />
             <!-- Following line is needed for TBS 3.0.1 (panel content overflow issue) -->
             <b:navbarLinks pull="right" styleClass="hidden-xs" >
-                <b:navLink value="Inicio" href="../../principal.xhtml" />
-                <b:navLink value="Menu de Productos" href="/Sistema-1/faces/envios/seleccionProductos.xhtml"  />
-                <b:navLink value="Contáctenos" href="/Sistema-1/faces/comentarios/agregaComentario.xhtml"  />
+                <b:navLink value="Inicio" href="../faces/principal.xhtml" />
+                <b:navLink value="Menu de Productos" href="../faces/envios/seleccionProductos.xhtml"  />
+                <b:navLink value="Contáctenos" href="../faces/comentarios/agregaComentario.xhtml"  />
                 <b:iconAwesome name="cog" spin="true" size="3x" />
                 <b:dropMenu value="Perfil" iconAwesome="cog"  >
                     <b:navLink header="Nombre completo: ${usuarioController.nombre}"></b:navLink>                        

@@ -5,7 +5,7 @@
  */
 package Controllers;
 
-import Gestions.UsuarioGestion;
+import Gestions.LoginGestion;
 import Models.Correo;
 import javax.inject.Named;
 import javax.enterprise.context.SessionScoped;
@@ -35,15 +35,15 @@ public class LoginController extends Usuario implements Serializable {
         String ret = "";
         int idUsuario = 0;
         try {
-            usuario = UsuarioGestion.Valida(this.getNombreUsuario(), this.getPwUsuario());
+            usuario = LoginGestion.Valida(this.getNombreUsuario(), this.getPwUsuario());
             if (usuario != null) {
                 CarritoController carritoController = new CarritoController();
                 carritoController.inserta(Integer.parseInt(usuario.getId())); // Solo si no hay un carrito asignado al usuario
                 carritoController = null;
                 this.setNombre(usuario.getNombre());
-                this.setIdRol(usuario.getIdRol());
+                this.setRol(usuario.getRol());
                 this.setPwUsuario("");
-                if (this.getIdRol().equals("Admin")) {
+                if (this.getRol().equals("Admin")) {
                     ret = "principal_admin.xhtml";
                 } else {
                     ret = "principal.xhtml";
@@ -56,11 +56,7 @@ public class LoginController extends Usuario implements Serializable {
 
                 ret = "index.xhml";
             }
-        } catch (IllegalAccessException ex) {
-            Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (InvocationTargetException ex) {
-            Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (ClassNotFoundException ex) {
+        } catch (IllegalAccessException | InvocationTargetException | ClassNotFoundException ex) {
             Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, null, ex);
         }
         return ret;
@@ -69,7 +65,7 @@ public class LoginController extends Usuario implements Serializable {
     public int obtenerID(String nombreUsuario) throws NoSuchMethodException, InstantiationException, IllegalAccessException, InvocationTargetException, ClassNotFoundException {
 
         int result;
-        ArrayList<Usuario> lista = UsuarioGestion.obtenerId(nombreUsuario);
+        ArrayList<Usuario> lista = LoginGestion.obtenerId(nombreUsuario);
         Usuario usuario = lista.get(0);
 
         return result = Integer.parseInt(usuario.getId());
@@ -79,7 +75,7 @@ public class LoginController extends Usuario implements Serializable {
     public String obtenerCorreo(String nombre, String apellido, String cedula) throws NoSuchMethodException, InstantiationException, IllegalAccessException, InvocationTargetException, ClassNotFoundException {
 
         String result;
-        ArrayList<Usuario> lista = UsuarioGestion.obtenerCorreo(nombre, apellido, cedula);
+        ArrayList<Usuario> lista = LoginGestion.obtenerCorreo(nombre, apellido, cedula);
         Usuario usuario = lista.get(0);
 
         return result = usuario.getCorreo();
@@ -87,7 +83,7 @@ public class LoginController extends Usuario implements Serializable {
     }
 
     public String getPlantilla() {
-        if (!this.getIdUsuario().equals("")) {
+        if (!this.getRol().equals("")) {
             return "./resources/plantilla/plantilla.xhtml";
         } else {
             return "./resources/plantilla/plantilla.xhtml";
@@ -108,7 +104,7 @@ public class LoginController extends Usuario implements Serializable {
 
     private String buscarCorreoValido(String nombre, String apellido, String cedula) throws NoSuchMethodException, InstantiationException, IllegalAccessException, InvocationTargetException, ClassNotFoundException {
         String resp = "";
-        UsuarioGestion usuarioGestion = new UsuarioGestion();
+        LoginGestion usuarioGestion = new LoginGestion();
         ArrayList<Usuario> lista = usuarioGestion.obtenerCorreo(nombre, apellido, cedula);
         Usuario usuario = lista.get(0);
         return resp = usuario.getCorreo();
@@ -116,7 +112,7 @@ public class LoginController extends Usuario implements Serializable {
 
     private String buscarContrasena(String nombre, String apellido, String cedula) throws NoSuchMethodException, InstantiationException, IllegalAccessException, InvocationTargetException, ClassNotFoundException {
         String resp = "";
-        UsuarioGestion usuarioGestion = new UsuarioGestion();
+        LoginGestion usuarioGestion = new LoginGestion();
         resp = usuarioGestion.obtenerClave(nombre, apellido, cedula);
         return resp;
     }

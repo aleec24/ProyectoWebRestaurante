@@ -3,44 +3,96 @@ package Models;
 public class Usuario {
 
     private String id;
-    private String pwUsuario;
+    private String nombre;
+    private String apellido;
+    private String cedula;
+    private String telefono;
+    private String rol;
     private String nombreUsuario;
-    private String idRol;
-	private String nombre;
-	private String apellido;
-	private String correo;
-	private String cedula;
+    private String pwUsuario;
+    private Boolean estado;
+    private String correo;
 
     //-----------
     //Constructor
     public Usuario() {
     }
 
-    public Usuario(String id, String nombre, String idRol, String correo) {
+    public Usuario(String id, String nombre, String apellido, String cedula, String telefono, String rol, String nombreUsuario, String pwUsuario, Boolean estado, String correo) {
         this.id = id;
         this.nombre = nombre;
-        this.idRol = idRol;
-		this.correo = correo;
-    }
-	
-	public Usuario(String id) {
-        this.id = id;
-    }
-	
-	public Usuario(String id,String correo) {
-		this.id = id;
+        this.apellido = apellido;
+        this.cedula = cedula;
+        this.telefono = telefono;
+        this.rol = rol;
+        this.nombreUsuario = nombreUsuario;
+        this.pwUsuario = pwUsuario;
+        this.estado = estado;
         this.correo = correo;
     }
 
-	
-    //-----------
-    //Getters and Setters
-    public String getIdUsuario() {
+    public Usuario(String id, String nombre, String idRol, String correo) {
+        this.id = id;
+        this.nombre = nombre;
+        this.rol = idRol;
+        this.correo = correo;
+    }
+
+    public Usuario(String id) {
+        this.id = id;
+    }
+
+    public Usuario(String id, String correo) {
+        this.id = id;
+        this.correo = correo;
+    }
+
+    public String getId() {
         return id;
     }
 
-    public void setIdUsuario(String idUsuario) {
-        this.id = idUsuario;
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public String getApellido() {
+        return apellido;
+    }
+
+    public void setApellido(String apellido) {
+        this.apellido = apellido;
+    }
+
+    public String getCedula() {
+        return cedula;
+    }
+
+    public void setCedula(String cedula) {
+        this.cedula = cedula;
+    }
+
+    public String getTelefono() {
+        return telefono;
+    }
+
+    public void setTelefono(String telefono) {
+        this.telefono = telefono;
+    }
+
+    public String getRol() {
+        return rol;
+    }
+
+    public void setRol(String rol) {
+        this.rol = rol;
     }
 
     public String getNombreUsuario() {
@@ -51,14 +103,6 @@ public class Usuario {
         this.nombreUsuario = nombreUsuario;
     }
 
-    public String getIdRol() {
-        return idRol;
-    }
-
-    public void setIdRol(String idRol) {
-        this.idRol = idRol;
-    }
-
     public String getPwUsuario() {
         return pwUsuario;
     }
@@ -67,45 +111,19 @@ public class Usuario {
         this.pwUsuario = pwUsuario;
     }
 
-	public String getId() {
-		return id;
-	}
+    public Boolean getEstado() {
+        return estado;
+    }
 
-	public void setId(String id) {
-		this.id = id;
-	}
+    public void setEstado(Boolean estado) {
+        this.estado = estado;
+    }
 
-	public String getNombre() {
-		return nombre;
-	}
+    public String getCorreo() {
+        return correo;
+    }
 
-	public void setNombre(String nombre) {
-		this.nombre = nombre;
-	}
-
-	public String getCorreo() {
-		return correo;
-	}
-
-	public void setCorreo(String correo) {
-		this.correo = correo;
-	}
-
-	public String getCedula() {
-		return cedula;
-	}
-
-	public void setCedula(String cedula) {
-		this.cedula = cedula;
-	}
-
-	public String getApellido() {
-		return apellido;
-	}
-
-	public void setApellido(String apellido) {
-		this.apellido = apellido;
-	}
-
-	
+    public void setCorreo(String correo) {
+        this.correo = correo;
+    }
 }

@@ -1,0 +1,62 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:b="http://bootsfaces.net/ui">
+
+    <body>
+
+        <ui:composition template="./../resources/plantilla/plantilla_sesion_activa_Admin.xhtml">
+
+            <ui:define name="content">
+                <link href="../CSS/CenterResponsive.css" rel="stylesheet" type="text/css"/>
+
+                <img src="../imagenes/Banner.png" alt="banner" class="responsive" />
+                <div>
+                    <h2 style="text-align: center;"><span style="text-decoration: underline;"><span style="color: #693C72;"><strong>Lista Usuarios</strong></span></span></h2>
+                </div> 
+
+                <h:form>
+
+                    <b:dataTable value="#{usuarioController.usuarios}"
+                                 var="usuario">
+                        <b:dataTableColumn value="#{usuario.id}"
+                                           width="10%"
+                                           label="ID"/>
+                        <b:dataTableColumn value="#{usuario.nombre}"
+                                           width="10%"
+                                           label="Nombre"/>
+                        <b:dataTableColumn value="#{usuario.apellido}"
+                                           width="10%"
+                                           label="Apellido"/>
+                        <b:dataTableColumn value="#{usuario.cedula}"
+                                           width="10%"
+                                           label="Cedula"/>
+                        <b:dataTableColumn value="#{usuario.telefono}"
+                                           width="10%"
+                                           label="Telefono"/>
+                        <b:dataTableColumn value="#{usuario.rol}"
+                                           width="10%"
+                                           label="Rol"/>
+                        <b:dataTableColumn value="#{usuario.nombreUsuario}"
+                                           width="10%"
+                                           label="Nombre de usuario"/>
+                        <b:dataTableColumn value="#{usuario.estado}"
+                                           width="10%"
+                                           label="Estado"/>
+                        <b:dataTableColumn value="#{usuario.correo}"
+                                           width="10%"
+                                           label="Correo"/>
+                        <b:dataTableColumn width="10%" 
+                                           label="Usuario">
+                            <b:commandButton value="Editar"     
+                                             look='warning'
+                                             action="#{usuarioController.edita(usuario.id)}"/>
+                        </b:dataTableColumn>
+                    </b:dataTable>
+                </h:form>
+            </ui:define>
+        </ui:composition>
+    </body>
+</html>

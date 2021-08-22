@@ -131,11 +131,16 @@ public class UsuarioGestion {
         return false;
     }
 
+    private static final String SQL_DELETE_CARRITO = "delete from carrito where idUsuario=?";
     private static final String SQL_DELETE_USUARIO = "delete from usuario where id=?";
 
     public static boolean eliminar(int id) {
 
         try {
+            PreparedStatement consultaCarrito = Conexion.getConexion().prepareStatement(SQL_DELETE_CARRITO);
+            consultaCarrito.setString(1, String.valueOf(id));
+            consultaCarrito.executeUpdate();
+            
             PreparedStatement consulta = Conexion.getConexion().prepareStatement(SQL_DELETE_USUARIO);
             consulta.setString(1, String.valueOf(id));
             return consulta.executeUpdate() > 0; // Si es mayor quiere decir que lo borró y retorna true, de lo contrario

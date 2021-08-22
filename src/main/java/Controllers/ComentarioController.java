@@ -27,7 +27,7 @@ public class ComentarioController extends Comentario implements Serializable {
         // cambiar a la vista de contactenos de nuevo, esta carga pero con la info previamente ingresada, corregir esto**
         if (ComentarioGestion.insertar(this)){
 //            return "listComentarios.xhtml";
-            return "listComentarios.xhtml";
+            return "agregaComentario.xhtml";
             
         }else{
             
@@ -47,7 +47,7 @@ public class ComentarioController extends Comentario implements Serializable {
              FacesMessage mensaje = new FacesMessage(FacesMessage.SEVERITY_ERROR, 
             "Error", "Posible error en datos ingresados");
             FacesContext.getCurrentInstance().addMessage("editaComentarioForm:identificacion", mensaje);
-            return "listEditaComentarios.xhtml";   
+            return "editaComentario.xhtml";   
         }
     }
 	
@@ -66,7 +66,7 @@ public class ComentarioController extends Comentario implements Serializable {
              FacesMessage mensaje = new FacesMessage(FacesMessage.SEVERITY_ERROR, 
             "Error", "Posible que el id no exista");
             FacesContext.getCurrentInstance().addMessage("listForm", mensaje);
-            return "listEditaComentarios.xhtml";
+            return "listEditaComentario.xhtml";
             
         }
 
@@ -82,7 +82,7 @@ public class ComentarioController extends Comentario implements Serializable {
         }else{
              FacesMessage mensaje = new FacesMessage(FacesMessage.SEVERITY_ERROR, 
             "Error", "Posible que el nombre no exista");
-            FacesContext.getCurrentInstance().addMessage("editaJuegoForm:identificacion", mensaje);
+            FacesContext.getCurrentInstance().addMessage("editaComentarioForm:identificacion", mensaje);
             return "listEliminaComentario.xhtml";
             
         }

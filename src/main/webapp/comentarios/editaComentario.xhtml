@@ -24,16 +24,8 @@
                             <b:column medium-screen="1">
                                 <h:outputLabel value="Nombre" for="nombre"/>
                             </b:column>
-                            <!--Como estaba al inicio-->
-                                <!--<b:column medium-screen="3">
-                                <h:outputLabel value="#{comentarioController.nombre}" for="nombre"/>
-                            </b:column>-->
-                                
-                            <!--Cambios de Yirlany:-->
                             <b:column medium-screen="3">
-                                             <b:inputText placeholder="Nombre" id="nombre"
-                                             required="true"
-                                            value="#{comentarioController.nombre}"/>
+                                <h:outputLabel value="#{comentarioController.nombre}" for="nombre"/>
                             </b:column>
                             <b:column medium-screen="3" style-class="message">
                                 <b:message for="nombre"/>

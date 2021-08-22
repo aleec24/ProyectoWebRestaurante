@@ -138,7 +138,7 @@
                                             <b:column col-md="6">
                                                 <b:commandButton 
                                                     value="Agregar a carrito"
-                                                    action="#{carritoController.agregarACarrito(carritoController.obtenerIdCarrito(usuarioController.obtenerID(usuarioController.nombreUsuario)), producto.idProducto,webvarsController.cantidad)}"
+                                                    action="#{carritoController.agregarACarrito(carritoController.obtenerIdCarrito(loginController.obtenerID(loginController.nombreUsuario)), producto.idProducto,webvarsController.cantidad)}"
                                                     />
                                             </b:column>
                                         </b:row>
@@ -159,7 +159,7 @@
                         
                         <div> 
                             <h:form id="sidebar__Right_form">
-                                <b:dataTable value="#{carritoProductoController.getProductosCarrito(carritoController.obtenerIdCarrito(usuarioController.obtenerID(usuarioController.nombreUsuario)))}"
+                                <b:dataTable value="#{carritoProductoController.getProductosCarrito(carritoController.obtenerIdCarrito(loginController.obtenerID(loginController.nombreUsuario)))}"
                                              var="carritoProducto"
                                              page-length="3"
                                              page-length-menu="3,5">
@@ -190,10 +190,10 @@
                                 <b:panel look="success" 
                                          title="FACTURAR" >
                                     <div>
-                                        <label>Cantidad de productos: #{carritoProductoController.getCantidadProductosCarrito(carritoController.obtenerIdCarrito(usuarioController.obtenerID(usuarioController.nombreUsuario)))}</label>
+                                        <label>Cantidad de productos: #{carritoProductoController.getCantidadProductosCarrito(carritoController.obtenerIdCarrito(loginController.obtenerID(loginController.nombreUsuario)))}</label>
                                     </div>
                                     <div>
-                                        <label>Total a pagar: ₡#{carritoProductoController.getPrecioProductosCarrito(carritoController.obtenerIdCarrito(usuarioController.obtenerID(usuarioController.nombreUsuario)),carritoProducto.idProducto)} </label>
+                                        <label>Total a pagar: ₡#{carritoProductoController.getPrecioProductosCarrito(carritoController.obtenerIdCarrito(loginController.obtenerID(loginController.nombreUsuario)),carritoProducto.idProducto)} </label>
                                     </div>
                                     <div>
                                         <b:column small-screen="6">

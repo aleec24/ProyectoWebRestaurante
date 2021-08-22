@@ -31,8 +31,8 @@ public class CorreoController extends Correo implements Serializable {
      
 	public void recuperarContrasena(String nombre, String apellido, String cedula) throws NoSuchMethodException, InstantiationException, IllegalAccessException, InvocationTargetException, ClassNotFoundException, MessagingException{
 		Boolean resp = false;
-		UsuarioController usuarioController = new UsuarioController();
-		if (usuarioController.enviarCorreoContrasena(nombre, apellido, cedula)) {
+		LoginController loginController = new LoginController();
+		if (loginController.enviarCorreoContrasena(nombre, apellido, cedula)) {
 			resp = true;
 		} 
 

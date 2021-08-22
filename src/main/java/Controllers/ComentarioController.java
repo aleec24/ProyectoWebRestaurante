@@ -17,7 +17,7 @@ import java.util.List;
 public class ComentarioController extends Comentario implements Serializable {
 
 	/****
-	 * Creates a new instance of UsuarioController
+	 * Creates a new instance of loginController
 	 */
 	public ComentarioController() {
          

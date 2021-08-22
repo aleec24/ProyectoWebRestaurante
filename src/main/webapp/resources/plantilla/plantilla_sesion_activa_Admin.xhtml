@@ -34,24 +34,23 @@
                     <b:navLink value="Ver lista de Productos" href="../faces/envios/listProductos.xhtml"></b:navLink>
                 </b:dropMenu>
                 <b:dropMenu value="Gestion Comentarios">
-                    <!--<b:navLink value="Agregar Comentarios" href="../faces/comentarios/agregaComentario.xhtml"></b:navLink>-->
                     <b:navLink value="Editar Comentarios" href="../faces/comentarios/listEditaComentario.xhtml"></b:navLink>
                     <b:navLink value="Elimina Comentarios" href="../faces/comentarios/listEliminaComentario.xhtml"></b:navLink>
                     <b:navLink value="Ver lista de Comentarios" href="../faces/comentarios/listComentarios.xhtml"></b:navLink>
                 </b:dropMenu>
                 <b:dropMenu value="Gestion Usuarios">
-                    <b:navLink value="Agregar Usuarios" href="../faces/comentarios/agregaComentario.xhtml"></b:navLink>
-                    <b:navLink value="Editar Usuarios" href="../faces/comentarios/listEditaComentario.xhtml"></b:navLink>
-                    <b:navLink value="Elimina Usuarios" href="../faces/comentarios/listEliminaComentario.xhtml"></b:navLink>
-                    <b:navLink value="Ver lista de Usuarios" href="../faces/comentarios/listComentarios.xhtml"></b:navLink>
+                    <b:navLink value="Agregar Usuarios" href="../faces/usuarios/agregaUsuario.xhtml"></b:navLink>
+                    <b:navLink value="Editar Usuarios" href="../faces/usuarios/listEditaUsuario.xhtml"></b:navLink>
+                    <b:navLink value="Elimina Usuarios" href="../faces/usuarios/listEliminaUsuario.xhtml"></b:navLink>
+                    <b:navLink value="Ver lista de Usuarios" href="../faces/usuarios/listUsuario.xhtml"></b:navLink>
                 </b:dropMenu>
                 <b:dropMenu value="Reportes">
                     <b:navLink value="Reporte Contáctenos" href="../faces/comentarios/reporte.xhtml"></b:navLink>
                 </b:dropMenu>
                 <b:iconAwesome name="cog" spin="true" size="3x" />
                 <b:dropMenu value="Perfil" iconAwesome="cog"  >
-                    <b:navLink header="Nombre completo: ${usuarioController.nombre}"></b:navLink>                        
-                    <b:navLink header="Usuario: ${usuarioController.idRol}"></b:navLink>
+                    <b:navLink header="Nombre completo: ${loginController.nombre}"></b:navLink>                        
+                    <b:navLink header="Usuario: ${loginController.idRol}"></b:navLink>
                     <b:navLink></b:navLink>
                     <b:navLink value="Editar perfil" href="#"></b:navLink>
                     <b:navLink value="Salir"

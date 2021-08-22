@@ -17,7 +17,7 @@
                         <b:column medium-screen="9">
                             <b:inputText placeholder="Cedula" id="cedula"
                                          required="true"
-                                         value="#{usuarioController.cedula}"/>
+                                         value="#{loginController.cedula}"/>
                         </b:column>
                         <b:column medium-screen="10" style-class="message">
                             <b:message for="cedula"/>
@@ -30,7 +30,7 @@
                         <b:column medium-screen="9">
                             <b:inputText placeholder="Nombre" id="nombre"
                                          required="true"
-                                         value="#{usuarioController.nombre}"/>
+                                         value="#{loginController.nombre}"/>
                         </b:column>
                         <b:column medium-screen="10" style-class="message">
                             <b:message for="nombre"/>
@@ -43,7 +43,7 @@
                         <b:column medium-screen="9">
                             <b:inputText placeholder="Primer Apellido" id="apellido"
                                          required="true"
-                                         value="#{usuarioController.apellido}"/>
+                                         value="#{loginController.apellido}"/>
                         </b:column>
                         <b:column medium-screen="10" style-class="message">
                             <b:message for="apellido"/>
@@ -54,9 +54,9 @@
                         <b:column medium-screen="4"/>
                          <b:column medium-screen="16">
                             <b:commandButton value="Enviar Solicitud"
-                                             action="#{correoController.recuperarContrasena(usuarioController.nombre, usuarioController.apellido, usuarioController.cedula)}"
+                                             action="#{correoController.recuperarContrasena(loginController.nombre, loginController.apellido, loginController.cedula)}"
                                              look="success" 
-                                             oncomplete="#{usuarioController.reset()}"
+                                             oncomplete="#{loginController.reset()}"
                                              style="width: 33%"/>
                         </b:column>  
                     </b:row>  

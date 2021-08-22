@@ -16,7 +16,7 @@ import java.util.List;
 public class CarritoProductoController extends Carrito implements Serializable {
 
 	/****
-	 * Creates a new instance of UsuarioController
+	 * Creates a new instance of loginController
 	 */
 	
 	

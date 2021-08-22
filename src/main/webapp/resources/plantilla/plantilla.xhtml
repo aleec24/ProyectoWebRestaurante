@@ -26,7 +26,7 @@
                                  id="usuario"
                                  required="false"
                                  autocomplete="true"
-                                 value="#{usuarioController.nombreUsuario}">
+                                 value="#{loginController.nombreUsuario}">
                         <f:facet name="prepend">
                             <b:icon name="user"/>
                         </f:facet>
@@ -38,13 +38,13 @@
                                    id="clave"
                                    required="false"
                                    autocomplete="true"
-                                   value="#{usuarioController.pwUsuario}">
+                                   value="#{loginController.pwUsuario}">
                         <f:facet name="prepend">
                             <b:iconAwesome name="key"/>
                         </f:facet>
                     </b:inputSecret>
                 </div> 
-                <b:commandButton class="main-button" value="Login" look="success" icon="chevron-right" iconAlign="right" action="#{usuarioController.valida}"/>
+                <b:commandButton class="main-button" value="Login" look="success" icon="chevron-right" iconAlign="right" action="#{loginController.valida}"/>
 
                 <b:button class="main-button" value="Recuperar contraseña" look="success" href="RecuperacionContrasena/recuperacionContrasena.xhtml"/>
             </h:form>

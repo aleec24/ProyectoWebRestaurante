@@ -12,7 +12,7 @@ import Models.Comentario;
 
 public class ComentarioGestion {
 
-	private static final String SQL_INSERT_COMENTARIO= "insert into comentarios (nombre,telefono,correo,comentario) values (?,?,?,?)";
+	private static final String SQL_INSERT_COMENTARIO= "insert into juegos (nombre,telefono,correo,comentario) values (?,?,?,?)";
 
 	public static boolean insertar(Comentario comentario){
 
@@ -56,7 +56,7 @@ public class ComentarioGestion {
             PreparedStatement consulta= Conexion.getConexion().prepareStatement(SQL_SELECT_COMENTARIOS);
             ResultSet rs= consulta.executeQuery();
             while (rs!=null && rs.next()){
-                lista.add(new Comentario(rs.getInt(3),rs.getString(2),rs.getString(4),rs.getString(5)));           
+                lista.add(new Comentario(rs.getInt(2),rs.getString(3),rs.getString(4),rs.getString(5)));           
             }
 
         } catch (SQLException ex) {
@@ -76,17 +76,17 @@ public class ComentarioGestion {
     }
 	
 	private static final String SQL_UPDATE_COMENTARIO= "update comentarios set nombre=?,telefono=?,"
-            + "correo=?,comentario=? where nombre=?";
+            + "correo=? where comentario=?";
+    
     public static boolean actualiza (Comentario comentario){
         
         
         try {
             PreparedStatement sentencia= Conexion.getConexion().prepareCall(SQL_UPDATE_COMENTARIO);
             sentencia.setString(1, comentario.getNombre());
-			sentencia.setInt(2, comentario.getTelefono());
+            sentencia.setInt(2, comentario.getTelefono());
             sentencia.setString(3, comentario.getCorreo());
 			sentencia.setString(4, comentario.getComentario());
-			sentencia.setString(5, comentario.getNombre());
            
             return sentencia.executeUpdate()>0; // Retorna true en caso de poder actualizar, false caso contrario
             
@@ -124,8 +124,8 @@ public class ComentarioGestion {
             //Si encontró alguna coincidencia
             if (datos.next()){
                 comentario= new Comentario(
-                datos.getInt(3),//telefono
-                datos.getString(2),//nombre
+                datos.getInt(2),//telefono
+                datos.getString(3),//nombre
                 datos.getString(4),//correo
 				datos.getString(5));//comentario    
             }
@@ -148,7 +148,7 @@ public class ComentarioGestion {
         
     }
 	
-	private static final String SQL_DELETE_COMENTARIO= "delete from comentarios where nombre=?";
+	private static final String SQL_DELETE_COMENTARIO= "delete from comentario where nombre=?";
     
     public static boolean eliminar (String nombre){
         
@@ -174,6 +174,5 @@ public class ComentarioGestion {
         return false;
         
     }
-	
 	
 }

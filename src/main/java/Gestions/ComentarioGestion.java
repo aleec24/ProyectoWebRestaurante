@@ -12,7 +12,7 @@ import Models.Comentario;
 
 public class ComentarioGestion {
 
-	private static final String SQL_INSERT_COMENTARIO= "insert into comentario (nombre,telefono,correo,comentario) values (?,?,?,?)";
+	private static final String SQL_INSERT_COMENTARIO= "insert into comentarios (nombre,telefono,correo,comentario) values (?,?,?,?)";
 
 	public static boolean insertar(Comentario comentario){
 

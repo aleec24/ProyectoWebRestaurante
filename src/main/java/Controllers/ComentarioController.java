@@ -24,10 +24,9 @@ public class ComentarioController extends Comentario implements Serializable {
     }
 	
 	public String inserta(){
-        // cambiar a la vista de contactenos de nuevo, esta carga pero con la info previamente ingresada, corregir esto**
+        
         if (ComentarioGestion.insertar(this)){
-//            return "listComentarios.xhtml";
-            return "agregaComentario.xhtml";
+            return "agregaComentarios.xhtml";
             
         }else{
             
@@ -36,7 +35,7 @@ public class ComentarioController extends Comentario implements Serializable {
             FacesContext.getCurrentInstance().addMessage("agregaComentarioForm:identificacion", mensaje);
             return "agregaComentarios.xhtml";
         }
-        
+	
     }
 	
 	public String modifica(){

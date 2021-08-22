@@ -16,12 +16,12 @@
                 <img src="../imagenes/Banner.png" alt="banner" class="responsive" />
 
                 <div>
-                <h2 style="text-align: center;"><span style="text-decoration: underline;"><span style="color: #693C72;"><strong>Edición de comentarios:</strong></span></span></h2>
+                <h2 style="text-align: center;"><span style="text-decoration: underline;"><span style="color: #693C72;"><strong>Lista de comentarios:</strong></span></span></h2>
                 </div> 
                 
                 <h:form>
                     
-                    <b:dataTable value="#{comentarioController.comentario}"
+                    <b:dataTable value="#{comentarioController.comentarios}"
                                  var="comentario">
                         <b:dataTableColumn value="#{comentario.nombre}"
                                            width="10%"

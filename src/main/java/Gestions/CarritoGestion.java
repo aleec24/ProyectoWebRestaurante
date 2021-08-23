@@ -221,7 +221,7 @@ public class CarritoGestion {
 	
 	// Declaración de Query y método para consultar la lista en base de datos
     
-    private static final String SQL_SELECT_CANTIDADPRODUCTO="Select cantidad from carrito_producto where idCarrito=? and idProducto=?";
+    private static final String SQL_SELECT_CANTIDADPRODUCTO="Select cantidad from carrito_producto where idCarrito=? and idProducto=? and estadoCompra=?";
     
     public static int getCantidadProducto(int idCarrito, int idProducto){
         
@@ -234,6 +234,7 @@ public class CarritoGestion {
 			PreparedStatement consulta= Conexion.getConexion().prepareStatement(SQL_SELECT_CANTIDADPRODUCTO);
 			consulta.setInt(1, idCarrito);
 			consulta.setInt(2, idProducto);
+			consulta.setString(3, "pendiente");
 			ResultSet rs= consulta.executeQuery();
             //cantidad = rs.getInt(1); 
 			System.out.println(rs);
@@ -410,6 +411,8 @@ public class CarritoGestion {
         return false;
         
     }
+	
+	
 	
 	
 }

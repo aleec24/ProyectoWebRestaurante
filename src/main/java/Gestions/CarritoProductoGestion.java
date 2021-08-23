@@ -1,6 +1,5 @@
 package Gestions;
 
-import Models.Carrito;
 import Models.CarritoProducto;
 import java.lang.reflect.InvocationTargetException;
 import java.sql.PreparedStatement;
@@ -21,149 +20,7 @@ public class CarritoProductoGestion {
 	//----------------------------------------------------------------------------------------------------------------
 	//----------------------------------------------------------------------------------------------------------------
 	
-//	private static final String SQL_INSERT_CARRITO= "insert into carrito (idUsuario,estadoCarrito,carritoActivo) values (?,?,?)";
-//
-//	public static boolean insertar(Carrito carrito){
-//
-//        try {
-//            PreparedStatement sentencia= Conexion.getConexion().prepareCall(SQL_INSERT_CARRITO);
-//            sentencia.setInt(1, carrito.getIdUsuario());
-//            sentencia.setString(2, carrito.getEstadoCarrito());
-//			sentencia.setInt(3, carrito.getCarritoActivo());
-//            return sentencia.executeUpdate()>0; // Retorna true si lo logra insertar, false si no
-//            
-//        } catch (SQLException ex) {
-//            Logger.getLogger(CarritoProductoGestion.class.getName()).log(Level.SEVERE, null, ex);
-//        } catch (NoSuchMethodException ex) {
-//			Logger.getLogger(CarritoProductoGestion.class.getName()).log(Level.SEVERE, null, ex);
-//		} catch (InstantiationException ex) {
-//			Logger.getLogger(CarritoProductoGestion.class.getName()).log(Level.SEVERE, null, ex);
-//		} catch (IllegalAccessException ex) {
-//			Logger.getLogger(CarritoProductoGestion.class.getName()).log(Level.SEVERE, null, ex);
-//		} catch (InvocationTargetException ex) {
-//			Logger.getLogger(CarritoProductoGestion.class.getName()).log(Level.SEVERE, null, ex);
-//		} catch (ClassNotFoundException ex) {
-//			Logger.getLogger(CarritoProductoGestion.class.getName()).log(Level.SEVERE, null, ex);
-//		}
-//        
-//        return false; // No se logró insertar.
-//        
-//    }
-	
-	//*****************************************************
-	//*****************************************************
-	
-	
-//	private static final String SQL_INSERT_AGREGARCARRITO= "insert into carrito_producto (idCarrito,idProducto,estadoCompra,cantidad) values (?,?,?,?)";
-//
-//	public static boolean agregarProducto(int idCarrito, int idProducto,int cantidad){
-//
-//        try {
-//            PreparedStatement sentencia= Conexion.getConexion().prepareCall(SQL_INSERT_AGREGARCARRITO);
-//            sentencia.setInt(1, idCarrito);
-//            sentencia.setInt(2, idProducto);
-//			sentencia.setString(3, "pendiente");
-//			sentencia.setInt(4, cantidad);
-//            return sentencia.executeUpdate()>0; // Retorna true si lo logra insertar, false si no
-//            
-//        } catch (SQLException ex) {
-//            Logger.getLogger(CarritoProductoGestion.class.getName()).log(Level.SEVERE, null, ex);
-//        } catch (NoSuchMethodException ex) {
-//			Logger.getLogger(CarritoProductoGestion.class.getName()).log(Level.SEVERE, null, ex);
-//		} catch (InstantiationException ex) {
-//			Logger.getLogger(CarritoProductoGestion.class.getName()).log(Level.SEVERE, null, ex);
-//		} catch (IllegalAccessException ex) {
-//			Logger.getLogger(CarritoProductoGestion.class.getName()).log(Level.SEVERE, null, ex);
-//		} catch (InvocationTargetException ex) {
-//			Logger.getLogger(CarritoProductoGestion.class.getName()).log(Level.SEVERE, null, ex);
-//		} catch (ClassNotFoundException ex) {
-//			Logger.getLogger(CarritoProductoGestion.class.getName()).log(Level.SEVERE, null, ex);
-//		}
-//        
-//        return false; // No se logró insertar.
-//        
-//    }
-	
-	//----------------------------------------------------------------------------------------------------------------
-	//----------------------------------------------------------------------------------------------------------------
-	// SELECT
-	//----------------------------------------------------------------------------------------------------------------
-	//----------------------------------------------------------------------------------------------------------------
-	
-	// Declaración de Query y método para consultar la lista en base de datos
-    
-//    private static final String SQL_SELECT_CARRITOS="Select * from carrito";
-//    
-//    public static ArrayList<Carrito> getCarritos(){
-//        
-//        ArrayList<Carrito> lista= new ArrayList<>();
-//        
-//        try {
-//            
-//            PreparedStatement consulta= Conexion.getConexion().prepareStatement(SQL_SELECT_CARRITOS);
-//            ResultSet rs= consulta.executeQuery();
-//            while (rs!=null && rs.next()){
-//                lista.add(new Carrito(rs.getInt(1),rs.getInt(2),rs.getString(3)));           
-//            }
-//
-//        } catch (SQLException ex) {
-//            Logger.getLogger(CarritoProductoGestion.class.getName()).log(Level.SEVERE, null, ex);
-//        } catch (NoSuchMethodException ex) {    
-//			Logger.getLogger(CarritoProductoGestion.class.getName()).log(Level.SEVERE, null, ex);
-//		} catch (InstantiationException ex) {
-//			Logger.getLogger(CarritoProductoGestion.class.getName()).log(Level.SEVERE, null, ex);
-//		} catch (IllegalAccessException ex) {
-//			Logger.getLogger(CarritoProductoGestion.class.getName()).log(Level.SEVERE, null, ex);
-//		} catch (InvocationTargetException ex) {
-//			Logger.getLogger(CarritoProductoGestion.class.getName()).log(Level.SEVERE, null, ex);
-//		} catch (ClassNotFoundException ex) {
-//			Logger.getLogger(CarritoProductoGestion.class.getName()).log(Level.SEVERE, null, ex);
-//		}
-//        return lista;     
-//    }
-//	
-//	*****************************************************
-//	*****************************************************
-//	
-//	 Declaración de Query y método para consultar la lista en base de datos
-//    
-//    private static final String SQL_SELECT_CARRITOUSUARIO="Select idCarrito from carrito where idUsuario=?";
-//    
-//    public static ArrayList<Carrito> getCarritoid(int idUsuario){
-//        
-//        ArrayList<Carrito> lista= new ArrayList<>();
-//        boolean carritoEncontrado = false;
-//        try {
-//            
-//            PreparedStatement consulta= Conexion.getConexion().prepareStatement(SQL_SELECT_CARRITOUSUARIO);
-//			consulta.setInt(1, idUsuario);
-//			ResultSet rs= consulta.executeQuery();
-//            while (rs!=null && rs.next()){
-//                lista.add(new Carrito(rs.getInt(1)));         
-//				carritoEncontrado = true;
-//            }
-//		} catch (SQLException ex) {
-//            Logger.getLogger(CarritoProductoGestion.class.getName()).log(Level.SEVERE, null, ex);
-//        } catch (NoSuchMethodException ex) {    
-//			Logger.getLogger(CarritoProductoGestion.class.getName()).log(Level.SEVERE, null, ex);
-//		} catch (InstantiationException ex) {
-//			Logger.getLogger(CarritoProductoGestion.class.getName()).log(Level.SEVERE, null, ex);
-//		} catch (IllegalAccessException ex) {
-//			Logger.getLogger(CarritoProductoGestion.class.getName()).log(Level.SEVERE, null, ex);
-//		} catch (InvocationTargetException ex) {
-//			Logger.getLogger(CarritoProductoGestion.class.getName()).log(Level.SEVERE, null, ex);
-//		} catch (ClassNotFoundException ex) {
-//			Logger.getLogger(CarritoProductoGestion.class.getName()).log(Level.SEVERE, null, ex);
-//		}
-//		if (!carritoEncontrado) {
-//			Carrito carrito = new Carrito(0);
-//			lista.add(carrito);
-//		}
-//		
-//        return lista;     
-//    }
-//	
-	
+
 	
 	//*****************************************************
 	//*****************************************************	
@@ -238,6 +95,48 @@ public class CarritoProductoGestion {
             //Si encontró alguna coincidencia
             while (datos!=null && datos.next()){
                 lista.add(new CarritoProducto(datos.getString(1),datos.getInt(2), datos.getInt(3),datos.getString(4), datos.getInt(5)));
+            }
+			
+        } catch (SQLException ex) {
+            Logger.getLogger(CarritoProductoGestion.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (NoSuchMethodException ex) {
+			Logger.getLogger(CarritoProductoGestion.class.getName()).log(Level.SEVERE, null, ex);
+		} catch (InstantiationException ex) {
+			Logger.getLogger(CarritoProductoGestion.class.getName()).log(Level.SEVERE, null, ex);
+		} catch (IllegalAccessException ex) {
+			Logger.getLogger(CarritoProductoGestion.class.getName()).log(Level.SEVERE, null, ex);
+		} catch (InvocationTargetException ex) {
+			Logger.getLogger(CarritoProductoGestion.class.getName()).log(Level.SEVERE, null, ex);
+		} catch (ClassNotFoundException ex) {
+			Logger.getLogger(CarritoProductoGestion.class.getName()).log(Level.SEVERE, null, ex);
+		}
+        
+        return lista;
+        
+    }
+	
+	
+	private static final String SQL_SELECT_PRODUCTOSENCARRITOPENDIENTES= 
+			"SELECT nombre,producto.idProducto, carrito_producto.cantidad , producto.precio\n"
+			+ "FROM carrito_producto\n"
+			+ "INNER JOIN producto ON\n"
+			+ "carrito_producto.idProducto = producto.idProducto\n"
+			+ "WHERE carrito_producto.idCarrito = ? AND carrito_producto.estadoCompra = ?";
+
+    
+    public static  ArrayList<CarritoProducto> getProductosEnCarritoPendientes(int idCarrito){
+        
+		
+		ArrayList<CarritoProducto> lista = new ArrayList<>();
+        
+        try {
+            PreparedStatement consulta = Conexion.getConexion().prepareStatement(SQL_SELECT_PRODUCTOSENCARRITOPENDIENTES);
+            consulta.setInt(1, idCarrito);
+			consulta.setString(2, "pendiente");
+            ResultSet datos= consulta.executeQuery();
+            //Si encontró alguna coincidencia
+            while (datos!=null && datos.next()){
+                lista.add(new CarritoProducto(datos.getString(1), datos.getInt(2),datos.getInt(3), datos.getInt(4)));
             }
 			
         } catch (SQLException ex) {
@@ -456,6 +355,38 @@ public class CarritoProductoGestion {
         return false;
     }
 	
+	private static final String SQL_UPDATE_ESTADOCARRITOPRODUCTO = "UPDATE deweb.carrito_producto\n"
+			+ "SET estadoCompra=?\n"
+			+ "WHERE idCarrito=? AND estadoCompra=?";
+	
+    public static boolean actualizaEstadoCarritoProducto (int idCarrito){
+        try {
+            PreparedStatement sentencia= Conexion.getConexion().prepareCall(SQL_UPDATE_ESTADOCARRITOPRODUCTO);
+            sentencia.setString(1, "pagado");
+            sentencia.setInt(2, idCarrito);
+			sentencia.setString(3, "pendiente");
+           
+            return sentencia.executeUpdate()>0; // Retorna true en caso de poder actualizar, false caso contrario
+            
+            
+        } catch (SQLException ex) {
+			
+            Logger.getLogger(CarritoProductoGestion.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (NoSuchMethodException ex) {
+			Logger.getLogger(CarritoProductoGestion.class.getName()).log(Level.SEVERE, null, ex);
+		} catch (InstantiationException ex) {
+			Logger.getLogger(CarritoProductoGestion.class.getName()).log(Level.SEVERE, null, ex);
+		} catch (IllegalAccessException ex) {
+			Logger.getLogger(CarritoProductoGestion.class.getName()).log(Level.SEVERE, null, ex);
+		} catch (InvocationTargetException ex) {
+			Logger.getLogger(CarritoProductoGestion.class.getName()).log(Level.SEVERE, null, ex);
+		} catch (ClassNotFoundException ex) {
+			Logger.getLogger(CarritoProductoGestion.class.getName()).log(Level.SEVERE, null, ex);
+		}
+        return false;
+    }
+	
+	
 	
 	
 	//----------------------------------------------------------------------------------------------------------------
@@ -465,34 +396,39 @@ public class CarritoProductoGestion {
 	//----------------------------------------------------------------------------------------------------------------
 	
 	
-//	
-//	
-//	private static final String SQL_DELETE_PRODUCTO= "delete from carrito where codigo=?";
-//    
-//    public static boolean eliminar (int codigo){
-//        
-//        try {
-//            PreparedStatement consulta= Conexion.getConexion().prepareStatement(SQL_DELETE_PRODUCTO);
-//            consulta.setString(1,String.valueOf(codigo));
-//            return consulta.executeUpdate()>0; // Si es mayor quiere decir que lo borró y retorna true, de lo contrario
-//            //false
-//        } catch (SQLException ex) {
-//            Logger.getLogger(CarritoProductoGestion.class.getName()).log(Level.SEVERE, null, ex);
-//        } catch (NoSuchMethodException ex) {
-//			Logger.getLogger(CarritoProductoGestion.class.getName()).log(Level.SEVERE, null, ex);
-//		} catch (InstantiationException ex) {
-//			Logger.getLogger(CarritoProductoGestion.class.getName()).log(Level.SEVERE, null, ex);
-//		} catch (IllegalAccessException ex) {
-//			Logger.getLogger(CarritoProductoGestion.class.getName()).log(Level.SEVERE, null, ex);
-//		} catch (InvocationTargetException ex) {
-//			Logger.getLogger(CarritoProductoGestion.class.getName()).log(Level.SEVERE, null, ex);
-//		} catch (ClassNotFoundException ex) {
-//			Logger.getLogger(CarritoProductoGestion.class.getName()).log(Level.SEVERE, null, ex);
-//		}
-//        
-//        return false;
-//        
-//    }
+	//*****************************************************
+	//*****************************************************
+	
+	
+	private static final String SQL_DELETE_BORRARCARRITOPRODUCTO= "DELETE FROM carrito_producto`\n" 
+			+ "WHERE idCarrito=? and idProducto=? and estadoCompra=?";
+
+	public static boolean borrarCarritoProducto(int idCarrito, int idProducto){
+
+        try {
+            PreparedStatement sentencia= Conexion.getConexion().prepareCall(SQL_DELETE_BORRARCARRITOPRODUCTO);
+            sentencia.setInt(1, idCarrito);
+            sentencia.setInt(2, idProducto);
+			sentencia.setString(3, "pendiente");
+            return sentencia.executeUpdate()>0; // Retorna true si lo logra insertar, false si no
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(CarritoGestion.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (NoSuchMethodException ex) {
+			Logger.getLogger(CarritoGestion.class.getName()).log(Level.SEVERE, null, ex);
+		} catch (InstantiationException ex) {
+			Logger.getLogger(CarritoGestion.class.getName()).log(Level.SEVERE, null, ex);
+		} catch (IllegalAccessException ex) {
+			Logger.getLogger(CarritoGestion.class.getName()).log(Level.SEVERE, null, ex);
+		} catch (InvocationTargetException ex) {
+			Logger.getLogger(CarritoGestion.class.getName()).log(Level.SEVERE, null, ex);
+		} catch (ClassNotFoundException ex) {
+			Logger.getLogger(CarritoGestion.class.getName()).log(Level.SEVERE, null, ex);
+		}
+        
+        return false; // No se logró insertar.
+        
+    }
 	
 	
 }

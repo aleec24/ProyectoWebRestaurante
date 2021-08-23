@@ -139,14 +139,11 @@
                                                 <b:commandButton 
                                                     value="Agregar a carrito"
                                                     action="#{carritoController.agregarACarrito(carritoController.obtenerIdCarrito(loginController.obtenerID(loginController.nombreUsuario)), producto.idProducto,webvarsController.cantidad)}"
+                                                    
                                                     />
                                             </b:column>
                                         </b:row>
-                                        <b:row>
-                                            <b:column col-md="6">
-                                                <b:commandButton value="Comprar" />
-                                            </b:column>
-                                        </b:row>
+                                        
                                     </b:dataTableColumn>
                                 </b:dataTable>
                             </h:form>
@@ -180,15 +177,24 @@
                                                 <label for="id" style="text-align:center">Catidad:</label>
                                                 <label for="id" style="text-align:center">#{carritoProducto.cantidadUni}</label>
                                             </b:row>
+                                            <b:row>
+                                                <b:column col-md="6">
+                                                    <b:commandButton 
+                                                        value="Remover del carrito"
+                                                        
+
+                                                        />
+                                                </b:column>
+                                            </b:row>
                                         </b:column>
                                     </b:dataTableColumn>
                                 </b:dataTable>
                             </h:form>
                         </div>
                         <footer id="sidebar__Right_form_footer">
-                            <form>
+                            <h:form>
                                 <b:panel look="success" 
-                                         title="FACTURAR" >
+                                         title="FACTURAR">
                                     <div>
                                         <label>Cantidad de productos: #{carritoProductoController.getCantidadProductosCarrito(carritoController.obtenerIdCarrito(loginController.obtenerID(loginController.nombreUsuario)))}</label>
                                     </div>
@@ -196,18 +202,18 @@
                                         <label>Total a pagar: ₡#{carritoProductoController.getPrecioProductosCarrito(carritoController.obtenerIdCarrito(loginController.obtenerID(loginController.nombreUsuario)),carritoProducto.idProducto)} </label>
                                     </div>
                                     <div>
-                                        <b:column small-screen="6">
-                                            <h:button value="Facturar"/>
+                                        <b:column col-md="6">
+                                            <b:commandButton 
+                                                    value="FACTURAR"
+                                                    onclick="ajax:webvarsController.facturar(loginController.obtenerID(loginController.nombreUsuario),carritoProductoController.getPrecioProductosCarrito(carritoController.obtenerIdCarrito(loginController.obtenerID(loginController.nombreUsuario)),carritoProducto.idProducto),webvarsController.fecha,carritoProductoController.getProductosCarritoPendientes(carritoController.obtenerIdCarrito(loginController.obtenerID(loginController.nombreUsuario))),carritoController.obtenerIdCarrito(loginController.obtenerID(loginController.nombreUsuario)))"
+                                                    
+                                                    />
                                         </b:column>
                                     </div>
                                 </b:panel>
-                               
-                            </form>
-                             
+                            </h:form>
                         </footer>
-                        
                     </aside>
-                    
                 </div>
             </ui:define>
         </ui:composition>

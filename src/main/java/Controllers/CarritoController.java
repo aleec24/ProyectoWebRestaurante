@@ -27,7 +27,7 @@ public class CarritoController extends Carrito implements Serializable {
          
     }
 	public boolean inserta(int idUsuario) {
-		boolean result;
+		boolean result = false;
 		ArrayList<Carrito> lista = CarritoGestion.getCarritoid(idUsuario);
 		Carrito carrito = lista.get(0);
 		if (carrito.getIdCarrito() != 0 && carrito.getIdCarrito() > 0) { // Solo si no hay un carrito asignado al usuario
@@ -46,11 +46,12 @@ public class CarritoController extends Carrito implements Serializable {
 	}
 	
 	public boolean agregarACarrito(int idCarrito,int idProducto,int cantidad) {
-		boolean result;
+		boolean result = false;
 		int cantidadDB = CarritoGestion.getCantidadProducto(idCarrito, idProducto);
 		if (cantidadDB == 0) {
 			if (CarritoGestion.agregarProducto(idCarrito, idProducto, cantidad)) {
 				result = true;
+				CarritoGestion.actualiza("pendiente", idCarrito);
 			} else {
 
 				FacesMessage mensaje = new FacesMessage(FacesMessage.SEVERITY_ERROR,
@@ -70,7 +71,7 @@ public class CarritoController extends Carrito implements Serializable {
 	}
 	
 	public boolean modifica(boolean estadoCarrito, int idUsuario){
-		boolean result;
+		boolean result = false;
         if(estadoCarrito == false){
 			this.setEstadoCarrito("vacio");
 		}else{
@@ -89,7 +90,7 @@ public class CarritoController extends Carrito implements Serializable {
     }
 	
 	public int obtenerIdCarrito(int idUsuario){
-		int result;
+		int result = 0;
         ArrayList<Carrito> lista = CarritoGestion.getCarritoid(idUsuario);
 		Carrito carrito = lista.get(0);
 		

@@ -37,7 +37,19 @@ public class CarritoProducto {
 	public CarritoProducto(int precioTotal) {
 		this.precioTotal = precioTotal;
 	}
+
+	public CarritoProducto(int idProducto, int cantidadUni, int precioTotal) {
+		this.idProducto = idProducto;
+		this.cantidadUni = cantidadUni;
+		this.precioTotal = precioTotal;
+	}
 	
+	public CarritoProducto(String nombreProducto,int idProducto, int cantidadUni, int precioTotal) {
+		this.nombreProducto = nombreProducto;
+		this.idProducto = idProducto;
+		this.cantidadUni = cantidadUni;
+		this.precioTotal = precioTotal;
+	}
 	
 	//---------------------
 	//Getters and Setters

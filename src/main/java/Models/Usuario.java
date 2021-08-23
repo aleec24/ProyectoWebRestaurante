@@ -38,6 +38,14 @@ public class Usuario {
         this.correo = correo;
     }
 
+	public Usuario(String nombreUsuario, String nombre, String apellido, String correo, String cedula) {
+		this.nombreUsuario = nombreUsuario;
+		this.nombre = nombre;
+		this.apellido = apellido;
+		this.correo = correo;
+		this.cedula = cedula;
+	}
+	
     public Usuario(String id) {
         this.id = id;
     }

@@ -70,7 +70,7 @@ public class Correo {
 
 	}
 	
-	public void enviarCorreoFactura(String contrasena) throws AddressException, MessagingException {
+	public void enviarCorreoFactura(String cuerpo) throws AddressException, MessagingException {
 
 		try {
 			props.setProperty("mail.smtp.host", "smtp.gmail.com");
@@ -84,7 +84,7 @@ public class Correo {
 			String passwordRemitente = "appGYM2021+";
 			
 			String asunto = "Soda Restaurante";
-			String mensaje = "Soda Restaurante le informa que su contraseña es : \n" + contrasena ;
+			String mensaje = cuerpo;
 
 			MimeMessage message = new MimeMessage(session);
 			message.setFrom(new InternetAddress(correoRemitente));

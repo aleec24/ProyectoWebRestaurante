@@ -80,10 +80,8 @@ public class UsuarioGestion {
         Usuario usuario = new Usuario();
 
         try {
-
             PreparedStatement consulta = Conexion.getConexion().prepareStatement(SQL_SELECT_USUARIO);
             consulta.setInt(1, codigo);
-            consulta.setInt(2, codigo);
             ResultSet rs = consulta.executeQuery();
             while (rs != null && rs.next()) {
                 usuario = new Usuario(
@@ -140,7 +138,7 @@ public class UsuarioGestion {
             PreparedStatement consultaCarrito = Conexion.getConexion().prepareStatement(SQL_DELETE_CARRITO);
             consultaCarrito.setString(1, String.valueOf(id));
             consultaCarrito.executeUpdate();
-            
+
             PreparedStatement consulta = Conexion.getConexion().prepareStatement(SQL_DELETE_USUARIO);
             consulta.setString(1, String.valueOf(id));
             return consulta.executeUpdate() > 0; // Si es mayor quiere decir que lo borró y retorna true, de lo contrario

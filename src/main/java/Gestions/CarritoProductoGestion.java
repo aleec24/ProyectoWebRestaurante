@@ -400,16 +400,15 @@ public class CarritoProductoGestion {
 	//*****************************************************
 	
 	
-	private static final String SQL_DELETE_BORRARCARRITOPRODUCTO= "DELETE FROM carrito_producto`\n" 
-			+ "WHERE idCarrito=? and idProducto=? and estadoCompra=?";
+	private static final String SQL_DELETE_BORRARCARRITOPRODUCTOS= "DELETE FROM carrito_producto\n" +
+	"WHERE idCarrito=? and estadoCompra=?";
 
-	public static boolean borrarCarritoProducto(int idCarrito, int idProducto){
+	public static boolean borrarCarritoProductos(int idCarrito){
 
         try {
-            PreparedStatement sentencia= Conexion.getConexion().prepareCall(SQL_DELETE_BORRARCARRITOPRODUCTO);
+            PreparedStatement sentencia= Conexion.getConexion().prepareCall(SQL_DELETE_BORRARCARRITOPRODUCTOS);
             sentencia.setInt(1, idCarrito);
-            sentencia.setInt(2, idProducto);
-			sentencia.setString(3, "pendiente");
+			sentencia.setString(2, "pendiente");
             return sentencia.executeUpdate()>0; // Retorna true si lo logra insertar, false si no
             
         } catch (SQLException ex) {
@@ -430,5 +429,34 @@ public class CarritoProductoGestion {
         
     }
 	
+	private static final String SQL_DELETE_BORRARCARRITOPRODUCTO= "DELETE FROM carrito_producto\n" +
+	"WHERE idCarrito=? and idProducto=? and estadoCompra=?";
+
+	public static boolean borrarCarritoProducto(int idCarrito, int idProducto){
+
+        try {
+            PreparedStatement sentencia= Conexion.getConexion().prepareCall(SQL_DELETE_BORRARCARRITOPRODUCTO);
+            sentencia.setInt(1, idCarrito);
+			sentencia.setInt(2, idProducto);
+			sentencia.setString(3, "pendiente");
+            return sentencia.executeUpdate()>0; // Retorna true si lo logra insertar, false si no
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(CarritoGestion.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (NoSuchMethodException ex) {
+			Logger.getLogger(CarritoGestion.class.getName()).log(Level.SEVERE, null, ex);
+		} catch (InstantiationException ex) {
+			Logger.getLogger(CarritoGestion.class.getName()).log(Level.SEVERE, null, ex);
+		} catch (IllegalAccessException ex) {
+			Logger.getLogger(CarritoGestion.class.getName()).log(Level.SEVERE, null, ex);
+		} catch (InvocationTargetException ex) {
+			Logger.getLogger(CarritoGestion.class.getName()).log(Level.SEVERE, null, ex);
+		} catch (ClassNotFoundException ex) {
+			Logger.getLogger(CarritoGestion.class.getName()).log(Level.SEVERE, null, ex);
+		}
+        
+        return false; // No se logró insertar.
+        
+    }
 	
 }

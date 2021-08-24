@@ -44,12 +44,20 @@ public class CarritoProductoController extends Carrito implements Serializable {
 		
 	}
 	
-	public boolean borrarProductoCarrito(int idCarrito, int idProducto){
+	public void borrarProductoCarrito(int idCarrito , int idProducto){
 		boolean resp = false;
-		if (CarritoProductoGestion.borrarCarritoProducto(idCarrito, idCarrito)) {
+		if (CarritoProductoGestion.borrarCarritoProducto(idCarrito, idProducto)) {
 			resp = true;
 		}
-		return resp;
+		
+	}
+	
+	public void borrarProductoCarritos(int idCarrito){
+		boolean resp = false;
+		if (CarritoProductoGestion.borrarCarritoProductos(idCarrito)) {
+			resp = true;
+		}
+		
 	}
 	
 	

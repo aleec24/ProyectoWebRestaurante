@@ -133,7 +133,7 @@
                                                     />
                                             </b:column>
                                         </b:row>
-                                        
+                                                                                
                                     </b:dataTableColumn>
                                 </b:dataTable>
                             </h:form>
@@ -168,14 +168,14 @@
                                                 <label for="id" style="text-align:center">#{carritoProducto.cantidadUni}</label>
                                             </b:row>
                                             <b:row>
-                                                <b:column col-md="6">
-                                                    <b:commandButton 
-                                                        value="Remover del carrito"
-                                                        
-
-                                                        />
-                                                </b:column>
-                                            </b:row>
+                                            <b:column col-md="6">
+                                                <b:commandButton 
+                                                    value="Remover del carrito"
+                                                    action="#{carritoProductoController.borrarProductoCarrito(carritoController.obtenerIdCarrito(loginController.obtenerID(loginController.nombreUsuario)), carritoProducto.idProducto)}"
+                                                    
+                                                    />
+                                            </b:column>
+                                        </b:row>
                                         </b:column>
                                     </b:dataTableColumn>
                                 </b:dataTable>
@@ -199,6 +199,14 @@
                                                     
                                                     />
                                         </b:column>
+                                        <b:column col-md="6">
+                                            <b:commandButton 
+                                                value="VACIAR CARRITO"
+                                                action="#{carritoProductoController.borrarProductoCarritos(carritoController.obtenerIdCarrito(loginController.obtenerID(loginController.nombreUsuario)))}"
+
+                                                />
+                                        </b:column>
+
                                     </div>
                                 </b:panel>
                             </h:form>

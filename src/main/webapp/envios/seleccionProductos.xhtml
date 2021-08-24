@@ -144,7 +144,7 @@
                             <label for="id" id="sidebar_Right_Header">Carrito de Compras</label>
                         </div>
                         
-                        <div> 
+                        <div > 
                             <h:form id="sidebar__Right_form">
                                 <b:dataTable value="#{carritoProductoController.getProductosCarrito(carritoController.obtenerIdCarrito(loginController.obtenerID(loginController.nombreUsuario)))}"
                                              var="carritoProducto"
@@ -195,7 +195,7 @@
                                         <b:column col-md="6">
                                             <b:commandButton 
                                                     value="FACTURAR"
-                                                    onclick="ajax:webvarsController.facturar(loginController.obtenerID(loginController.nombreUsuario),carritoProductoController.getPrecioProductosCarrito(carritoController.obtenerIdCarrito(loginController.obtenerID(loginController.nombreUsuario)),carritoProducto.idProducto),webvarsController.fecha,carritoProductoController.getProductosCarritoPendientes(carritoController.obtenerIdCarrito(loginController.obtenerID(loginController.nombreUsuario))),carritoController.obtenerIdCarrito(loginController.obtenerID(loginController.nombreUsuario)))"
+                                                    action="#{webvarsController.facturar(loginController.obtenerID(loginController.nombreUsuario),carritoProductoController.getPrecioProductosCarrito(carritoController.obtenerIdCarrito(loginController.obtenerID(loginController.nombreUsuario)),carritoProducto.idProducto),webvarsController.fecha,carritoProductoController.getProductosCarritoPendientes(carritoController.obtenerIdCarrito(loginController.obtenerID(loginController.nombreUsuario))),carritoController.obtenerIdCarrito(loginController.obtenerID(loginController.nombreUsuario)))}"
                                                     
                                                     />
                                         </b:column>

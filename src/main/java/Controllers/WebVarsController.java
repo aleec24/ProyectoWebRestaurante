@@ -49,7 +49,7 @@ public class WebVarsController implements Serializable {
 		this.cantidad = cantidad;
 	}
 
-	public void facturar(int idUsuario, int subtotal,String fecha, ArrayList<CarritoProducto>  CarritoProducto,int idCarrito) throws NoSuchMethodException, InstantiationException, IllegalAccessException, InvocationTargetException, ClassNotFoundException, MessagingException{
+	public String facturar(int idUsuario, int subtotal,String fecha, ArrayList<CarritoProducto>  CarritoProducto,int idCarrito) throws NoSuchMethodException, InstantiationException, IllegalAccessException, InvocationTargetException, ClassNotFoundException, MessagingException{
 		int idFacturas = 0;
 		Usuario usuario = UsuarioGestion.selectUsuario(idUsuario);
 		String cuerpoCorreo = "";
@@ -92,7 +92,7 @@ public class WebVarsController implements Serializable {
 		
 		String resp = "principal.xhtml";
 		
-		//return resp;
+		return resp;
 	}
 	
 	public String getFecha(){
@@ -103,10 +103,10 @@ public class WebVarsController implements Serializable {
 	}
 	
 	
-	public boolean togglestate(){
-		this.toggle = true;
+	public String togglestate(){
 		
-		return toggle;
+		
+		return "seleccionProductos.xhtml";
 	}
 	
 	

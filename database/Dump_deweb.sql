@@ -32,7 +32,7 @@ CREATE TABLE `carrito` (
   PRIMARY KEY (`idCarrito`),
   KEY `id_usuario_carrito_fk_idx` (`idUsuario`),
   CONSTRAINT `id_usuario_carrito_fk` FOREIGN KEY (`idUsuario`) REFERENCES `usuario` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -41,7 +41,7 @@ CREATE TABLE `carrito` (
 
 LOCK TABLES `carrito` WRITE;
 /*!40000 ALTER TABLE `carrito` DISABLE KEYS */;
-INSERT INTO `carrito` VALUES (1,1,'vacio',1);
+INSERT INTO `carrito` VALUES (1,1,'vacio',1),(2,4,'vacio',1);
 /*!40000 ALTER TABLE `carrito` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -67,7 +67,7 @@ CREATE TABLE `carrito_producto` (
 
 LOCK TABLES `carrito_producto` WRITE;
 /*!40000 ALTER TABLE `carrito_producto` DISABLE KEYS */;
-INSERT INTO `carrito_producto` VALUES (1,4,'pendiente',2),(1,5,'pendiente',1);
+INSERT INTO `carrito_producto` VALUES (1,4,'pendiente',2),(1,5,'pendiente',1),(2,4,'pagado',2),(2,15,'pagado',1),(2,24,'pagado',2);
 /*!40000 ALTER TABLE `carrito_producto` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -135,17 +135,16 @@ DROP TABLE IF EXISTS `detalle_ventas`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `detalle_ventas` (
   `idDetalle_ventas` int NOT NULL AUTO_INCREMENT,
-  `idVentas` int NOT NULL,
+  `idFactura` int NOT NULL,
   `idProducto` int NOT NULL,
   `cantidad` int NOT NULL,
   `precioUnitario` decimal(10,2) NOT NULL,
-  `total` varchar(45) NOT NULL,
   PRIMARY KEY (`idDetalle_ventas`),
-  KEY `id_ventas_detalleventas_fk_idx` (`idVentas`),
   KEY `id_producto_detalleventas_fk_idx` (`idProducto`),
-  CONSTRAINT `id_producto_detalleventas_fk` FOREIGN KEY (`idProducto`) REFERENCES `producto` (`idProducto`),
-  CONSTRAINT `id_ventas_detalleventas_fk` FOREIGN KEY (`idVentas`) REFERENCES `ventas` (`idVentas`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  KEY `id_factura_detalleventas_fk_idx` (`idFactura`),
+  CONSTRAINT `id_factura_detalleventas_fk` FOREIGN KEY (`idFactura`) REFERENCES `factura` (`idFactura`),
+  CONSTRAINT `id_producto_detalleventas_fk` FOREIGN KEY (`idProducto`) REFERENCES `producto` (`idProducto`)
+) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -154,6 +153,7 @@ CREATE TABLE `detalle_ventas` (
 
 LOCK TABLES `detalle_ventas` WRITE;
 /*!40000 ALTER TABLE `detalle_ventas` DISABLE KEYS */;
+INSERT INTO `detalle_ventas` VALUES (1,1,4,2,4500.00),(2,1,8,1,6500.00),(3,1,15,1,5000.00),(4,1,16,1,5000.00),(5,1,17,2,3500.00),(6,2,5,2,5500.00),(7,3,4,1,4500.00),(8,3,6,2,4000.00),(9,3,15,1,5000.00),(10,3,25,1,2000.00),(11,4,4,2,4500.00),(12,4,5,1,5500.00),(13,6,12,1,8500.00),(14,7,6,1,4000.00),(15,7,7,4,5000.00),(16,8,4,2,4500.00),(17,8,15,1,5000.00),(18,8,24,2,2300.00);
 /*!40000 ALTER TABLE `detalle_ventas` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -229,13 +229,14 @@ CREATE TABLE `factura` (
   `idFactura` int NOT NULL AUTO_INCREMENT,
   `idUsuario` int NOT NULL,
   `total` int NOT NULL,
-  `fecha` date DEFAULT NULL,
+  `fecha` varchar(20) DEFAULT NULL,
   `iva` int NOT NULL,
   `subTotal` int NOT NULL,
+  `numerofacturas` int NOT NULL,
   PRIMARY KEY (`idFactura`),
   KEY `id_usuario_factura_idx` (`idUsuario`),
   CONSTRAINT `id_usuario_factura` FOREIGN KEY (`idUsuario`) REFERENCES `usuario` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -244,6 +245,7 @@ CREATE TABLE `factura` (
 
 LOCK TABLES `factura` WRITE;
 /*!40000 ALTER TABLE `factura` DISABLE KEYS */;
+INSERT INTO `factura` VALUES (1,4,36725,'22-7-2021',4225,32500,1),(2,4,12430,'22-7-2021',1430,11000,2),(3,4,22035,'23-7-2021',2535,19500,3),(4,4,16385,'23-7-2021',1885,14500,4),(5,4,0,'23-7-2021',0,0,5),(6,4,9605,'23-7-2021',1105,8500,6),(7,4,27120,'23-7-2021',3120,24000,7),(8,4,21018,'23-7-2021',2418,18600,8);
 /*!40000 ALTER TABLE `factura` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -307,7 +309,7 @@ CREATE TABLE `usuario` (
 
 LOCK TABLES `usuario` WRITE;
 /*!40000 ALTER TABLE `usuario` DISABLE KEYS */;
-INSERT INTO `usuario` VALUES (1,'Bryan','Sanabria','9182918833','99999999','Admin','bsanabria','12345',1,'bsanabriaj@hotmail.com'),(2,'Alexa','Cabalceta','1245646764','88888888','Admin','acabalceta','12345',1,'ale@ufide.ac.cr'),(3,'Yirlani','Hernandez','1231424545','77777777','Admin','yhernandez','12345',1,'yir@ufide.ac.cr');
+INSERT INTO `usuario` VALUES (1,'Bryan','Sanabria','9182918833','99999999','Admin','bsanabria','12345',1,'bsanabriaj@hotmail.com'),(2,'Alexa','Cabalceta','1245646764','88888888','Admin','acabalceta','12345',1,'ale@ufide.ac.cr'),(3,'Yirlani','Hernandez','1231424545','77777777','Admin','yhernandez','12345',1,'yir@ufide.ac.cr'),(4,'Bryan','Sanabria','123123','8888999','usuario','bryans','54321',1,'bsanabriaj@hotmail.com');
 /*!40000 ALTER TABLE `usuario` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -353,4 +355,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-08-21 15:10:05
+-- Dump completed on 2021-08-23 18:14:15

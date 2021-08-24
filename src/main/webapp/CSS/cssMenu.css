@@ -95,6 +95,13 @@
     color: white;
 }
 
+.navbar-inverse .navbar-collapse, .navbar-inverse .navbar-form{
+    margin-bottom: 0;
+}
+
+.tituloRegistro{
+    color: white;
+}
 /*--------------------------------------------------------------------------------------------------------*/
 /* ENVIOS */
 

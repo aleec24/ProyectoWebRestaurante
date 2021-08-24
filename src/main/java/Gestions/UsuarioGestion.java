@@ -13,12 +13,29 @@ import Models.Usuario;
 public class UsuarioGestion {
 
     private static final String SQL_INSERT_USUARIO = "insert into usuario (id, nombre, apellido, cedula, telefono, rol, nombreUsuario, claveUsuario, estado, correo) values (?,?,?,?,?,?,?,?,?,?)";
+    private static final String SQL_COUNT = "SELECT COUNT(id) FROM usuario";
 
     public static boolean insertar(Usuario usuario) {
 
         try {
+            PreparedStatement sentenciaCount = Conexion.getConexion().prepareCall(SQL_COUNT);
+            ResultSet rs = sentenciaCount.executeQuery();
+            String count = "";
+            if (rs != null && rs.next()) {
+                count = rs.getString(1);
+            }
+            Integer countN = Integer.parseInt(count) + 1;
+
+            if (usuario.getRol() == null) {
+                usuario.setRol("Usuario");
+            }
+
+            if (usuario.getEstado() == null) {
+                usuario.setEstado(true);
+            }
+
             PreparedStatement sentencia = Conexion.getConexion().prepareCall(SQL_INSERT_USUARIO);
-            sentencia.setString(1, usuario.getId());
+            sentencia.setString(1, countN.toString());
             sentencia.setString(2, usuario.getNombre());
             sentencia.setString(3, usuario.getApellido());
             sentencia.setString(4, usuario.getCedula());
@@ -150,14 +167,11 @@ public class UsuarioGestion {
         return false;
 
     }
-	
-	
-	//---------------------------------------------------------------------------------------------------------------------------
-	//---------------------------------------------------------------------------------------------------------------------------
-	//---------------------------------------------------------------------------------------------------------------------------
-	
-	
-	private static final String SQL_SELECT_USUARIO2 = "select * from usuario where id=?";
+
+    //---------------------------------------------------------------------------------------------------------------------------
+    //---------------------------------------------------------------------------------------------------------------------------
+    //---------------------------------------------------------------------------------------------------------------------------
+    private static final String SQL_SELECT_USUARIO2 = "select * from usuario where id=?";
 
     public static Usuario selectUsuario(int id) throws NoSuchMethodException, InstantiationException, IllegalAccessException, InvocationTargetException, ClassNotFoundException {
         Usuario usuario = null;
@@ -165,14 +179,14 @@ public class UsuarioGestion {
             PreparedStatement sentencia = Conexion.getConexion().prepareStatement(SQL_SELECT_USUARIO2);
             sentencia.setInt(1, id);
             ResultSet rs = sentencia.executeQuery();
-			
+
             if (rs.next()) {
 
-                usuario = new Usuario(rs.getString(7), 
-										   rs.getString(2), 
-						                  rs.getString(3), 
-						                   rs.getString(10),
-						                   rs.getString(4));
+                usuario = new Usuario(rs.getString(7),
+                        rs.getString(2),
+                        rs.getString(3),
+                        rs.getString(10),
+                        rs.getString(4));
 
             }
 
@@ -181,8 +195,5 @@ public class UsuarioGestion {
         }
         return usuario;
     }
-	
-	
-	
-	
+
 }

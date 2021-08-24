@@ -41,7 +41,7 @@ public class ReporteProductoController implements Serializable {
         
         try {
             File jasper= new File (FacesContext.getCurrentInstance()
-                    .getExternalContext().getRealPath("/envios/envioreporte.jasper"));
+                    .getExternalContext().getRealPath("/envios/productoreporte.jasper"));
             
             JasperPrint reporteJasper= JasperFillManager.fillReport(jasper.getPath(),null,Conexion.getConexion());
             HttpServletResponse respuesta = (HttpServletResponse)
@@ -65,14 +65,14 @@ public class ReporteProductoController implements Serializable {
         
         try {
             File jasper= new File (FacesContext.getCurrentInstance()
-                    .getExternalContext().getRealPath("/envios/envioreporte.jasper"));
+                    .getExternalContext().getRealPath("/envios/productoreporte.jasper"));
             
             JasperPrint reporteJasper= JasperFillManager.fillReport(jasper.getPath(),null,Conexion.getConexion());
             HttpServletResponse respuesta = (HttpServletResponse)
                     FacesContext.getCurrentInstance().getExternalContext().getResponse();
             
          
-            respuesta.addHeader("Content-disposition","attachement; filename=envioreporte.pdf");
+            respuesta.addHeader("Content-disposition","attachement; filename=productoreporte.pdf");
             ServletOutputStream flujo = respuesta.getOutputStream();
             JasperExportManager.exportReportToPdfStream(reporteJasper, flujo);
             FacesContext.getCurrentInstance().responseComplete();
@@ -93,7 +93,7 @@ public class ReporteProductoController implements Serializable {
                    
         try {
             File jasper= new File (FacesContext.getCurrentInstance()
-                    .getExternalContext().getRealPath("/envios/envioreporte.jasper"));
+                    .getExternalContext().getRealPath("/envios/productoreporte.jasper"));
             
             JasperPrint reporteJasper= JasperFillManager.fillReport(jasper.getPath(),parametros,Conexion.getConexion());
             HttpServletResponse respuesta = (HttpServletResponse)

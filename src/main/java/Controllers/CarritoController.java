@@ -45,28 +45,31 @@ public class CarritoController extends Carrito implements Serializable {
 		return result;
 	}
 	
-	public boolean agregarACarrito(int idCarrito,int idProducto,int cantidad) {
+	public boolean agregarACarrito(int idCarrito, int idProducto, int cantidad) {
 		boolean result = false;
-		int cantidadDB = CarritoGestion.getCantidadProducto(idCarrito, idProducto);
-		if (cantidadDB == 0) {
-			if (CarritoGestion.agregarProducto(idCarrito, idProducto, cantidad)) {
-				result = true;
-				CarritoGestion.actualiza("pendiente", idCarrito);
-			} else {
+		if (cantidad != 0) {
 
-				FacesMessage mensaje = new FacesMessage(FacesMessage.SEVERITY_ERROR,
-						"Error", "Posible error en datos ingresados");
-				FacesContext.getCurrentInstance().addMessage("agregaCarritoForm:identificacion", mensaje);
-				result = false;
-			}
-		} else {
-			if (CarritoGestion.actualizaCarritoCantidad(cantidad + cantidadDB, idCarrito, idProducto )) {
-				result = true;
+			int cantidadDB = CarritoGestion.getCantidadProducto(idCarrito, idProducto);
+			if (cantidadDB == 0) {
+				if (CarritoGestion.agregarProducto(idCarrito, idProducto, cantidad)) {
+					result = true;
+					CarritoGestion.actualiza("pendiente", idCarrito);
+				} else {
+
+					FacesMessage mensaje = new FacesMessage(FacesMessage.SEVERITY_ERROR,
+							"Error", "Posible error en datos ingresados");
+					FacesContext.getCurrentInstance().addMessage("agregaCarritoForm:identificacion", mensaje);
+					result = false;
+				}
 			} else {
-				result = false;
+				if (CarritoGestion.actualizaCarritoCantidad(cantidad + cantidadDB, idCarrito, idProducto)) {
+					result = true;
+				} else {
+					result = false;
+				}
 			}
 		}
-		
+
 		return result;
 	}
 	

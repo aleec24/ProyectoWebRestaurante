@@ -50,7 +50,7 @@ public class WebVarsController implements Serializable {
 
 	public String facturar(int idUsuario, int subtotal,String fecha, ArrayList<CarritoProducto>  CarritoProducto,int idCarrito) throws NoSuchMethodException, InstantiationException, IllegalAccessException, InvocationTargetException, ClassNotFoundException, MessagingException{
 		int idFacturas = 0;
-		Usuario usuario = UsuarioGestion.selectUsuario(idUsuario);
+		Usuario usuario = UsuarioGestion.getUsuario(idUsuario);
 		String cuerpoCorreo = "";
 		cuerpoCorreo = fecha + "\n" 
 				+ "Hola " + usuario.getNombre() + " " + usuario.getApellido() + " " + "Soda Restaurante le informa de los detalles de su compra.\n";

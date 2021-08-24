@@ -25,6 +25,16 @@ public class UsuarioController extends Usuario implements Serializable {
     public String inserta() {
         // cambiar a la vista de contactenos de nuevo, esta carga pero con la info previamente ingresada, corregir esto**
         if (UsuarioGestion.insertar(this)) {
+            this.setId("");
+            this.setNombre("");
+            this.setApellido("");
+            this.setCedula("");
+            this.setTelefono("");
+            this.setRol("");
+            this.setNombreUsuario("");
+            this.setPwUsuario("");
+            this.setEstado(true);
+            this.setCorreo("");
             return "agregaUsuario.xhtml";
 
         } else {

@@ -1,0 +1,110 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:b="http://bootsfaces.net/ui">
+
+
+    <body>
+        <ui:composition template="./../resources/plantilla/plantilla_sesion_activa_Admin.xhtml">
+            <ui:define name="content">
+                <link href="../CSS/CenterResponsive.css" rel="stylesheet" type="text/css"/>
+
+                <img src="../imagenes/Banner.png" alt="banner" class="responsive" />
+                <div>
+                    <h2 style="text-align: center;"><span style="text-decoration: underline;"><span style="color: #693C72;"><strong>Editar producto</strong></span></span></h2>
+                </div> 
+                <h:form id="editaProductoForm">
+                    <b:panel title="Editar Producto" collapsible="false" >
+                        <b:row tooltip="Agregue el nombre">
+                            <b:column medium-screen="1">
+                                <h:outputLabel value="Codigo" for="codigo"/>
+                            </b:column>
+                            <b:column medium-screen="3">
+                                <h:outputLabel value="#{productoController.codigo}" for="codigo"/>
+                            </b:column>
+                            <b:column medium-screen="3" style-class="message">
+                                <b:message for="codigo"/>
+                            </b:column>
+
+                        </b:row>
+                        <b:row>
+                            <b:column medium-screen="1">
+                                <h:outputLabel value="Nombre" for="nombre"/>
+                            </b:column>
+                            <b:column medium-screen="3">
+                                <b:inputText placeholder="Nombre" id="nombre"
+                                             required="true"
+                                             value="#{productoController.nombre}"/>
+                            </b:column>
+                            <b:column medium-screen="3" style-class="message">
+                                <b:message for="nombre"/>
+                            </b:column>
+                        </b:row>
+                        <b:row>
+                            <b:column medium-screen="1">
+                                <h:outputLabel value="Precio" for="precio"/>
+                            </b:column>
+                            <b:column medium-screen="3">
+                                <b:inputText placeholder="Precio" id="precio"
+                                             required="true"
+                                             value="#{productoController.precio}"/>
+                            </b:column>
+                            <b:column medium-screen="3" style-class="message">
+                                <b:message for="precio"/>
+                            </b:column>
+                        </b:row>
+                        <b:row>
+                            <b:column medium-screen="1">
+                                <h:outputLabel value="Estado" for="estado"/>
+                            </b:column>
+                            <b:column medium-screen="3">
+                                <b:inputText placeholder="Estado" id="estado"
+                                             required="true"
+                                             value="#{productoController.estado}"/>
+                            </b:column>
+                            <b:column medium-screen="3" style-class="message">
+                                <b:message for="estado"/>
+                            </b:column>
+                        </b:row>
+                        <b:row>
+                            <b:column medium-screen="1">
+                                <h:outputLabel value="Descripcion" for="descripcion"/>
+                            </b:column>
+                            <b:column medium-screen="3">
+                                <b:inputTextarea placeholder="Descripcion" id="descripcion"
+                                                 required="true"
+                                                 value="#{productoController.descripcion}"/>
+                            </b:column>
+                            <b:column medium-screen="3" style-class="message">
+                                <b:message for="descripcion"/>
+                            </b:column>
+                        </b:row>
+                        <b:row>
+                            <b:column medium-screen="1">
+                                <h:outputLabel value="Nombre de imagen" for="nombre_image"/>
+                            </b:column>
+                            <b:column medium-screen="3">
+                                <b:inputText placeholder="Nombre de imagen" id="nombre_image"
+                                             required="true"
+                                             value="#{productoController.nombreImagen}"/>
+                            </b:column>
+                            <b:column medium-screen="3" style-class="message">
+                                <b:message for="nombre_image"/>
+                            </b:column>
+                        </b:row>
+                        <b:row >
+                            <b:column medium-screen="6">
+                                <b:commandButton value="Insertar"
+                                                 action="#{productoController.edita(productoController.codigo)}"
+                                                 look="primary"
+                                                 style="width: 20%"/>
+                            </b:column>   
+                        </b:row> 
+                    </b:panel>
+                </h:form>
+            </ui:define>
+        </ui:composition>
+    </body>
+</html>

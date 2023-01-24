@@ -1,0 +1,77 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:b="http://bootsfaces.net/ui">
+    <h:head>
+        <link href="../CSS/cssMenu.css" rel="stylesheet" type="text/css"/>
+    </h:head>
+    <body>
+        <h:form id="solicitudC">
+                <b:panel title="Agregue los datos solicitados para recuperar su contraseña" look="primary" collapsible="false" >
+                    <b:row tooltip="Ingrese su cedula">
+                        <b:column medium-screen="2">
+                            <h:outputLabel value="Cedula" for="cedula"/>
+                        </b:column>
+                        <b:column medium-screen="9">
+                            <b:inputText placeholder="Cedula" id="cedula"
+                                         required="true"
+                                         value="#{loginController.cedula}"/>
+                        </b:column>
+                        <b:column medium-screen="10" style-class="message">
+                            <b:message for="cedula"/>
+                        </b:column>
+                    </b:row>
+                    <b:row tooltip="Ingrese su nombre">
+                        <b:column medium-screen="2">
+                            <h:outputLabel value="Nombre" for="nombre"/>
+                        </b:column>
+                        <b:column medium-screen="9">
+                            <b:inputText placeholder="Nombre" id="nombre"
+                                         required="true"
+                                         value="#{loginController.nombre}"/>
+                        </b:column>
+                        <b:column medium-screen="10" style-class="message">
+                            <b:message for="nombre"/>
+                        </b:column>
+                    </b:row>
+                    <b:row tooltip="Ingrese su apellido">
+                        <b:column medium-screen="2">
+                            <h:outputLabel value="Primer Apellido" for="apellido"/>
+                        </b:column>
+                        <b:column medium-screen="9">
+                            <b:inputText placeholder="Primer Apellido" id="apellido"
+                                         required="true"
+                                         value="#{loginController.apellido}"/>
+                        </b:column>
+                        <b:column medium-screen="10" style-class="message">
+                            <b:message for="apellido"/>
+                        </b:column>
+                    </b:row>
+
+                    <b:row tooltip="Presione para enviar la solicitud">
+                        <b:column medium-screen="4"/>
+                         <b:column medium-screen="16">
+                            <b:commandButton value="Enviar Solicitud"
+                                             action="#{correoController.recuperarContrasena(loginController.nombre, loginController.apellido, loginController.cedula)}"
+                                             look="success" 
+                                             oncomplete="#{loginController.reset()}"
+                                             style="width: 33%"/>
+                        </b:column>  
+                    </b:row>  
+                    <b:row style="height: 10px"></b:row>
+                    <b:row tooltip="Presione para volver a la pantalla principal">
+                        <b:column medium-screen="4"/>
+                        <b:column medium-screen="16">
+                            <b:button value="VOLVER"
+                                      href="../index.xhtml"
+                                      look="warning"
+                                      style="width: 33%"/>
+
+                        </b:column>  
+                    </b:row>  
+                </b:panel>
+            </h:form> 
+    </body>
+</html>

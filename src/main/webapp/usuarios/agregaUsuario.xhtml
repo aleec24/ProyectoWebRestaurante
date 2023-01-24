@@ -1,0 +1,173 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:b="http://bootsfaces.net/ui"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+
+    <body>
+        <ui:composition template="./../resources/plantilla/plantilla_sesion_activa_Admin.xhtml">
+
+            <ui:define name="content">
+                <!--Archivo CSS del banner y footer responsive-->               
+                <link href="../CSS/bannerContactenos.css" rel="stylesheet" type="text/css"/>
+                <link href="../CSS/Footer.css" rel="stylesheet" type="text/css"/>
+                <link href="../CSS/CenterResponsive.css" rel="stylesheet" type="text/css"/>
+
+                <img src="../imagenes/BannerUsuarios.png" alt="bannerusuarios" class="responsive" />
+                <div>
+                    <h2 style="text-align: center;"><span style="text-decoration: underline;"><span style="color: #693C72;"><strong>Agregar Usuario</strong></span></span></h2>
+                </div> 
+
+                <h:form id="agregaProductoForm">
+                    <b:panel title="Nuevo Usuario" collapsible="false" >
+                        <b:row>
+                            <b:column medium-screen="1">
+                                <h:outputLabel value="Nombre" for="nombre"/>
+                            </b:column>
+                            <b:column medium-screen="3">
+                                <b:inputText placeholder="Nombre" id="nombre"
+                                             required="true"
+                                             value="#{usuarioController.nombre}"
+                                             tooltip="Agregue el nombre"/>
+                            </b:column>
+                            <b:column medium-screen="3" style-class="message">
+                                <b:message for="nombre"/>
+                            </b:column>
+                        </b:row>
+                        <b:row>
+                            <b:column medium-screen="1">
+                                <h:outputLabel value="Apellido" for="apellido"/>
+                            </b:column>
+                            <b:column medium-screen="3">
+                                <b:inputText placeholder="Apellido" id="apellido"
+                                             required="true"
+                                             value="#{usuarioController.apellido}"
+                                             tooltip="Agregue el apellido"/>
+                            </b:column>
+                            <b:column medium-screen="3" style-class="message">
+                                <b:message for="apellido"/>
+                            </b:column>
+                        </b:row>
+                        <b:row>
+                            <b:column medium-screen="1">
+                                <h:outputLabel value="Cedula" for="cedula"/>
+                            </b:column>
+                            <b:column medium-screen="3">
+                                <b:inputText placeholder="Cedula" id="cedula"
+                                             required="true"
+                                             value="#{usuarioController.cedula}"
+                                             tooltip="Agregue la cedula"/>
+                            </b:column>
+                            <b:column medium-screen="3" style-class="message">
+                                <b:message for="cedula"/>
+                            </b:column>
+                        </b:row>
+                        <b:row>
+                            <b:column medium-screen="1">
+                                <h:outputLabel value="Teléfono" for="telefono"/>
+                            </b:column>
+                            <b:column medium-screen="3">
+                                <b:inputText placeholder="Teléfono" id="telefono"
+                                             required="true"
+                                             value="#{usuarioController.telefono}"
+                                             tooltip="Agregue el telefono"/>
+                            </b:column>
+                            <b:column medium-screen="3" style-class="message">
+                                <b:message for="telefono"/>
+                            </b:column>
+                        </b:row>
+                        <b:row>
+                            <b:column medium-screen="1">
+                                <h:outputLabel value="Rol" for="rol"/>
+                            </b:column>
+                            <b:column medium-screen="3">
+                                <b:selectOneMenu id="rol"
+                                                 required="true"
+                                                 value="#{usuarioController.rol}"
+                                                 tooltip="Agregue el rol" >
+                                <f:selectItem itemLabel="Seleccione" itemValue="" />
+                                <f:selectItem itemLabel="Admin" itemValue="Admin" />
+                                <f:selectItem itemLabel="Usuario" itemValue="Usuario" />
+                                </b:selectOneMenu>
+                            </b:column>
+                            <b:column medium-screen="3" style-class="message">
+                                <b:message for="rol"/>
+                            </b:column>
+                        </b:row>
+                        <b:row>
+                            <b:column medium-screen="1">
+                                <h:outputLabel value="Nombre Usuario" for="nombreUsuario"/>
+                            </b:column>
+                            <b:column medium-screen="3">
+                                <b:inputText placeholder="Nombre Usuario" id="nombreUsuario"
+                                             required="true"
+                                             value="#{usuarioController.nombreUsuario}"
+                                             tooltip="Agregue el nombre usuario"/>
+                            </b:column>
+                            <b:column medium-screen="3" style-class="message">
+                                <b:message for="nombreUsuario"/>
+                            </b:column>
+                        </b:row>
+                        <b:row>
+                            <b:column medium-screen="1">
+                                <h:outputLabel value="Password" for="password"/>
+                            </b:column>
+                            <b:column medium-screen="3">
+                                <b:inputText placeholder="Password" id="password"
+                                             required="true"
+                                             value="#{usuarioController.pwUsuario}"
+                                             tooltip="Agregue el password"/>
+                            </b:column>
+                            <b:column medium-screen="3" style-class="message">
+                                <b:message for="password"/>
+                            </b:column>
+                        </b:row>
+                        <b:row>
+                            <b:column medium-screen="1">
+                                <h:outputLabel value="Estado" for="estado"/>
+                            </b:column>
+                            <b:column medium-screen="3">
+                                <b:selectOneMenu id="estado"
+                                                 required="true"
+                                                 value="#{usuarioController.estado}"
+                                                 tooltip="Agregue el rol" >
+                                <f:selectItem itemLabel="Seleccione" itemValue="" />
+                                <f:selectItem itemLabel="Activo" itemValue="1" />
+                                <f:selectItem itemLabel="Inactivo" itemValue="0" />
+                                </b:selectOneMenu>
+                            </b:column>
+                            <b:column medium-screen="3" style-class="message">
+                                <b:message for="estado"/>
+                            </b:column>
+                        </b:row>
+                        <b:row>
+                            <b:column medium-screen="1">
+                                <h:outputLabel value="Correo" for="correo"/>
+                            </b:column>
+                            <b:column medium-screen="3">
+                                <b:inputText placeholder="Correo" id="correo"
+                                             required="true"
+                                             value="#{usuarioController.correo}"
+                                             tooltip="Agregue el nombre"/>
+                            </b:column>
+                            <b:column medium-screen="3" style-class="message">
+                                <b:message for="correo"/>
+                            </b:column>
+                        </b:row>
+                        <b:row >
+                            <b:column medium-screen="6">
+                                <b:commandButton value="Insertar"
+                                                 action="#{usuarioController.inserta()}"
+                                                 look="primary"
+                                                 style="width: 20%"/>
+                            </b:column>   
+                        </b:row>    
+                    </b:panel>
+                </h:form>
+            </ui:define>
+        </ui:composition>
+    </body>
+</html>

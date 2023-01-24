@@ -1,0 +1,171 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:b="http://bootsfaces.net/ui">
+    <h:head>
+        <title>Productos</title>
+    </h:head>
+    <h:body>
+
+        <ui:composition template="./resources/plantilla/plantilla_sesion_activa.xhtml">
+
+            <ui:define name="content">
+                <h:form id="editaProductoForm">
+                    <b:container fluid="true">
+                        <b:panel title="Producto" look="primary">
+                            <b:row tooltip="El ID del producto no se modifica.">
+                                <b:column medium-screen="2">
+                                    <h:outputLabel value="Id"
+                                                   for="Id"/>
+                                </b:column>
+                                <b:column medium-screen="4">
+                                    <b:inputText placeholder="Id del Producto"
+                                                 id="idProducto"
+                                                 value="#{productoController.idProducto}">
+                                    </b:inputText>
+                                </b:column>
+                                <b:column medium-screen="6" style-class="message">
+                                    <b:message for="idProducto"/>
+                                </b:column>
+                            </b:row>
+
+                            <b:row>
+                                <b:column medium-screen="2">
+                                    <h:outputText value="Código:"/>
+                                </b:column>
+                                <b:column medium-screen="4">
+                                    <b:inputText placeholder="Codigo"
+                                                 required="true"
+                                                 id="codigo" value="#{productoController.codigo}"
+                                                 autocomplete="false">
+                                    </b:inputText>
+                                </b:column>
+
+                                <b:column medium-screen="6" style-class="message">
+                                    <b:message for="codigo"/>
+                                </b:column>
+
+                            </b:row>
+
+                            <b:row>
+                                <b:column medium-screen="2">
+                                    <h:outputText value="Nombre:"/>
+                                </b:column>
+                                <b:column medium-screen="4">
+                                    <b:inputText placeholder="Nombre"
+                                                 required="true"
+                                                 id="nombre" value="#{productoController.nombre}"
+                                                 autocomplete="false">
+                                    </b:inputText>
+                                </b:column>
+
+                                <b:column medium-screen="6" style-class="message">
+                                    <b:message for="nombre"/>
+                                </b:column>
+
+                            </b:row>
+
+                            <b:row>
+                                <b:column medium-screen="2">
+                                    <h:outputText value="Precio:"/>
+                                </b:column>
+                                <b:column medium-screen="4">
+                                    <b:inputText placeholder="Precio"
+                                                 required="true"
+                                                 id="precio" value="#{productoController.precio}"
+                                                 autocomplete="false">
+                                    </b:inputText>
+                                </b:column>
+
+                                <b:column medium-screen="6" style-class="message">
+                                    <b:message for="precio"/>
+                                </b:column>
+
+                            </b:row>
+
+                            <b:row>
+                                <b:column medium-screen="2">
+                                    <h:outputLabel value="Estado:"
+                                                   for="estado"/>
+                                </b:column>
+                                <b:column medium-screen="4">
+                                    <b:panelGrid size="" columns="2">
+                                        <b:radiobutton value="#{productoController.estado}"
+                                                       itemLabel="Activo"
+                                                       itemValue="A"/>
+                                        <b:radiobutton value="#{productoController.estado}"
+                                                       itemLabel="Inactivo"
+                                                       itemValue="I"/>
+                                    </b:panelGrid>
+                                </b:column>
+
+                                <b:column medium-screen="6" style-class="message">
+                                    <b:message for="estado"/>
+                                </b:column>
+                            </b:row>
+
+                            <b:row>
+                                <b:column medium-screen="2">
+                                    <h:outputText value="Descripción:"/>
+                                </b:column>
+                                <b:column medium-screen="4">
+                                    <b:inputText placeholder="Descripcion"
+                                                 required="true"
+                                                 id="descripcion" value="#{productoController.descripcion}"
+                                                 autocomplete="false"/>
+                                </b:column>
+
+                                <b:column medium-screen="6" style-class="message">
+                                    <b:message for="descripcion"/>
+                                </b:column>
+
+                            </b:row>
+
+                            <b:row>
+                                <b:column medium-screen="2">
+                                    <h:outputText value="Stock:"/>
+                                </b:column>
+                                <b:column medium-screen="4">
+                                    <b:inputText placeholder="Stock"
+                                                 required="true"
+                                                 id="stock" value="#{productoController.stock}"
+                                                 autocomplete="false"/>
+                                </b:column>
+
+                                <b:column medium-screen="6" style-class="message">
+                                    <b:message for="stock"/>
+                                </b:column>
+
+                            </b:row>
+
+                            <b:row>
+                                <b:column medium-screen="2"/>
+                                <b:column medium-screen="6">
+                                    <b:commandButton value="Ingresar"
+                                                     action="#{estudianteControlador.inserta()}"
+                                                     look="primary"
+                                                     style="width:33%"/>
+                                    <b:commandButton value="Eliminar"
+                                                     action="#{estudianteControlador.elimina()}"
+                                                     look="danger"
+                                                     style="width:33%"/>
+                                    <b:commandButton value="Actualizar"
+                                                     action="#{estudianteControlador.modifica()}"
+                                                     look="success"
+                                                     style="width:33%"/>
+                                </b:column>
+                            </b:row>
+                        </b:panel>
+
+                    </b:container>
+
+                </h:form>
+
+            </ui:define>
+
+        </ui:composition>
+
+    </h:body>
+</html>

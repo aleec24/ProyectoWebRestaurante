@@ -1,0 +1,105 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:b="http://bootsfaces.net/ui">
+
+    <h:head>
+        <title>Envios</title>
+        <link href="../../cssMenu.css" rel="stylesheet" type="text/css"/>
+    </h:head>
+
+    <h:body>
+        <ui:composition template="../plantilla/plantilla.xhtml">
+            <ui:define name="content">
+                <dir style="width: 100%">
+                    <aside id="aside__Main">
+                        <div >
+                            <ul >
+                                <li  role="presentation">Opciones de Productos</li>
+                                <li  style="cursor:pointer;" >
+                                    <b:dropMenu  value="Bebidas" icon-awesome="fa-cog" icon-spin="true" col-sm="30" >
+                                        <b:navLink value="Café y Chocolate" href="#" icon-awesome="fa-coffee" icon-spin="true"/>
+                                        <b:navLink value="Cócteles" href="#" icon-awesome="fa-glass" icon-spin="true"/>
+                                        <b:navLink value="Cervezas" href="#" icon-awesome="fa-beer" icon-spin="true"/>
+                                    </b:dropMenu>
+                                </li>
+                                <li   style="cursor:pointer;">
+                                    <a href="#" role="menuitem" tabindex="0">Hamburguesas</a>
+                                </li>
+                                <li  style="cursor:pointer;">
+                                    <a href="#" role="menuitem" tabindex="0">Platillos</a>
+                                </li>
+                                <li style="cursor:pointer;">
+                                    <a href="#" role="menuitem" tabindex="0">Postres</a>
+                                </li>
+                            </ul>
+                            <ul >
+                                <li  style="cursor:pointer;">
+                                    <a href="#" role="menuitem" tabindex="0">Menu Niños</a>
+                                </li>
+                                <li style="cursor:pointer;">
+                                    <a href="#" role="menuitem" tabindex="0">Promociones</a>
+                                </li>
+                                <li  style="cursor:pointer;">
+                                    <a href="#" role="menuitem" tabindex="0">Vegetariano</a>
+                                </li>
+                                <li style="cursor:pointer;">
+                                    <a href="#" role="menuitem" tabindex="0">Vegano</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div  >
+                        </div>
+                    </aside>
+                    <article id="article__Main">
+                        <h:form>
+                            <b:dataTable value="Menu">
+                                <b:dataTableColumn value=""
+                                                   width="30%"
+                                                   label="Categoria">
+                                    <b:image library="image" name="almuerzo.png" width="500px" height="300px"/>   
+                                    <b:column>
+                                        <b:row>
+                                            <label for="id" style="text-align:center">Nombre</label>
+                                        </b:row>
+                                        <b:row>
+                                            <label for="id" style="text-align:center">Precio</label>
+                                        </b:row>
+                                    </b:column>
+                                </b:dataTableColumn>
+                                <b:dataTableColumn value=""
+                                                   width="70%"
+                                                   label="Descripcion">
+                                    <b:row >
+                                        <b:column col-md="6">
+                                            <label for="id" style="text-align:left">Descripcion</label>
+                                        </b:column>
+                                    </b:row>
+                                    <b:row>
+                                        <b:column col-md="6">
+                                            <b:commandButton value="Comprar"/>
+                                        </b:column>
+                                    </b:row>
+                                    <b:row>
+                                        <b:column col-md="6">
+                                            <b:commandButton value="Agregar a carrito"/>
+                                        </b:column>
+                                    </b:row>
+                                    <b:row >
+                                        <b:column col-md="6">
+                                            <label for="id" style="text-align:left">Cantidad</label>
+                                            <b:inputText tooltip="Agregar la cantidad a solicitar"/>
+                                        </b:column>
+                                    </b:row>
+                                </b:dataTableColumn>
+                            </b:dataTable>
+                        </h:form>
+                    </article>
+                </dir>
+            </ui:define>
+        </ui:composition>
+    </h:body>
+</html>
+

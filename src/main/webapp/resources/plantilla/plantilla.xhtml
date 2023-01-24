@@ -1,0 +1,72 @@
+<?xml version='1.0' encoding='UTF-8' ?> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:b="http://bootsfaces.net/ui"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <h:head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+        <link href="CSS/cssMenu.css" rel="stylesheet" type="text/css"/>
+        <link href="CSS/Footer.css" rel="stylesheet" type="text/css"/>
+        <title>Soda Restaurante</title>
+    </h:head>
+
+    <h:body>
+        <b:image library="image" name="Logo.png" class="main-image-logo"/>
+
+        <b:navBar inverse="true" fluid="true" class="navbar-custom-index" >
+            <h:form styleClass="navbar-form" >
+                <div class="form-group">
+                    <b:inputText placeholder="Usuario"
+                                 class="main-input"
+                                 id="usuario"
+                                 required="false"
+                                 autocomplete="true"
+                                 value="#{loginController.nombreUsuario}">
+                        <f:facet name="prepend">
+                            <b:icon name="user"/>
+                        </f:facet>
+                    </b:inputText>
+                </div>
+                <div class="form-group">
+                    <b:inputSecret placeholder="Clave"
+                                   class="main-input"
+                                   id="clave"
+                                   required="false"
+                                   autocomplete="true"
+                                   value="#{loginController.pwUsuario}">
+                        <f:facet name="prepend">
+                            <b:iconAwesome name="key"/>
+                        </f:facet>
+                    </b:inputSecret>
+                </div> 
+                <b:commandButton class="main-button" value="Login" look="success" icon="chevron-right" iconAlign="right" action="#{loginController.valida}"/>
+
+                <b:button class="main-button" value="Recuperar contraseña" look="success" href="RecuperacionContrasena/recuperacionContrasena.xhtml"/>
+                <p style="margin-top: 6px; margin-bottom: 0;"><a class="tituloRegistro" rel="stylesheet" href="./faces/registroUsuario.xhtml">¿Eres nuevo? Registrate</a></p>
+            </h:form>
+        </b:navBar>
+
+        <div id="content" class="main_content">
+            <div class="container">
+                <ui:insert name="content">Content</ui:insert>
+            </div>
+        </div>
+
+        <footer class="footer-main">
+            <!--Footer-->
+            <div id="pagina">
+                <div id="cabecera"></div>
+                <div id="contenido"></div>
+                <div id="pie">2021 &copy; Restaurante y Soda</div>
+            </div>
+        </footer>
+
+    </h:body>
+
+
+</html>

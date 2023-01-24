@@ -1,0 +1,138 @@
+
+/*--------------------------------------------------------------------------------------------------------
+    SIDEBAR
+---------------------------------------------------------------------------------------------------------*/
+
+*{
+    box-sizing:border-box;
+    padding: 0%;
+    margin: 0%;
+}
+
+#sidebar__Main{
+    background-color: #C15050 ;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    border-color: #D49D42;
+    border-width: 5px;
+    border-left: 0px;
+    padding-right: 0px;
+}
+
+#sidebar__Main__items{
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+#sidebar__Main__items:hover {
+    background-color: #D49D42;
+    border-bottom-left-radius: 10px;
+    border-top-left-radius: 10px;
+    padding-right: 0px;
+}
+
+#sidebar__Main__items a{
+    color:black;
+}
+
+#sidebar__Main__items a:hover {
+    background-color: white;
+    padding-right: 0px;
+    border-radius: 10px;
+    color:#693C72;
+}
+
+#sidebar__Main__items a:active {
+    background-color: white;
+    padding-right: 0px;
+    border-radius: 10px;
+    color:#693C72;
+}
+
+/*--------------------------------------------------------------------------------------------------------
+    MAIN SCREEN MENU
+---------------------------------------------------------------------------------------------------------*/
+
+.main-image-logo{
+    height:300px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.navbar-custom-index{
+    background-color: #693C72;
+    margin-bottom: 0px;
+    padding: 14px 0;
+}
+
+.navbar-custom-index .container{
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    display: flex; 
+    justify-content: flex-end;
+}
+
+.navbar-custom-index .container .main-button {
+    height: 50px;
+}
+
+.main-input{
+    height: 50px;
+}
+
+.main-button {
+    background-color: #D49D42;
+    border-color: #D49D42;
+    color: white;
+    margin-left: 20px;
+}
+
+.main-button:hover, .main-button:active, .main-button:focus, .main-button:active:focus  {
+    background-color: #D97642;
+    border-color: #D97642;
+    color: white;
+}
+
+.navbar-inverse .navbar-collapse, .navbar-inverse .navbar-form{
+    margin-bottom: 0;
+}
+
+.tituloRegistro{
+    color: white;
+}
+/*--------------------------------------------------------------------------------------------------------*/
+/* ENVIOS */
+
+#aside__Main{
+    background: #D49D42;
+    float: left;
+    width: 15%;
+    height: 100%
+
+}
+
+#article__Main{
+    background: #693C72;
+    float: right;
+    width: 85%;
+    margin: 0px;
+    padding:0px;
+}
+
+
+/*--------------------------------------------------------------------------------------------------------
+    Solicitar contraseña
+---------------------------------------------------------------------------------------------------------*/
+  
+  
+  #solicitudC{
+      width: 30vw;
+      margin-left: auto;
+      margin-right: auto;
+      margin-top: 10%;
+  }
+
+ 
+  

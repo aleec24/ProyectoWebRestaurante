@@ -1,0 +1,20 @@
+
+.main-menu-sections {
+    
+}
+
+.main-menu-section-description {
+    margin-top: 8px;
+}
+
+.secondary-btn {
+    background-color: #D49D42;
+    border-color: #D49D42;
+    color: white;
+}
+
+.secondary-btn:hover, .secondary-btn:active, .secondary-btn:focus, .secondary-btn:active:focus  {
+    background-color: #D97642;
+    border-color: #D97642;
+    color: white;
+}

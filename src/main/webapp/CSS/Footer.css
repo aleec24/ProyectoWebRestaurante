@@ -1,0 +1,27 @@
+
+.footer-main {
+    
+}
+
+#pagina {
+    position: relative;
+    min-height: 100%;
+}
+
+#contenido {
+    padding-bottom:50px; /* este valor debe ser igual o mayor al alto del pie */
+}
+
+#pie {
+    height:auto;
+    width:100%;
+    line-height:50px;
+    background:#693C72;
+    color:white;
+    text-align:center;
+    position:relative;
+    bottom:0;
+    left:0;
+    padding: 24px;
+}
+

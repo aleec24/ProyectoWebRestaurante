@@ -1,0 +1,71 @@
+<?xml version='1.0' encoding='UTF-8' ?> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:b="http://bootsfaces.net/ui"
+      xmlns:p="http://primefaces.org/ui">
+
+    <h:head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+        <link href="../../cssMenu.css" rel="stylesheet" type="text/css"/>
+
+        <title>Restaurante</title>
+
+        <style>
+            .main_content {
+                margin-top: 150px;
+            }
+        </style>
+    </h:head>
+
+    <h:body>
+
+        <b:navBar fluid="true" inverse="true" position="top" sticky="true">
+            <b:image library="image" name="LogoLetrasBlancas.png" height="150px"/> 
+            <!-- Following line is needed for TBS 3.0.1 (panel content overflow issue) -->
+            <b:navbarLinks pull="right" styleClass="hidden-xs" >
+                <b:navLink value="Inicio" href="../faces/principal_admin.xhtml" />
+                <b:dropMenu value="Gestion Producto">
+                    <b:navLink value="Agregar Producto" href="../faces/envios/agregaProducto.xhtml"></b:navLink>
+                    <b:navLink value="Editar Producto" href="../faces/envios/listEditaProducto.xhtml"></b:navLink>
+                    <b:navLink value="Elimina Producto" href="../faces/envios/listEliminaProducto.xhtml"></b:navLink>
+                    <b:navLink value="Ver lista de Productos" href="../faces/envios/listProductos.xhtml"></b:navLink>
+                </b:dropMenu>
+                <b:dropMenu value="Gestion Comentarios">
+                    <b:navLink value="Editar Comentarios" href="../faces/comentarios/listEditaComentario.xhtml"></b:navLink>
+                    <b:navLink value="Elimina Comentarios" href="../faces/comentarios/listEliminaComentario.xhtml"></b:navLink>
+                    <b:navLink value="Ver lista de Comentarios" href="../faces/comentarios/listComentarios.xhtml"></b:navLink>
+                </b:dropMenu>
+                <b:dropMenu value="Gestion Usuarios">
+                    <b:navLink value="Agregar Usuarios" href="../faces/usuarios/agregaUsuario.xhtml"></b:navLink>
+                    <b:navLink value="Editar Usuarios" href="../faces/usuarios/listEditaUsuario.xhtml"></b:navLink>
+                    <b:navLink value="Elimina Usuarios" href="../faces/usuarios/listEliminaUsuario.xhtml"></b:navLink>
+                    <b:navLink value="Ver lista de Usuarios" href="../faces/usuarios/listUsuarios.xhtml"></b:navLink>
+                </b:dropMenu>
+                <b:dropMenu value="Reportes">
+                    <b:navLink value="Reporte Contáctenos" href="../faces/comentarios/reporte.xhtml"></b:navLink>
+                    <b:navLink value="Reporte Productos" href="../faces/envios/reporte.xhtml"></b:navLink>
+                    <b:navLink value="Reporte Ventas" href="../faces/detalleventas/reporte.xhtml"></b:navLink>
+                </b:dropMenu>
+                <b:iconAwesome name="cog" spin="true" size="3x" />
+                <b:dropMenu value="Perfil" iconAwesome="cog"  >
+                    <b:navLink header="Nombre completo: ${loginController.nombre}"></b:navLink>                        
+                    <b:navLink header="Usuario: ${loginController.rol}"></b:navLink>
+                    <b:navLink></b:navLink>
+                    <b:navLink value="Editar perfil" href="#"></b:navLink>
+                    <b:navLink value="Salir"
+                               href="/Sistema-1/faces/index.xhtml"/>
+                </b:dropMenu>
+            </b:navbarLinks>
+        </b:navBar>
+
+        <div id="content" class="main_content">
+            <ui:insert name="content">Content</ui:insert>
+        </div>
+
+    </h:body>
+
+
+</html>
